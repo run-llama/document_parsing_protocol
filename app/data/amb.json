@@ -1,0 +1,2498 @@
+[
+ {
+  "id": "AMB-16",
+  "title": "Cross-page tables",
+  "category": "Tables — boundaries and shape",
+  "resolved": false,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "Per-page fragments, plus `suspect_continuation` / `suspect_continues_next_page` flags"
+   },
+   {
+    "key": "b",
+    "text": "Per-page fragments with no signal — users merge downstream"
+   },
+   {
+    "key": "c",
+    "text": "Merge across pages in the document-level output"
+   },
+   {
+    "key": "d",
+    "text": "A deterministic `continuation_of` link in items"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Cross-Page Tables"
+  ]
+ },
+ {
+  "id": "AMB-82",
+  "title": "A cell holding a title and a paragraph",
+  "category": "Tables — boundaries and shape",
+  "resolved": true,
+  "description": "A bold underlined title over lines of explanation, in one ruled cell; two stacked values beside it.",
+  "options": [
+   {
+    "key": "a",
+    "text": "One row; title and text joined with `<br>`, values joined with `<br>`"
+   },
+   {
+    "key": "b",
+    "text": "One `<tr>` per printed line, the rule as written"
+   },
+   {
+    "key": "c",
+    "text": "One row; title bold, text after a space, values in one cell with a space"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Keep one row for a single ruled prose cell. Preserve the title's emphasis and separate its paragraph with `<br>`; keep stacked values in the adjacent cell with `<br>`. Split only independently printed records into rows.",
+  "samples": [
+   "Record Groups and Multi-Line Cells"
+  ]
+ },
+ {
+  "id": "AMB-103",
+  "title": "A cell cut by the page break",
+  "category": "Tables — boundaries and shape",
+  "resolved": true,
+  "description": "A long prose cell ends mid-sentence at the foot of one page and continues on the next.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Per-page fragments; the cell's text ends where the page ends, flag both pages"
+   },
+   {
+    "key": "b",
+    "text": "Per-page fragments, with the row repeated on the second page carrying the rest"
+   },
+   {
+    "key": "c",
+    "text": "Merge the two fragments of the row"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: End the cell text at the page boundary. Put only the visible continuation in the next page's fragment and flag both fragments; do not repeat missing labels or values.",
+  "samples": [
+   "Cross-Page Tables"
+  ]
+ },
+ {
+  "id": "AMB-20",
+  "title": "Repeating unlabelled record blocks",
+  "category": "Forms",
+  "resolved": true,
+  "description": "Blocks that repeat the same field set and print no heading of their own.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Derive headings — `### Vehicle 1`, `### Vehicle 2` *(current worker behaviour)*"
+   },
+   {
+    "key": "b",
+    "text": "Anonymous nested blocks — faithful, but hard to address"
+   },
+   {
+    "key": "c",
+    "text": "Flat in printed order, no grouping at all"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Keep repeating unlabelled field groups as anonymous groups in printed order. Use separate nested groups in items and blank lines between groups in Markdown. Do not invent `Vehicle 1` headings.",
+  "samples": [
+   "Open Questions on Forms"
+  ]
+ },
+ {
+  "id": "AMB-21",
+  "title": "Where non-field text goes on a form page",
+  "category": "Forms",
+  "resolved": true,
+  "description": "Instructions, fine print, preambles. Always transcribed — the question is placement.",
+  "options": [
+   {
+    "key": "a",
+    "text": "In place, between the key-value lines where it is printed"
+   },
+   {
+    "key": "b",
+    "text": "Gathered after the fields of its region"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Transcribe instructions, preambles and fine print in their printed reading position between the fields they accompany.",
+  "samples": [
+   "Fields Outside the Form"
+  ]
+ },
+ {
+  "id": "AMB-22",
+  "title": "An entry with neither id nor label",
+  "category": "Forms",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "A bare value (or bare `[___]`) — nothing else"
+   },
+   {
+    "key": "b",
+    "text": "Give it a positional id so it is addressable"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Emit an unlabelled value as a bare value, or `[___]` for an empty field. Do not invent a label or positional id.",
+  "samples": [
+   "Open Questions on Forms"
+  ]
+ },
+ {
+  "id": "AMB-50",
+  "title": "A currency glyph printed before a blank",
+  "category": "Forms",
+  "resolved": true,
+  "description": "An empty cell or line that prints `$` and nothing else.",
+  "options": [
+   {
+    "key": "a",
+    "text": "`$[___]` — the glyph is part of the blank"
+   },
+   {
+    "key": "b",
+    "text": "`[___]`, with `$` folded into the label"
+   },
+   {
+    "key": "c",
+    "text": "`$` as the cell's value — it is what is printed"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Keep the currency glyph immediately before the blank: $`[___]`. Preserve any printed spacing and leave the field label unchanged.",
+  "samples": [
+   "Fill-Ins"
+  ]
+ },
+ {
+  "id": "AMB-51",
+  "title": "Blanks inside a sentence",
+  "category": "Forms",
+  "resolved": true,
+  "description": "Affidavit prose with gaps: `The Enterprise is ______% Black Owned …`, `Executed on the (date) ___\nday of (month) ___`. No label precedes the field; the sentence is the label. Hints inside the blank\nand captions printed under the line are the same question.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Keep the sentence, `[___]` in place; a hint printed in the blank stays as text before it"
+   },
+   {
+    "key": "b",
+    "text": "One key-value line per blank, the key taken from the words before it"
+   },
+   {
+    "key": "c",
+    "text": "Keep the sentence and add a key-value line per blank after it"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Keep the sentence intact and replace each fill-in with `[___]` in place. Retain printed hints next to their own blank, once.",
+  "samples": [
+   "Blanks Inside Sentences"
+  ]
+ },
+ {
+  "id": "AMB-57",
+  "title": "Checklists and boxes on headings",
+  "category": "Forms",
+  "resolved": true,
+  "description": "Items each led by a box, under a heading that has a box of its own.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Box-first lines nested under the heading, the heading's box first on its line"
+   },
+   {
+    "key": "b",
+    "text": "Label-first lines — `- **Item**: [ ]` — and the heading's box as a separate field"
+   },
+   {
+    "key": "c",
+    "text": "A plain task list, no bold, no nesting"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Put each checkbox before its printed label and nest the items under their group label. Keep a group-level checkbox on that group's line. Do not promote form labels to document headings.",
+  "samples": [
+   "Checklists"
+  ]
+ },
+ {
+  "id": "AMB-58",
+  "title": "An answer area printed as several ruled lines",
+  "category": "Forms",
+  "resolved": true,
+  "description": "Four ruled lines under one item number.",
+  "options": [
+   {
+    "key": "a",
+    "text": "One `[___]` — one field"
+   },
+   {
+    "key": "b",
+    "text": "One `[___]` per printed line"
+   },
+   {
+    "key": "c",
+    "text": "One `[___]` plus a count of the lines"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Emit one `[___]` for one answer field, even when it offers several ruled writing lines. Emit separate blanks only for separately labelled or independently answerable fields.",
+  "samples": [
+   "Fill-Ins"
+  ]
+ },
+ {
+  "id": "AMB-75",
+  "title": "Printed buttons and reserved boxes",
+  "category": "Forms",
+  "resolved": false,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "Their text, as text, in reading order"
+   },
+   {
+    "key": "b",
+    "text": "A field with a blank for a reserved box"
+   },
+   {
+    "key": "c",
+    "text": "Nothing"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Printed Buttons and Placeholders"
+  ]
+ },
+ {
+  "id": "AMB-78",
+  "title": "A blank line used as a check mark",
+  "category": "Forms",
+  "resolved": true,
+  "description": "`___` before every item where a box would be.",
+  "options": [
+   {
+    "key": "a",
+    "text": "`[ ]` — it is a checkbox by function"
+   },
+   {
+    "key": "b",
+    "text": "`[___]` — it is a blank by form"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Use `[ ]` or `[x]` for a short line functioning as a checklist control. Use `[___]` only when the line asks for a written value.",
+  "samples": [
+   "Checklists"
+  ]
+ },
+ {
+  "id": "AMB-79",
+  "title": "Values printed before the form is filled",
+  "category": "Forms",
+  "resolved": true,
+  "description": "`0 %` and `0.00` computed by the form itself in cells nobody has filled.",
+  "options": [
+   {
+    "key": "a",
+    "text": "The printed value — `0.00`"
+   },
+   {
+    "key": "b",
+    "text": "`[___]` — the field is unfilled"
+   },
+   {
+    "key": "c",
+    "text": "The printed value, and flag the page"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Transcribe preprinted or computed values exactly, including 0 % and 0.00. Do not replace a visible value with a blank.",
+  "samples": [
+   "Fill-Ins"
+  ]
+ },
+ {
+  "id": "AMB-80",
+  "title": "A label with nothing after it",
+  "category": "Forms",
+  "resolved": true,
+  "description": "`Signed:` and `Date:` with no line, box or space drawn.",
+  "options": [
+   {
+    "key": "a",
+    "text": "`[___]` — the colon says a value is expected"
+   },
+   {
+    "key": "b",
+    "text": "Text — nothing printed says it is a field"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Use `[___]` after an empty entry label such as Signed: or Date: when the surrounding form clearly requests that value. Do not infer a field from a colon in ordinary prose.",
+  "samples": [
+   "Fill-Ins"
+  ]
+ },
+ {
+  "id": "AMB-97",
+  "title": "Radio buttons",
+  "category": "Forms",
+  "resolved": true,
+  "description": "`[ ○ ] DENIED` / `[ ○ ] GRANTED` — pick-one circles beside pick-any boxes.",
+  "options": [
+   {
+    "key": "a",
+    "text": "`[ ]` / `[x]` — the same as a checkbox"
+   },
+   {
+    "key": "b",
+    "text": "`( )` / `(x)` — a distinct mark for a pick-one control"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Encode radio controls as `[ ]` and `[x]`, preserving all options and their grouping. Keep any printed pick-one instruction.",
+  "samples": [
+   "Checkboxes"
+  ]
+ },
+ {
+  "id": "AMB-68",
+  "title": "Bars drawn in perspective",
+  "category": "Charts",
+  "resolved": true,
+  "description": "A 3-D bar has a front top edge and a back top edge at different axis heights.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Read the front top edge"
+   },
+   {
+    "key": "b",
+    "text": "Read the back top edge, where the bar meets the axis wall"
+   },
+   {
+    "key": "c",
+    "text": "Read the centre and widen the tolerance"
+   }
+  ],
+  "default": "c",
+  "answer": "Answer: Copy printed bar values first. Otherwise read the value-bearing edge against the corresponding axis plane, excluding perspective depth. If the reference plane is ambiguous, estimate the midpoint of the plausible readings, widen tolerance to cover them, and flag the point.",
+  "samples": [
+   "Values and Tolerances"
+  ]
+ },
+ {
+  "id": "AMB-24",
+  "title": "A page with no ink at all",
+  "category": "Layout",
+  "resolved": false,
+  "description": "Not corrupt, not annotatable. Neither Ignore nor Reject fits.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Zero Blocks — the page exists in the sequence and is empty"
+   },
+   {
+    "key": "b",
+    "text": "One Block classed as empty, covering the page"
+   },
+   {
+    "key": "c",
+    "text": "Reject the page"
+   },
+   {
+    "key": "d",
+    "text": "Drop it from the document entirely"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Ignoring and Rejecting"
+  ]
+ },
+ {
+  "id": "AMB-44",
+  "title": "Pleading line numbers",
+  "category": "Layout",
+  "resolved": false,
+  "description": "Numbers 1–28 down the left margin of a court filing, with prose whose lines fall between them.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Drop the numbers; note once that the page is numbered pleading paper"
+   },
+   {
+    "key": "b",
+    "text": "A separate item listing the numbers, out of the reading flow"
+   },
+   {
+    "key": "c",
+    "text": "A two-column table, `number | text`"
+   },
+   {
+    "key": "d",
+    "text": "Prefix each line of prose with its number"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Pleading Line Numbers"
+  ]
+ },
+ {
+  "id": "AMB-54",
+  "title": "Numbered section headings that read as a list",
+  "category": "Layout",
+  "resolved": false,
+  "description": "`1. AFFIDAVIT` over `1.1. COMPLETION AND SIGNATURE`, each with a paragraph beneath.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Headings, level from the numbering depth"
+   },
+   {
+    "key": "b",
+    "text": "An ordered list with the paragraph as continuation text"
+   },
+   {
+    "key": "c",
+    "text": "Plain paragraphs, number and heading on one line"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Numbered Section Headings"
+  ]
+ },
+ {
+  "id": "AMB-61",
+  "title": "Run-in headings",
+  "category": "Layout",
+  "resolved": true,
+  "description": "A bold clause number or glossary term starting its paragraph on the same line.",
+  "options": [
+   {
+    "key": "a",
+    "text": "One paragraph, heading bold inline"
+   },
+   {
+    "key": "b",
+    "text": "A markdown heading on its own line, paragraph beneath"
+   },
+   {
+    "key": "c",
+    "text": "A `term | definition` table for the glossary shape"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Keep a run-in label and its following sentence, value or URL in one paragraph. Preserve printed emphasis; do not promote the label to a Markdown heading.",
+  "samples": [
+   "Run-In Headings"
+  ]
+ },
+ {
+  "id": "AMB-62",
+  "title": "Stacked headings",
+  "category": "Layout",
+  "resolved": true,
+  "description": "A heading printed over two or three lines.",
+  "options": [
+   {
+    "key": "a",
+    "text": "One heading, lines joined with a space"
+   },
+   {
+    "key": "b",
+    "text": "One heading per printed line, same level"
+   },
+   {
+    "key": "c",
+    "text": "Two levels — the first line a parent, the rest its child"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Join the wrapped lines of one title with spaces. Keep an article number with its title. Separate company names, exhibit labels and other furniture from the title; split title and subtitle only when the document establishes distinct roles.",
+  "samples": [
+   "Stacked Headings"
+  ]
+ },
+ {
+  "id": "AMB-69",
+  "title": "Transcript pages",
+  "category": "Layout",
+  "resolved": false,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "One line per printed line, `Q`/`A` first, line numbers dropped"
+   },
+   {
+    "key": "b",
+    "text": "As a, with the line number kept"
+   },
+   {
+    "key": "c",
+    "text": "A `line | speaker | text` table"
+   },
+   {
+    "key": "d",
+    "text": "Prose, wrapped lines joined"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Transcript Pages"
+  ]
+ },
+ {
+  "id": "AMB-70",
+  "title": "Court caption blocks",
+  "category": "Layout",
+  "resolved": false,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "Two blocks of lines, left then right, `§` and rules dropped"
+   },
+   {
+    "key": "b",
+    "text": "A two-column table"
+   },
+   {
+    "key": "c",
+    "text": "A key-value region"
+   },
+   {
+    "key": "d",
+    "text": "Row-by-row reading order"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Court Caption Blocks"
+  ]
+ },
+ {
+  "id": "AMB-73",
+  "title": "Stat tiles",
+  "category": "Layout",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "Key-value lines under the panel heading"
+   },
+   {
+    "key": "b",
+    "text": "A one-row table"
+   },
+   {
+    "key": "c",
+    "text": "Prose"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Write one printed label–value pair per stat tile, in tile reading order, under any real panel heading. Keep units and qualifiers attached.",
+  "samples": [
+   "Stat Tiles"
+  ]
+ },
+ {
+  "id": "AMB-74",
+  "title": "Slide section tabs",
+  "category": "Layout",
+  "resolved": true,
+  "description": "A row of tabs along the top edge with one highlighted.",
+  "options": [
+   {
+    "key": "a",
+    "text": "All tabs, as a line of text"
+   },
+   {
+    "key": "b",
+    "text": "The highlighted tab only"
+   },
+   {
+    "key": "c",
+    "text": "Nothing"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Transcribe all printed navigation tabs in order as furniture. Preserve meaningful highlighting using the text-colour convention when it identifies the active section.",
+  "samples": [
+   "Slide Furniture"
+  ]
+ },
+ {
+  "id": "AMB-83",
+  "title": "Decorative background art",
+  "category": "Layout",
+  "resolved": true,
+  "description": "A faint map or shape behind a slide's content, printing no text.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Nothing — it is decoration"
+   },
+   {
+    "key": "b",
+    "text": "A one-line description, out of the flow"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Omit purely decorative background art with no labels, values or meaningful relationships. Describe it when its geography or shape actually conveys content.",
+  "samples": [
+   "Slide Furniture"
+  ]
+ },
+ {
+  "id": "AMB-84",
+  "title": "A line between bullets that is not a bullet",
+  "category": "Layout",
+  "resolved": true,
+  "description": "`partially offset by` on its own line inside a bulleted list.",
+  "options": [
+   {
+    "key": "a",
+    "text": "A paragraph; the list ends and a new list starts after it"
+   },
+   {
+    "key": "b",
+    "text": "Indented continuation text inside the list"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Keep an unbulleted bridge such as partially offset by as a paragraph between the adjoining lists. Use indented continuation only when it belongs to one specific list item.",
+  "samples": [
+   "Bullets and Sub-Bullets"
+  ]
+ },
+ {
+  "id": "AMB-94",
+  "title": "Bullet glyphs that carry meaning",
+  "category": "Layout",
+  "resolved": true,
+  "description": "`✓` bullets under Acceptable, `⊗` bullets under Unacceptable.",
+  "options": [
+   {
+    "key": "a",
+    "text": "`*` bullets — the heading carries the meaning"
+   },
+   {
+    "key": "b",
+    "text": "`*` bullets with the glyph kept as the first token — `* ✓ Bank statement`"
+   },
+   {
+    "key": "c",
+    "text": "A bracketed tag as in [[Iconography and Symbols]] — `* [yes] Bank statement`"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Keep a meaningful printed bullet glyph as the first content token after the Markdown bullet, such as  ✓ Bank statement. Normalise only decorative bullet shapes.",
+  "samples": [
+   "Bullets and Sub-Bullets"
+  ]
+ },
+ {
+  "id": "AMB-95",
+  "title": "A grid of equal blocks with no numbering",
+  "category": "Layout",
+  "resolved": true,
+  "description": "Nine address blocks, three by three, nothing numbered.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Row by row"
+   },
+   {
+    "key": "b",
+    "text": "Column by column"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Read an unnumbered grid of independent equal blocks row by row, left to right for a left-to-right page. Finish each block before the next; follow explicit numbering or continuation when present.",
+  "samples": [
+   "Reading Order"
+  ]
+ },
+ {
+  "id": "AMB-100",
+  "title": "A page embedded in another page",
+  "category": "Layout",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "One flat page: wrapper furniture, embedded content, both page numbers kept"
+   },
+   {
+    "key": "b",
+    "text": "The embedded page only"
+   },
+   {
+    "key": "c",
+    "text": "The embedded page as a nested block"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Transcribe the wrapper furniture, then the embedded page in its own reading order. Preserve both page numbers with their regions. Do not promote titles inside an embedded form screenshot into the wrapper's outline.",
+  "samples": [
+   "Embedded Pages"
+  ]
+ },
+ {
+  "id": "AMB-101",
+  "title": "Marginal notes",
+  "category": "Layout",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "After the paragraph they sit beside"
+   },
+   {
+    "key": "b",
+    "text": "Before it"
+   },
+   {
+    "key": "c",
+    "text": "Inline in brackets where the note's line starts"
+   },
+   {
+    "key": "d",
+    "text": "Gathered at the end of the page"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Place each marginal note immediately after the paragraph it annotates, as a separate block. If its attachment is uncertain, retain it separately and flag the page.",
+  "samples": [
+   "Marginal Notes"
+  ]
+ },
+ {
+  "id": "AMB-25",
+  "title": "Floor plans and blueprints",
+  "category": "Diagrams and figures",
+  "resolved": false,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "Describe as an image, keeping every printed label and dimension"
+   },
+   {
+    "key": "b",
+    "text": "Encode in FML or a similar floor-plan format"
+   },
+   {
+    "key": "c",
+    "text": "Both — description plus the structured form"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Blueprints"
+  ]
+ },
+ {
+  "id": "AMB-26",
+  "title": "Circuit schematics",
+  "category": "Diagrams and figures",
+  "resolved": false,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "Describe, keeping every component label and value"
+   },
+   {
+    "key": "b",
+    "text": "SchemDraw or an equivalent circuit DSL"
+   },
+   {
+    "key": "c",
+    "text": "Both"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Electrical Schematics"
+  ]
+ },
+ {
+  "id": "AMB-27",
+  "title": "A data map with no printed key",
+  "category": "Diagrams and figures",
+  "resolved": false,
+  "description": "The data-display test says table, but the readings are keyed only by coordinate.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Describe the map, transcribe the legend, do not attempt a table"
+   },
+   {
+    "key": "b",
+    "text": "Table keyed by coordinate"
+   },
+   {
+    "key": "c",
+    "text": "Both — description plus whatever table is recoverable"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Geographic Maps"
+  ]
+ },
+ {
+  "id": "AMB-28",
+  "title": "Labelled conceptual diagrams",
+  "category": "Diagrams and figures",
+  "resolved": false,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "A `diagram` fenced block listing every label and its meaning"
+   },
+   {
+    "key": "b",
+    "text": "An image plus a prose description"
+   },
+   {
+    "key": "c",
+    "text": "Mermaid where the diagram is graph-shaped"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Slide Diagrams"
+  ]
+ },
+ {
+  "id": "AMB-29",
+  "title": "Structural formulae",
+  "category": "Diagrams and figures",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "`mhchem` — `\\ce{...}` for formulae, ions, reactions"
+   },
+   {
+    "key": "b",
+    "text": "`chemfig` — `\\chemfig{...}` for 2D structures and rings"
+   },
+   {
+    "key": "c",
+    "text": "Whichever fits the specific figure, per page"
+   },
+   {
+    "key": "d",
+    "text": "Prose description"
+   }
+  ],
+  "default": "c",
+  "answer": "Answer: Use `\\ce{...}` for linear formulae, ions and reactions, and `\\chemfig{...}` for drawn structures, rings and branches. Put standalone markup in a fenced latex block. Preserve legible structure; describe unreadable portions and flag them instead of guessing.",
+  "samples": [
+   "Chemical Molecules"
+  ]
+ },
+ {
+  "id": "AMB-30",
+  "title": "Printed staves",
+  "category": "Diagrams and figures",
+  "resolved": false,
+  "description": "No convention at all today. Everything printed around the notation is transcribed either way.",
+  "options": [
+   {
+    "key": "a",
+    "text": "ABC notation"
+   },
+   {
+    "key": "b",
+    "text": "LilyPond"
+   },
+   {
+    "key": "c",
+    "text": "MusicXML"
+   },
+   {
+    "key": "d",
+    "text": "Describe only — do not attempt to encode the notes"
+   }
+  ],
+  "default": "d",
+  "answer": "",
+  "samples": [
+   "Music Notation"
+  ]
+ },
+ {
+  "id": "AMB-65",
+  "title": "Logos",
+  "category": "Diagrams and figures",
+  "resolved": false,
+  "description": "A wordmark in the corner of every slide, sometimes repeated faintly behind the content.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Its text only, in reading order"
+   },
+   {
+    "key": "b",
+    "text": "A bracketed marker carrying the text — `[logo: CIRSA]`"
+   },
+   {
+    "key": "c",
+    "text": "A prose description"
+   },
+   {
+    "key": "d",
+    "text": "Nothing — page furniture"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Logos"
+  ]
+ },
+ {
+  "id": "AMB-32",
+  "title": "Redactions",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "`[REDACTED]` once per blacked-out span"
+   },
+   {
+    "key": "b",
+    "text": "`[REDACTED]` plus the character count, where it is recoverable"
+   },
+   {
+    "key": "c",
+    "text": "A redaction item with a bounding box, in addition to the inline marker"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Write `[REDACTED]` once per contiguous redacted span. Keep visible text and any exemption code; do not infer hidden characters or their count. Use ordinary region coordinates when available.",
+  "samples": [
+   "Redacted Text"
+  ]
+ },
+ {
+  "id": "AMB-33",
+  "title": "Text colour",
+  "category": "Marks, text and page furniture",
+  "resolved": false,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "Ignore colour entirely"
+   },
+   {
+    "key": "b",
+    "text": "Ignore decoration; record the nearest HTML colour name when colour carries meaning"
+   },
+   {
+    "key": "c",
+    "text": "Always record colour as an attribute on text items"
+   }
+  ],
+  "default": "b",
+  "answer": "",
+  "samples": [
+   "Text Colors"
+  ]
+ },
+ {
+  "id": "AMB-34",
+  "title": "Watermarks",
+  "category": "Marks, text and page furniture",
+  "resolved": false,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "Remove"
+   },
+   {
+    "key": "b",
+    "text": "A separate item, out of the reading flow"
+   },
+   {
+    "key": "c",
+    "text": "`<watermark>Redline Version</watermark>` in the markdown"
+   }
+  ],
+  "default": "b",
+  "answer": "",
+  "samples": [
+   "Watermarks"
+  ]
+ },
+ {
+  "id": "AMB-36",
+  "title": "A horizontal rule between sections",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "`<hr/>`"
+   },
+   {
+    "key": "b",
+    "text": "`***`"
+   },
+   {
+    "key": "c",
+    "text": "A dedicated JSON item, nothing in the text stream"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Emit `<hr/>` for a printed section separator in reading order. Reserve `---` for page boundaries; do not insert rules for whitespace alone.",
+  "samples": [
+   "Line Separators and Breaks"
+  ]
+ },
+ {
+  "id": "AMB-37",
+  "title": "A table of contents",
+  "category": "Marks, text and page furniture",
+  "resolved": false,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "A two-column table — `Label | Page`"
+   },
+   {
+    "key": "b",
+    "text": "A list"
+   },
+   {
+    "key": "c",
+    "text": "Whichever the litmus test gives on the page"
+   }
+  ],
+  "default": "c",
+  "answer": "",
+  "samples": [
+   "Table of Contents"
+  ]
+ },
+ {
+  "id": "AMB-38",
+  "title": "Stamps vs watermarks",
+  "category": "Marks, text and page furniture",
+  "resolved": false,
+  "description": "Both are page-level ink over content. Should they share one encoding?",
+  "options": [
+   {
+    "key": "a",
+    "text": "One mechanism for both"
+   },
+   {
+    "key": "b",
+    "text": "Separate — a watermark is document metadata, a stamp is an act on this page"
+   }
+  ],
+  "default": "b",
+  "answer": "",
+  "samples": [
+   "Handwriting and Stamps",
+   "Watermarks"
+  ]
+ },
+ {
+  "id": "AMB-40",
+  "title": "A total indented past its own children",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "Apple prints `Total right-of-use assets` further right than `Operating leases` and\n`Finance leases`, the rows it totals. The two rules then disagree:\nRow-Label Hierarchy says count the absolute indent from the left edge, which makes the total a\nlevel `2` — deeper than its children. Total and Subtotal Rows says the level records what the\nrow is the total of, which makes it `0`.\nFollowing the indent produces exactly the silent double-counting that Row-Label Hierarchy exists\nto prevent: a consumer reads the total as a leaf inside the group.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Absolute indent always — the mark on the page wins, even when it reads as a child"
+   },
+   {
+    "key": "b",
+    "text": "A total takes the level of the group it closes, whatever its indent"
+   },
+   {
+    "key": "c",
+    "text": "Indent normally, but never let a total sit deeper than the rows above it it summarises"
+   },
+   {
+    "key": "d",
+    "text": "Keep both — the indent as `data-level`, the closed group as a second attribute"
+   }
+  ],
+  "default": "**leave the row untagged**. No level is asserted where the two rules disagree",
+  "answer": "Answer: Keep `data-level` tied to the printed absolute stub indentation, including an unusually indented total. Mark its label as th, leave values as td, and flag a contradictory grouping without changing the level.",
+  "samples": [
+   "Row-Label Hierarchy",
+   "Total and Subtotal Rows"
+  ]
+ },
+ {
+  "id": "AMB-41",
+  "title": "`thead` / `tbody` / `tfoot`",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "Quick Reference records that only `th` and `td` should appear, but that position was never\nratified — and the guide's own worked examples contain `<thead>` and `<tbody>`, because they\nwere lifted from this corpus. Over half the corpus contradicts a rule the guide does not itself\nfollow, which makes this a genuine open question rather than a defect to fix.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Forbid them — `th`/`td` and row order carry everything the sections would"
+   },
+   {
+    "key": "b",
+    "text": "Require them — the header/body split is real structure and should be explicit"
+   },
+   {
+    "key": "c",
+    "text": "Accept either, and say so — grading ignores the wrapper"
+   }
+  ],
+  "default": "c",
+  "answer": "Answer: Accept valid `thead`, `tbody` and `tfoot` wrappers or their omission. Keep every row in printed order and decide th versus td per cell; do not move totals to a different position to fit a wrapper.",
+  "samples": []
+ },
+ {
+  "id": "AMB-45",
+  "title": "Rotated margin banners",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "Text printed along the page edge — an archive stamp, a brand line, a firm mark — outside the\ncontent, not across it.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Same as a watermark: once, out of the flow, `<watermark>` tag"
+   },
+   {
+    "key": "b",
+    "text": "Page furniture: transcribe as a page header or footer in reading order"
+   },
+   {
+    "key": "c",
+    "text": "Drop it as decoration"
+   },
+   {
+    "key": "d",
+    "text": "Depends on the words: metadata (a), branding (c)"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Transcribe rotated margin text once as a separate furniture block outside the body flow. Preserve its words, including branding; do not use a watermark tag unless the text actually overlays the content.",
+  "samples": [
+   "Margin Banners",
+   "Watermarks"
+  ]
+ },
+ {
+  "id": "AMB-46",
+  "title": "Drop caps",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "An enlarged sunk initial that the text layer separates from its word.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Join the letter to its word, no styling"
+   },
+   {
+    "key": "b",
+    "text": "Join and bold the letter"
+   },
+   {
+    "key": "c",
+    "text": "Verbatim from the text layer — `T he`"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Join a drop cap directly to the rest of its word with no extra space or special styling. Flag only a genuinely unreadable initial.",
+  "samples": [
+   "Drop Caps"
+  ]
+ },
+ {
+  "id": "AMB-47",
+  "title": "Where a displayed equation's number goes",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "`(1)` at the right margin of a display equation, cited in the prose.",
+  "options": [
+   {
+    "key": "a",
+    "text": "After the closing delimiter, as text — `$$ … $$ (1)`"
+   },
+   {
+    "key": "b",
+    "text": "Inside the LaTeX — `\\tag{1}`"
+   },
+   {
+    "key": "c",
+    "text": "Drop it"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Write displayed mathematics inside `$$` delimiters and put its printed equation number after the closing delimiter as plain text within the same formula block.",
+  "samples": [
+   "Displayed Equations"
+  ]
+ },
+ {
+  "id": "AMB-52",
+  "title": "E-signature tags",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "A small coloured \"SIGN\" tab left in an exported form beside an unsigned field.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Ignore the tag; the field is `[___]`"
+   },
+   {
+    "key": "b",
+    "text": "Transcribe the tag's word where it sits"
+   },
+   {
+    "key": "c",
+    "text": "A bracketed marker — `[sign here]` — in the value position"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Keep an unsigned field as `[___]`. Transcribe a visible SIGN or INITIAL tag separately as an instruction beside the field, never as a signature or filled value.",
+  "samples": [
+   "E-Signature Tags"
+  ]
+ },
+ {
+  "id": "AMB-53",
+  "title": "Verse and deliberate line breaks",
+  "category": "Marks, text and page furniture",
+  "resolved": false,
+  "description": "Poetry and other text whose line breaks carry meaning.",
+  "options": [
+   {
+    "key": "a",
+    "text": "One newline per printed line, and accept that renderers join them"
+   },
+   {
+    "key": "b",
+    "text": "Two trailing spaces or `<br>` per line, so the break survives rendering"
+   },
+   {
+    "key": "c",
+    "text": "A fenced `text` block"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Verse and Hard Line Breaks",
+   "Line Breaks Inside a Block"
+  ]
+ },
+ {
+  "id": "AMB-55",
+  "title": "Two strings printed over each other",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "A court filing stamp laid across a header the page already had.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Both strings, stamp first, each whole on its own line"
+   },
+   {
+    "key": "b",
+    "text": "Both strings in printed position, the stamp inline where it begins"
+   },
+   {
+    "key": "c",
+    "text": "The legible one only"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Transcribe each legible overprinted string whole in a separate block, stamp first at the overlap. Preserve readable fragments and flag any obscured characters rather than reconstructing them.",
+  "samples": [
+   "Overlapping Text"
+  ]
+ },
+ {
+  "id": "AMB-59",
+  "title": "A signature whose name is printed beneath it",
+  "category": "Marks, text and page furniture",
+  "resolved": false,
+  "description": "The glyphs are illegible; the name is printed directly under the line.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Bare `[signature]`, printed name as text — the rule as written"
+   },
+   {
+    "key": "b",
+    "text": "`[signature:K. B. Solanki]` — the printed name fills the tag"
+   },
+   {
+    "key": "c",
+    "text": "Both — the tag with the name, and the printed line as text"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Signatures"
+  ]
+ },
+ {
+  "id": "AMB-60",
+  "title": "Seals and round stamps",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "The rim text as plain text where the seal sits"
+   },
+   {
+    "key": "b",
+    "text": "`[seal: …]` with the text"
+   },
+   {
+    "key": "c",
+    "text": "`[seal]` with no text"
+   },
+   {
+    "key": "d",
+    "text": "Nothing"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Use `[seal: printed text]` for a seal, preserving all legible rim and centre text in readable order. Keep it separate from body prose; use `[seal]` only when no text is legible and flag that limitation.",
+  "samples": [
+   "Seals and Round Stamps"
+  ]
+ },
+ {
+  "id": "AMB-63",
+  "title": "Line-end hyphenation",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "`Gov-` / `ernment` versus `air-` / `conditioning`.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Join soft breaks, keep real hyphens — a judgement per word"
+   },
+   {
+    "key": "b",
+    "text": "Verbatim, hyphen and line break kept"
+   },
+   {
+    "key": "c",
+    "text": "Verbatim hyphen, lines joined — `Co-lumbia`"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Join line-end word fragments and remove a purely typesetting hyphen. Keep lexical compound hyphens. When the distinction cannot be established, preserve the visible hyphen and flag the word.",
+  "samples": [
+   "Line-End Hyphenation"
+  ]
+ },
+ {
+  "id": "AMB-64",
+  "title": "Printed text that is markdown syntax",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "A line opening with `---`, a bracketed `[1]` that is not a form id, a `____` in a citation.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Backslash-escape every reserved character that would render"
+   },
+   {
+    "key": "b",
+    "text": "Verbatim, and accept the rendering"
+   },
+   {
+    "key": "c",
+    "text": "Substitute a look-alike that does not render"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Escape printed Markdown syntax only where it would change rendering, including line-leading `---` and literal brackets. Encode literal angle brackets as `<` and `>` when needed to prevent HTML interpretation.",
+  "samples": [
+   "Escaping Printed Marks"
+  ]
+ },
+ {
+  "id": "AMB-71",
+  "title": "Initials on every page",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "A handwritten paraph at the foot of each page, no printed line.",
+  "options": [
+   {
+    "key": "a",
+    "text": "`[signature]` on every page where it appears"
+   },
+   {
+    "key": "b",
+    "text": "Once per document, out of the flow"
+   },
+   {
+    "key": "c",
+    "text": "Nothing"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Record `[signature]` on every page containing handwritten approval initials, including readable initials only when their glyphs support them. Keep the mark outside body sentences.",
+  "samples": [
+   "Signatures"
+  ]
+ },
+ {
+  "id": "AMB-76",
+  "title": "Redline in prose",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "Deleted text struck through, new text underlined, both red.",
+  "options": [
+   {
+    "key": "a",
+    "text": "`~~deleted~~ <u>inserted</u>`, colour dropped"
+   },
+   {
+    "key": "b",
+    "text": "As a, plus the colour on each run"
+   },
+   {
+    "key": "c",
+    "text": "The inserted text only — the current version"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Preserve deleted text with `~~...~~` and inserted underlined text with `<u>...</u>`, over exactly the printed spans. Preserve colour as well when it distinguishes revisions or authors; do not infer insertion from colour alone.",
+  "samples": [
+   "Struck and Replaced Values"
+  ]
+ },
+ {
+  "id": "AMB-90",
+  "title": "A formula drawn as boxes",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "Boxed sums over a rule, an operator between them.",
+  "options": [
+   {
+    "key": "a",
+    "text": "LaTeX in `$$ … $$`, the box labels as the operands"
+   },
+   {
+    "key": "b",
+    "text": "A `diagram` fenced block listing the boxes"
+   },
+   {
+    "key": "c",
+    "text": "Prose"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Write a boxed arithmetic formula in `$$`...`$$`, preserving printed operands, operators and labels. Use a diagram block instead when the boxes express a process rather than an equation.",
+  "samples": [
+   "Displayed Equations"
+  ]
+ },
+ {
+  "id": "AMB-91",
+  "title": "A typed name on a signature line",
+  "category": "Marks, text and page furniture",
+  "resolved": false,
+  "description": "`John North` typed in a plain face where a signature would go.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Plain text — it is typed"
+   },
+   {
+    "key": "b",
+    "text": "`[signature:John North]` — it stands for a signature"
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": [
+   "Signatures"
+  ]
+ },
+ {
+  "id": "AMB-92",
+  "title": "Small capitals",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "All capitals — what the glyphs show"
+   },
+   {
+    "key": "b",
+    "text": "Mixed case — what the text layer holds"
+   },
+   {
+    "key": "c",
+    "text": "An HTML span with `font-variant: small-caps`"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Transcribe the capital letterforms visible in small caps as uppercase letters. Do not add small-caps styling or silently substitute the text layer's mixed case.",
+  "samples": [
+   "Small Capitals"
+  ]
+ },
+ {
+  "id": "AMB-96",
+  "title": "Icons standing in for labels",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "A pin before an address, a handset before a phone number, a globe before a URL.",
+  "options": [
+   {
+    "key": "a",
+    "text": "The values only, in order"
+   },
+   {
+    "key": "b",
+    "text": "A bracketed tag as label — `[address]`, `[phone]`, `[web]`"
+   },
+   {
+    "key": "c",
+    "text": "The nearest word — `Address:`, `Phone:`"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Use a bracketed semantic label such as [phone] or [address] when an icon clearly supplies the field label. Describe an unclear icon's shape instead of guessing its function.",
+  "samples": [
+   "Iconography and Symbols"
+  ]
+ },
+ {
+  "id": "AMB-98",
+  "title": "Handwritten annotations",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "Plain text where the note sits"
+   },
+   {
+    "key": "b",
+    "text": "`[handwritten: …]`"
+   },
+   {
+    "key": "c",
+    "text": "Nothing"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Transcribe a marginal handwritten note as `[handwritten: legible words]` in a separate block near the content it annotates. Preserve visible fragments and flag unreadable portions.",
+  "samples": [
+   "Handwritten Annotations"
+  ]
+ },
+ {
+  "id": "AMB-99",
+  "title": "Text clipped at the page edge",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "The visible fragment only"
+   },
+   {
+    "key": "b",
+    "text": "The completed word, when unambiguous"
+   },
+   {
+    "key": "c",
+    "text": "The fragment with a marker — `developmen[…]`"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: Transcribe only visible characters at a clipped page edge. Keep the fragment and flag the clipping outside the text; do not complete the word or append an unprinted ellipsis.",
+  "samples": [
+   "Clipped Text"
+  ]
+ },
+ {
+  "id": "AMB-102",
+  "title": "A redaction that prints its exemption code",
+  "category": "Marks, text and page furniture",
+  "resolved": true,
+  "description": "`(b)(5)` inside a box where eight bullets' text used to be; the bullet glyphs remain.",
+  "options": [
+   {
+    "key": "a",
+    "text": "`[REDACTED]` once, the code dropped"
+   },
+   {
+    "key": "b",
+    "text": "`[REDACTED: (b)(5)]` — the code inside the marker"
+   },
+   {
+    "key": "c",
+    "text": "The code as printed text, no marker"
+   }
+  ],
+  "default": "b",
+  "answer": "Answer: Use `[REDACTED: (b)(5)]` for a redacted region carrying that printed exemption code. Copy the code exactly, once, and keep unrelated nearby text outside the marker.",
+  "samples": [
+   "Redacted Text"
+  ]
+ },
+ {
+  "id": "AMB-01",
+  "title": "A structurally empty cell in a triangle",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [],
+  "default": "",
+  "answer": "Answer: c, with individual empty cells. Every row carries the full column count, padded with one\n`<td></td>` per missing position — never a `colspan`/`rowspan` over the empty half, never an\ninvented value. A deliberate carve-out from the free empty-region encoding in\nBlank and Spacer Rows: each empty position is a distinct coordinate, not one undifferentiated\nblank. → Triangles and Matrix Tables",
+  "samples": []
+ },
+ {
+  "id": "AMB-02",
+  "title": "Visually identical characters",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [],
+  "default": "",
+  "answer": "Answer: a. Type the character you would normally use for that glyph; keep the visible form and\ncharacter count exact; never consult the text layer to break the tie. Grading is indifferent between\nvisually identical codepoints. This does not weaken image-first fidelity — where two codepoints are\nindistinguishable there is no fact on the page for the image to be authoritative over.\n→ Cell Text Fidelity",
+  "samples": []
+ },
+ {
+  "id": "AMB-03",
+  "title": "A cell whose only content is a coloured fill",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [],
+  "default": "",
+  "answer": "Answer: d. An empty `<mark>` carrying the colour —\n`<td><mark style=\"background-color: red\"></mark></td>` — using the nearest HTML colour name, never\nthe legend's meaning. Same mechanism as highlighted text, so one vocabulary covers both. The mark is\nempty because the page printed no text; a consumer ignoring attributes sees an empty cell, which is\ntruthful. → Color as the Value",
+  "samples": []
+ },
+ {
+  "id": "AMB-04",
+  "title": "Handwriting over a printed value",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [],
+  "default": "",
+  "answer": "Answer: b, as `~~printed~~ handwritten`. Deliberately the same markup as a redline replacement —\na printed correction and a handwritten one are the same act, and the ink used to make the change is\nnot what a consumer needs to know. → Handwriting and Stamps",
+  "samples": []
+ },
+ {
+  "id": "AMB-05",
+  "title": "A stamp lying across several cells",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [],
+  "default": "",
+  "answer": "Answer: c. Keep the text, emit it outside the table as page-level content — the same place a\nwatermark goes. Every candidate cell is equally arbitrary, which is the tell that the cell level is\nthe wrong level. Note this largely answers AMB-38 — stamps and watermarks now land in the same\nplace; what remains is only whether they carry the same tag. → Handwriting and Stamps",
+  "samples": []
+ },
+ {
+  "id": "AMB-06",
+  "title": "Markup for a struck value and its replacement",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [],
+  "default": "",
+  "answer": "Answer: a. `~~1.316~~ 1.335` in one cell — both values, struck first, never merged. Matches\nAMB-04, so a printed strikethrough and a handwritten correction share one encoding. The column-wide\nre-read on finding a struck cell stands. Refined by AMB-07: the `~~` covers exactly the struck\nglyphs. → Struck and Replaced Values",
+  "samples": []
+ },
+ {
+  "id": "AMB-07",
+  "title": "Suffix-only replacements",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [],
+  "default": "",
+  "answer": "Answer: the strike span mirrors the printed strike exactly. `~~1.316~~ 335` when the whole value\nis struck; `1.~~316~~ 335` when only the digits are. The unstruck prefix sits outside the `~~`\nbecause that is where it sits on the page.\nThis dissolves the reconstruct-vs-drawn tension rather than picking a side: `1.~~316~~ 335` lets a\nreader arrive at `1.335` without anyone having invented it, because the `1.` is genuinely printed\nand genuinely unstruck. → Struck and Replaced Values",
+  "samples": []
+ },
+ {
+  "id": "AMB-08",
+  "title": "A grid printed inside a cell",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [],
+  "default": "",
+  "answer": "Answer: subdivide the cell into the outer table's own grid — add the rows and columns the inner\ngrid needs, and `rowspan` the neighbours across them. No nested `<table>`, no flattening to text.\nBoth worked examples (`en`, `korean-curriculum`) are already encoded this way. A nested table would\nhide the inner grid from anything walking the outer one — cell counts, column arithmetic and\nper-cell grounding all stop at the `<td>` boundary. → Nested Tables",
+  "samples": []
+ },
+ {
+  "id": "AMB-09",
+  "title": "Marking a total row as different from a record",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [],
+  "default": "",
+  "answer": "Answer: d, plus `<th>` on the label cell only.\n`<tr><th data-level=\"0\">Total</th><td>234,846</td></tr>`\nThe `<th>` says the cell labels rather than reports; the absolute level says what it is the total\nof, so a grand total and a group subtotal are distinguishable without parsing the label text.\nGeneral point recorded with it: a `<th>` is a per-cell decision and need not span the whole row.\nA total row is part header, part data. → Total and Subtotal Rows",
+  "samples": []
+ },
+ {
+  "id": "AMB-10",
+  "title": "Header and body disagree on column count",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [],
+  "default": "",
+  "answer": "Answer: a — pad with empty cells. Individual `<td></td>`, one per missing position, never a span\nacross the gap and never a duplicated or invented value. An empty cell asserts nothing; a copied one\nasserts something false. Flag the page, since padding is a repair.\n→ Header Body Column Count Mismatch",
+  "samples": []
+ },
+ {
+  "id": "AMB-11",
+  "title": "A footnote printed inside the ruled frame",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [],
+  "default": "",
+  "answer": "Answer: b — caption text after the table, wherever the border falls. A deliberate exception to\nthe frame test: the line names no columns and carries no values, so calling it a row asserts\nsomething false — a consumer counting records gets one too many. The frame decides titles and\nbanners; it does not decide footnotes. → Footnotes Inside the Frame",
+  "samples": []
+ },
+ {
+  "id": "AMB-12",
+  "title": "Where a caption goes in the output",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [],
+  "default": "",
+  "answer": "Answer: follow the printed position — before the table if it sits above, after if it sits below.\nReading order decides it; moving a caption reorders the page. Attached to its table either way, and\nemitted once. Explicitly not converted to a `##` heading, which would assert a document section\nthe page never printed.\nFormatting preserved per run: fully italic, a bold label plus plain text, or a heading-like face\n— transcribe what is printed and keep the boundary between runs. A caption set prominently is still\na caption. → Titles Banners Captions",
+  "samples": []
+ },
+ {
+  "id": "AMB-13",
+  "title": "Accounting numbers: verbatim only, or a normalised twin",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [],
+  "default": "",
+  "answer": "Answer: a — verbatim only. No normalised twin in items, no per-mode switch. Normalising these is\na guess rather than a transformation: `$—` may be zero or not-applicable, `n/m` is neither null nor\nempty, and `△2.5%` carries a conventional sign that is not printed. One value per cell, and it is\nthe one on the page. → Accounting Number Formats",
+  "samples": []
+ },
+ {
+  "id": "AMB-15",
+  "title": "How many blank rows of an empty pre-printed grid",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "Every printed empty row"
+   },
+   {
+    "key": "b",
+    "text": "A representative few"
+   },
+   {
+    "key": "c",
+    "text": "Headers only"
+   }
+  ],
+  "default": "",
+  "answer": "Answer: a. Every printed empty row, however long the run. Trimming to a representative few is a\njudgement a consumer cannot undo; ignoring rows they did not want is one they can.\n→ Empty Pre-Printed Grids is now a rule",
+  "samples": [
+   "Empty Pre-Printed Grids"
+  ]
+ },
+ {
+  "id": "AMB-31",
+  "title": "Icons that carry a value",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "A bracketed semantic tag — `[yes]`, `[no]`, `[locked]`, `[sun: full]`"
+   },
+   {
+    "key": "b",
+    "text": "The nearest emoji"
+   },
+   {
+    "key": "c",
+    "text": "A prose description of the icon"
+   },
+   {
+    "key": "d",
+    "text": "Standardise to Unicode first, emoji as fallback"
+   }
+  ],
+  "default": "",
+  "answer": "Answer: a, settled together with AMB-39,\nwhich asks the same question of the same page. The bracketed tag is the form; AMB-39 adds that a\nrepeated mark is transcribed once per mark.",
+  "samples": [
+   "Iconography and Symbols"
+  ]
+ },
+ {
+  "id": "AMB-35",
+  "title": "Dot leader lines",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [],
+  "default": "",
+  "answer": "Answer: a — remove them. Recorded as an explicit exception to verbatim transcription: a dot\nleader is the one printed mark that carries no information. → Dot Leader Lines",
+  "samples": []
+ },
+ {
+  "id": "AMB-39",
+  "title": "Icons that are the value",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "A plant guide prints a sun scale and a water scale as icons. The cells hold no text at all, so the\nicon is the value. Marks and Symbols in Cells already forbids the emoji substitute, but it\nnever fixed the vocabulary that replaces it.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Keep the emoji — `☀️`, `💧`"
+   },
+   {
+    "key": "b",
+    "text": "A bracketed semantic token — `[water]`, repeated when the mark is repeated"
+   },
+   {
+    "key": "c",
+    "text": "A count or ordinal — `[water:2]`, `2`"
+   },
+   {
+    "key": "d",
+    "text": "Prose — `high water`"
+   }
+  ],
+  "default": "",
+  "answer": "Answer: b. One droplet is `[water]`, two droplets are `[water][water]` — the mark is transcribed\nonce per printed mark, so the count that carries the meaning survives.",
+  "samples": [
+   "Marks and Symbols in Cells"
+  ]
+ },
+ {
+  "id": "AMB-14",
+  "title": "Borderless block: table or preformatted",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "Table when alignment holds down the whole block; preformatted when it breaks anywhere"
+   },
+   {
+    "key": "b",
+    "text": "Table whenever a header line exists"
+   },
+   {
+    "key": "c",
+    "text": "Always preformatted — never guess columns"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: always a table. A whitespace-aligned block is annotated as a table whenever it has columns; the preformatted fallback is withdrawn. Read the tracks off the widest row and place every value in the track it sits in. → Borderless Whitespace Tables is now a rule",
+  "samples": [
+   "Borderless Whitespace Tables"
+  ]
+ },
+ {
+  "id": "AMB-17",
+  "title": "A too-wide table sliced into stacked blocks",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "One table per printed block, each keeping its repeated label column"
+   },
+   {
+    "key": "b",
+    "text": "Re-widen into one table by matching the repeated key"
+   },
+   {
+    "key": "c",
+    "text": "Same rule as [[Column Continuation]], whatever that is"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: a. One table per printed block, each keeping its repeated label column. Never re-widen. → Horizontal Slicing is now a rule",
+  "samples": [
+   "Horizontal Slicing"
+  ]
+ },
+ {
+  "id": "AMB-18",
+  "title": "A landscape table on a portrait page",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "Rotate and annotate in the table's own orientation"
+   },
+   {
+    "key": "b",
+    "text": "Annotate in page orientation"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: a. Rotate and annotate in the table's own orientation. → Rotated and Diagonal Content",
+  "samples": [
+   "Rotated and Diagonal Content"
+  ]
+ },
+ {
+  "id": "AMB-19",
+  "title": "A diagonally split corner cell",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "One cell with a slash — `Region ╲ Year`"
+   },
+   {
+    "key": "b",
+    "text": "Split into two header cells, one per axis"
+   },
+   {
+    "key": "c",
+    "text": "Leave the corner blank and record both labels elsewhere"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: a. One cell, `Region \\ Year`, the top label first. → Rotated and Diagonal Content is now a rule",
+  "samples": [
+   "Rotated and Diagonal Content"
+  ]
+ },
+ {
+  "id": "AMB-48",
+  "title": "A header label wrapped inside a word",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "`Distributio` over `n`. Header Wrap vs Real Tier says join fragments with a space, which\nproduces `Distributio n` — a word the page does not print.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Rejoin into the word — `Distribution`"
+   },
+   {
+    "key": "b",
+    "text": "Verbatim with a space, as the wrap rule says"
+   },
+   {
+    "key": "c",
+    "text": "Verbatim with `<br>` between the fragments"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: a. Rejoin the word — `Distribution`. A wrap inside a word is joined with nothing (printed hyphens dropped); only a wrap between words gets a space. → Header Wrap vs Real Tier",
+  "samples": [
+   "Header Wrap vs Real Tier"
+  ]
+ },
+ {
+  "id": "AMB-49",
+  "title": "Cells shaded to mean \"not applicable\"",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "A grey fill over whole columns of a block, with no text. The fill is not a value; it marks cells\nthe schedule does not compute. Color as the Value covers a fill that is the value.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Empty `<td></td>` — the shading is layout"
+   },
+   {
+    "key": "b",
+    "text": "An empty grey `<mark>` per cell, as for a colour value"
+   },
+   {
+    "key": "c",
+    "text": "A `colspan`/`rowspan` over the shaded region"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: b. An empty grey `<mark>` per shaded cell, the same encoding as a colour value. The fill is what the page printed; never a span over the region. → Color as the Value",
+  "samples": [
+   "Color as the Value"
+  ]
+ },
+ {
+  "id": "AMB-66",
+  "title": "A total row with no label",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "Bold, ruled, closing the column — and the label cell is empty.",
+  "options": [
+   {
+    "key": "a",
+    "text": "`<th></th>` — an empty heading cell, level as for a total"
+   },
+   {
+    "key": "b",
+    "text": "`<td></td>` — an ordinary empty cell; the rule and bold are the only tells"
+   },
+   {
+    "key": "c",
+    "text": "`<th>Total</th>` — invent the label the page implies"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: b. `<td></td>`. Nothing is printed, so nothing is labelled and nothing is invented; the rule and the bold are transcribed as they print. → Total and Subtotal Rows",
+  "samples": [
+   "Total and Subtotal Rows"
+  ]
+ },
+ {
+  "id": "AMB-67",
+  "title": "A numbered heading between fragments that share one header",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "Note 20 and note 21 sit under one printed header. Split Tables Sharing a Header says a\nparagraph in the gap does not break the table; a note heading is a stronger break.",
+  "options": [
+   {
+    "key": "a",
+    "text": "One table, the heading as a band row"
+   },
+   {
+    "key": "b",
+    "text": "Two tables, the second repeating the header it depends on"
+   },
+   {
+    "key": "c",
+    "text": "Two tables, the second headerless"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: a. One table; the note heading becomes a band row. → Split Tables Sharing a Header",
+  "samples": [
+   "Split Tables Sharing a Header"
+  ]
+ },
+ {
+  "id": "AMB-72",
+  "title": "Rows printed after a total that it does not include",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "`USA` and `Australia` follow `Total` at the same indent as the rows the total sums.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Same level as the components — the indent is what is printed"
+   },
+   {
+    "key": "b",
+    "text": "A level below the total's, so they read as outside the group"
+   },
+   {
+    "key": "c",
+    "text": "A separate table after the total"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: one table. The memo rows stay in the same table, in printed order, at the level their indent prints. Never a second table. → Total and Subtotal Rows",
+  "samples": [
+   "Total and Subtotal Rows"
+  ]
+ },
+ {
+  "id": "AMB-77",
+  "title": "A row label that wraps",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "A stub label over two lines, the value beside the second.",
+  "options": [
+   {
+    "key": "a",
+    "text": "One row, label joined with a space"
+   },
+   {
+    "key": "b",
+    "text": "Two rows, as the one-`<tr>`-per-line rule says, the first with empty value cells"
+   },
+   {
+    "key": "c",
+    "text": "One row, label joined with `<br>`"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: a. One row, the wrapped label joined with a space. The one-`<tr>`-per-line rule is for records, not for a label that wraps. → Record Groups and Multi-Line Cells",
+  "samples": [
+   "Record Groups and Multi-Line Cells"
+  ]
+ },
+ {
+  "id": "AMB-81",
+  "title": "A total label printed in a different column",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "`ONEIDA Total` set across the boundary of the county and town columns, sum in the count column.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Label in the stub column, `<th>`, the town cell empty"
+   },
+   {
+    "key": "b",
+    "text": "Label in the column where it starts — the town column — stub empty"
+   },
+   {
+    "key": "c",
+    "text": "`<th colspan=\"2\">` over both"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: one stub column. County names and town names share a single column — the left/right alignment is styling — and the total label goes in it as a `<th>`. → Total and Subtotal Rows",
+  "samples": [
+   "Total and Subtotal Rows"
+  ]
+ },
+ {
+  "id": "AMB-85",
+  "title": "A stub split into two columns",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "`– external` / `– intra-group` set in a second column beside their parent label.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Children at level 1 under the parent, the second column folded into the stub"
+   },
+   {
+    "key": "b",
+    "text": "A two-column stub: parent cell with rowspan, sub-label in its own column"
+   },
+   {
+    "key": "c",
+    "text": "Parent and sub-label joined into one label per row"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: b. A two-column stub: the parent in the first column with a `rowspan` over its children, each sub-label in the second column on its own row. → Row-Label Hierarchy",
+  "samples": [
+   "Row-Label Hierarchy"
+  ]
+ },
+ {
+  "id": "AMB-86",
+  "title": "A two-sided balance sheet in one frame",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "Assets, liabilities and an income statement side by side under one box.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Three tables, one per column block"
+   },
+   {
+    "key": "b",
+    "text": "Two tables — the balance sheet as one, the income statement as another"
+   },
+   {
+    "key": "c",
+    "text": "One table, row *n* across all blocks"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: c. One table, row n across all blocks, exactly as the frame prints it. → Side-by-Side Mini Tables",
+  "samples": [
+   "Side-by-Side Mini Tables"
+  ]
+ },
+ {
+  "id": "AMB-87",
+  "title": "A units row in the middle of the body",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "",
+  "options": [
+   {
+    "key": "a",
+    "text": "A band row — every cell a heading"
+   },
+   {
+    "key": "b",
+    "text": "Split the table there, the units line heading the second"
+   },
+   {
+    "key": "c",
+    "text": "Fold the units into the labels below it and drop the line"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: a. A band row, every cell `<th>` — the `S$` cells included. → Units Row",
+  "samples": [
+   "Units Row"
+  ]
+ },
+ {
+  "id": "AMB-88",
+  "title": "Leader lines with two values at the end",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "`Name …… email  phone`, some lines without the e-mail.",
+  "options": [
+   {
+    "key": "a",
+    "text": "A three-column table, leaders removed"
+   },
+   {
+    "key": "b",
+    "text": "Text lines, leaders removed, values separated by spaces"
+   },
+   {
+    "key": "c",
+    "text": "A two-column table, e-mail and phone in one cell"
+   }
+  ],
+  "default": "b",
+  "answer": "Answer: b. Text lines, leaders removed, values separated by spaces. Not a table. → Dot Leader Lines",
+  "samples": [
+   "Dot Leader Lines"
+  ]
+ },
+ {
+  "id": "AMB-89",
+  "title": "Values staggered inside one column",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "Parent totals at the column edge, children centred further left, all in one ruled column.",
+  "options": [
+   {
+    "key": "a",
+    "text": "One value column; hierarchy only from the stub's `data-level`"
+   },
+   {
+    "key": "b",
+    "text": "Two value columns, one per printed alignment"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: a. One value column; the hierarchy comes only from the stub's `data-level`. → Row-Label Hierarchy",
+  "samples": [
+   "Row-Label Hierarchy"
+  ]
+ },
+ {
+  "id": "AMB-93",
+  "title": "The minus sign",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "`−742` set with U+2212.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Add U+2212 ≡ hyphen-minus to the accepted homoglyphs"
+   },
+   {
+    "key": "b",
+    "text": "Keep it distinct — a minus is a mark, not a dash"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: normalise. Write the hyphen-minus `-` for a printed minus sign; U+2212 ≡ U+002D joins the accepted homoglyphs. → Cell Text Fidelity",
+  "samples": [
+   "Cell Text Fidelity"
+  ]
+ },
+ {
+  "id": "AMB-104",
+  "title": "A title printed in the corner cell",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "`Financial highlights` in the stub's header cell, the period tiers to its right.",
+  "options": [
+   {
+    "key": "a",
+    "text": "It is the stub header — `<th>Financial highlights</th>` in the header row"
+   },
+   {
+    "key": "b",
+    "text": "It is the title — a caption, and the corner cell is empty"
+   },
+   {
+    "key": "c",
+    "text": "Both — the caption and the corner cell"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: a. The corner text is the stub header — `<th>Financial highlights</th>` — and not a caption. → Titles Banners Captions",
+  "samples": [
+   "Titles Banners Captions"
+  ]
+ },
+ {
+  "id": "AMB-23",
+  "title": "A progress-and-target bar",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "A single bar with a current value and a target on a 0→max axis.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Its own chart type"
+   },
+   {
+    "key": "b",
+    "text": "A one-row bar chart"
+   },
+   {
+    "key": "c",
+    "text": "A key-value pair — not a chart at all"
+   }
+  ],
+  "default": "b",
+  "answer": "Answer: b. A one-row bar chart, emitting the current value, the target and the axis end-points. → Bars and Histograms",
+  "samples": [
+   "Bars and Histograms"
+  ]
+ },
+ {
+  "id": "AMB-56",
+  "title": "Annotations aligned to chart rows",
+  "category": "Settled decisions",
+  "resolved": true,
+  "description": "Each bar has one or two bullet lines printed beside it in a column to the right, naming\nsub-businesses with their own growth figures.",
+  "options": [
+   {
+    "key": "a",
+    "text": "Not chart data — a list, transcribed after the chart in reading order"
+   },
+   {
+    "key": "b",
+    "text": "Chart data — one rule per bullet, labelled by its bar's category"
+   },
+   {
+    "key": "c",
+    "text": "Both"
+   }
+  ],
+  "default": "a",
+  "answer": "Answer: one table with a list column. The chart and its annotations are transcribed as one table, one row per bar, with a column holding each row's bullet lines as a list. → Stacked Bars and Waterfalls",
+  "samples": [
+   "Stacked Bars and Waterfalls"
+  ]
+ },
+ {
+  "id": "AMB-42",
+  "title": "A line break inside one printed block",
+  "category": "Page structure",
+  "resolved": false,
+  "description": "A masthead, address or banner printed on two lines is one block — that part is settled. What is\nunsettled is which break to emit between the lines.\nWhatever is chosen applies to every multi-line block — paragraphs, addresses, headers and footers\nalike, not one spelling per kind.\n→ Line Breaks Inside a Block",
+  "options": [
+   {
+    "key": "a",
+    "text": "A plain newline. Renderers fold it into a space, so the lines run together for a reader."
+   },
+   {
+    "key": "b",
+    "text": "Two trailing spaces then a newline. A real line break, but invisible in an editor and stripped by most whitespace normalisation."
+   },
+   {
+    "key": "c",
+    "text": "`<br>`. Survives normalisation and matches what table cells already use; puts HTML in the Markdown."
+   }
+  ],
+  "default": "a",
+  "answer": "",
+  "samples": []
+ },
+ {
+  "id": "AMB-43",
+  "title": "Which output the annotation assumes",
+  "category": "Page structure",
+  "resolved": false,
+  "description": "Four situations have more than one correct annotation, and which is correct depends on what the\nparse was asked to produce: whether the printed page number is recorded on its own, whether a saved\nimage may be referenced instead of described, and whether table fragments across a page break are\njoined.\nOption a is recoverable and b is not: a fused table cannot be split again if the setting\nturns out to be off.\n→ What the Run Was Asked to Produce",
+  "options": [
+   {
+    "key": "a",
+    "text": "Annotate the narrower reading — fragments separate, graphics described, everything printed recorded. Valid under either setting."
+   },
+   {
+    "key": "b",
+    "text": "Annotate the wider reading — fragments joined, graphics referenced. Unreachable when the setting is off."
+   },
+   {
+    "key": "c",
+    "text": "Annotate both, and carry the pair."
+   }
+  ],
+  "default": "the narrower reading, and flag any page where the choice actually bit.",
+  "answer": "",
+  "samples": []
+ }
+]

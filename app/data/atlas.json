@@ -1,0 +1,3444 @@
+[
+ {
+  "slug": "charts-1-the-annotation-cover-every-data-point",
+  "title": "Cover Every Data Point",
+  "area": "Charts",
+  "sub": "The annotation",
+  "badge": "rule",
+  "rule": "Annotate every data point the chart draws: every category-axis position × every series, plus every printed callout. One chart_data_point rule per point, located by labels, valued printed-or-estimated (The Ground-Truth File). Nothing is skipped.",
+  "situation": "A parse that happens to get a few famous corners right must not pass while the rest of the chart is wrong — that is what coverage is for.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "The Ground-Truth File",
+    "slug": "charts-1-the-annotation-the-ground-truth-file"
+   },
+   {
+    "title": "Labels",
+    "slug": "charts-1-the-annotation-labels"
+   },
+   {
+    "title": "Values and Tolerances",
+    "slug": "charts-1-the-annotation-values-and-tolerances"
+   },
+   {
+    "title": "Multiple Charts and Reference Ink",
+    "slug": "charts-1-the-annotation-multiple-charts-and-reference-ink"
+   },
+   {
+    "title": "The annotation QA checklist",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "charts-1-the-annotation-labels",
+  "title": "Labels",
+  "area": "Charts",
+  "sub": "The annotation",
+  "badge": "rule",
+  "rule": "Labels uniquely locate one data point, using only text printed on the chart — an axis tick, a legend entry, a direct label, or, when nothing else disambiguates, a distinctive fragment of a printed title. Copy the printed string; never append units from elsewhere on the page, never color words, never chart-type words, never merged dimensions.",
+  "situation": "The checker finds the value in the parsed tables and verifies every label sits on that cell's row or column — so the label set is a lookup key, not a table structure. Order inside labels does not matter.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "The Ground-Truth File",
+    "slug": "charts-1-the-annotation-the-ground-truth-file"
+   },
+   {
+    "title": "Cover Every Data Point",
+    "slug": "charts-1-the-annotation-cover-every-data-point"
+   },
+   {
+    "title": "Values and Tolerances",
+    "slug": "charts-1-the-annotation-values-and-tolerances"
+   },
+   {
+    "title": "Multiple Charts and Reference Ink",
+    "slug": "charts-1-the-annotation-multiple-charts-and-reference-ink"
+   }
+  ]
+ },
+ {
+  "slug": "charts-1-the-annotation-multiple-charts-and-reference-ink",
+  "title": "Multiple Charts and Reference Ink",
+  "area": "Charts",
+  "sub": "The annotation",
+  "badge": "rule",
+  "rule": "A page with several charts or panels is still one flat test_rules list — nothing in the file marks which chart a rule belongs to, because the labels do the locating. Cover every panel (Cover Every Data Point). Labeled averages, trend lines, shaded bands and event callouts are commentary — they get no rule.",
+  "situation": "",
+  "samples": 4,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Cover Every Data Point",
+    "slug": "charts-1-the-annotation-cover-every-data-point"
+   },
+   {
+    "title": "Labels",
+    "slug": "charts-1-the-annotation-labels"
+   },
+   {
+    "title": "The Ground-Truth File",
+    "slug": "charts-1-the-annotation-the-ground-truth-file"
+   },
+   {
+    "title": "Legend and Overlay Values",
+    "slug": "charts-2-chart-types-legend-and-overlay-values"
+   }
+  ]
+ },
+ {
+  "slug": "charts-1-the-annotation-the-ground-truth-file",
+  "title": "The Ground-Truth File",
+  "area": "Charts",
+  "sub": "The annotation",
+  "badge": "rule",
+  "rule": "The deliverable for a chart page is its {name}.test.json: chart_data_point rules, one per data point, covering every data point in the chart (Cover Every Data Point) — plus a chart_judge_point rule for each fact no printed text locates or no single table shape carries: whisker spans, choropleth classes, gantt spans, sankey flows.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Cover Every Data Point",
+    "slug": "charts-1-the-annotation-cover-every-data-point"
+   },
+   {
+    "title": "Labels",
+    "slug": "charts-1-the-annotation-labels"
+   },
+   {
+    "title": "Values and Tolerances",
+    "slug": "charts-1-the-annotation-values-and-tolerances"
+   },
+   {
+    "title": "Multiple Charts and Reference Ink",
+    "slug": "charts-1-the-annotation-multiple-charts-and-reference-ink"
+   },
+   {
+    "title": "The annotation QA checklist",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "charts-1-the-annotation-values-and-tolerances",
+  "title": "Values and Tolerances",
+  "area": "Charts",
+  "sub": "The annotation",
+  "badge": "rule",
+  "rule": "A value is one of three things. Printed on the chart → copy it character for character, complete, with no tolerance. Not printed → estimate the mark's visual center against its axis and set relative_tolerance from the readability buckets. A drawn mark at the baseline, or no mark at a labeled position → 0.",
+  "situation": "",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "The Ground-Truth File",
+    "slug": "charts-1-the-annotation-the-ground-truth-file"
+   },
+   {
+    "title": "Labels",
+    "slug": "charts-1-the-annotation-labels"
+   },
+   {
+    "title": "Cover Every Data Point",
+    "slug": "charts-1-the-annotation-cover-every-data-point"
+   },
+   {
+    "title": "Log Scale Charts",
+    "slug": "charts-2-chart-types-log-scale-charts"
+   },
+   {
+    "title": "Legend and Overlay Values",
+    "slug": "charts-2-chart-types-legend-and-overlay-values"
+   }
+  ]
+ },
+ {
+  "slug": "charts-2-chart-types-bars-and-histograms",
+  "title": "Bars and Histograms",
+  "area": "Charts",
+  "sub": "Chart types",
+  "badge": "rule",
+  "rule": "Bar charts are the base case: one rule per bar — [category] for a single series, [category, series] for grouped or stacked bars. A histogram is a bar chart whose category is the bin: bins the axis does not label are located by their axis value, and a labeled position with no bar is 0.",
+  "situation": "",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Values and Tolerances",
+    "slug": "charts-1-the-annotation-values-and-tolerances"
+   },
+   {
+    "title": "Labels",
+    "slug": "charts-1-the-annotation-labels"
+   },
+   {
+    "title": "Stacked Bars and Waterfalls",
+    "slug": "charts-2-chart-types-stacked-bars-and-waterfalls"
+   },
+   {
+    "title": "Cover Every Data Point",
+    "slug": "charts-1-the-annotation-cover-every-data-point"
+   }
+  ]
+ },
+ {
+  "slug": "charts-2-chart-types-dual-axis-and-combo-charts",
+  "title": "Dual-Axis and Combo Charts",
+  "area": "Charts",
+  "sub": "Chart types",
+  "badge": "rule",
+  "rule": "Bars and lines on one canvas, or a second value axis, change only your reading: each series' values are read or copied against its own axis. Rules are [series, x-tick] as usual. Mark type and axis side are never added to a label — no (line), no right axis.",
+  "situation": "Before estimating, find which axis scales the series — the legend order, the mark type, and the axis labels' magnitudes tell you — and trace to that axis. A percent series on the right axis must not be read against the level axis on the left.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Stacked Bars and Waterfalls",
+    "slug": "charts-2-chart-types-stacked-bars-and-waterfalls"
+   },
+   {
+    "title": "Labels",
+    "slug": "charts-1-the-annotation-labels"
+   },
+   {
+    "title": "Line Charts",
+    "slug": "charts-2-chart-types-line-charts"
+   },
+   {
+    "title": "Legend and Overlay Values",
+    "slug": "charts-2-chart-types-legend-and-overlay-values"
+   }
+  ]
+ },
+ {
+  "slug": "charts-2-chart-types-gantt-and-sankey-charts",
+  "title": "Gantt and Sankey Charts",
+  "area": "Charts",
+  "sub": "Chart types",
+  "badge": "rule",
+  "rule": "One format each — never mix rule shapes within a chart type. A gantt mark is always one chart_judge_point with chart_type: \"gantt_span\" and expected: {start, end} — for a task bar the two edges, for a milestone start = end. When the axis prints periods, start/end are period tokens (Q1 2025); when the page prints exact dates, those exact date strings go straight into start/end. Same shape either way. A sankey flow is always one chart_judge_point with chart_type: \"sankey_flow\" and expected: {source, target, value}. T",
+  "situation": "",
+  "samples": 6,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Labels",
+    "slug": "charts-1-the-annotation-labels"
+   },
+   {
+    "title": "Values and Tolerances",
+    "slug": "charts-1-the-annotation-values-and-tolerances"
+   },
+   {
+    "title": "Maps and Treemaps",
+    "slug": "charts-2-chart-types-maps-and-treemaps"
+   },
+   {
+    "title": "Cover Every Data Point",
+    "slug": "charts-1-the-annotation-cover-every-data-point"
+   }
+  ]
+ },
+ {
+  "slug": "charts-2-chart-types-legend-and-overlay-values",
+  "title": "Legend and Overlay Values",
+  "area": "Charts",
+  "sub": "Chart types",
+  "badge": "rule",
+  "rule": "When the values live only in the legend or in data labels printed over the marks, the printed numbers are the data: exact rules, every one of them. A companion series without labels is estimated normally — unless no label set can uniquely locate its points, in which case it is not annotatable (Labels).",
+  "situation": "Three places values print, all treated the same (Values and Tolerances):",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Values and Tolerances",
+    "slug": "charts-1-the-annotation-values-and-tolerances"
+   },
+   {
+    "title": "Labels",
+    "slug": "charts-1-the-annotation-labels"
+   },
+   {
+    "title": "Maps and Treemaps",
+    "slug": "charts-2-chart-types-maps-and-treemaps"
+   },
+   {
+    "title": "Dual-Axis and Combo Charts",
+    "slug": "charts-2-chart-types-dual-axis-and-combo-charts"
+   }
+  ]
+ },
+ {
+  "slug": "charts-2-chart-types-line-charts",
+  "title": "Line Charts",
+  "area": "Charts",
+  "sub": "Chart types",
+  "badge": "rule",
+  "rule": "One rule per series per x-position: [x-tick, series name], the series named by its legend entry or its direct label at the line's end. Values are printed callouts where the chart has them and axis reads everywhere else. Between-tick wiggles are not positions.",
+  "situation": "",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Values and Tolerances",
+    "slug": "charts-1-the-annotation-values-and-tolerances"
+   },
+   {
+    "title": "Labels",
+    "slug": "charts-1-the-annotation-labels"
+   },
+   {
+    "title": "Log Scale Charts",
+    "slug": "charts-2-chart-types-log-scale-charts"
+   },
+   {
+    "title": "Dual-Axis and Combo Charts",
+    "slug": "charts-2-chart-types-dual-axis-and-combo-charts"
+   }
+  ]
+ },
+ {
+  "slug": "charts-2-chart-types-log-scale-charts",
+  "title": "Log Scale Charts",
+  "area": "Charts",
+  "sub": "Chart types",
+  "badge": "rule",
+  "rule": "A logarithmic axis changes the reading, not the rules: [x-tick, series] as usual, estimates taken against the printed decade bands. Read where the mark sits inside its band — two significant figures is usually the honest limit — and bucket the tolerance by readability like any estimate.",
+  "situation": "On a tenfold-per-band axis the same visual gap covers ever larger ranges, so interpolate by position inside the band, not linearly: a mark a third of the way from 1 000 to 10 000 is near 2 000, not near 4 000.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Values and Tolerances",
+    "slug": "charts-1-the-annotation-values-and-tolerances"
+   },
+   {
+    "title": "Line Charts",
+    "slug": "charts-2-chart-types-line-charts"
+   },
+   {
+    "title": "Labels",
+    "slug": "charts-1-the-annotation-labels"
+   },
+   {
+    "title": "Cover Every Data Point",
+    "slug": "charts-1-the-annotation-cover-every-data-point"
+   }
+  ]
+ },
+ {
+  "slug": "charts-2-chart-types-maps-and-treemaps",
+  "title": "Maps and Treemaps",
+  "area": "Charts",
+  "sub": "Chart types",
+  "badge": "rule",
+  "rule": "A treemap gets one rule per tile — [tile label] → the tile's printed value. Tile area is never estimated: no axis calibrates it, so a tile without a printed value — or printing only a comparator (<1%), or a truncated label (Re…) — gets no rule. A map with printed per-region values gets ordinary rules. A shading-only choropleth with a discrete legend gets one chart_judge_point per region — {region, class}, the class copied verbatim from the legend — for every region whose fill is unambiguous against the swatches.",
+  "situation": "",
+  "samples": 4,
+  "counters": 1,
+  "related": [
+   {
+    "title": "Values and Tolerances",
+    "slug": "charts-1-the-annotation-values-and-tolerances"
+   },
+   {
+    "title": "Labels",
+    "slug": "charts-1-the-annotation-labels"
+   },
+   {
+    "title": "Legend and Overlay Values",
+    "slug": "charts-2-chart-types-legend-and-overlay-values"
+   },
+   {
+    "title": "Gantt and Sankey Charts",
+    "slug": "charts-2-chart-types-gantt-and-sankey-charts"
+   }
+  ]
+ },
+ {
+  "slug": "charts-2-chart-types-scatter-and-error-bars",
+  "title": "Scatter and Error Bars",
+  "area": "Charts",
+  "sub": "Chart types",
+  "badge": "rule",
+  "rule": "A named scatter point gets two rules — [name] → its x read, [name] → its y read. Marker series over categories are ordinary [category, series] rules. An error bar's center is an ordinary point; its whisker span is one chart_judge_point — {value, low, high} read at the whisker ends — because no printed text locates a whisker and no single table shape carries one. A box plot is one judge rule per box — {median, q1, q3} plus whiskers when drawn. Anonymous point clouds have no row identity and cannot be annotated.",
+  "situation": "",
+  "samples": 6,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Values and Tolerances",
+    "slug": "charts-1-the-annotation-values-and-tolerances"
+   },
+   {
+    "title": "Labels",
+    "slug": "charts-1-the-annotation-labels"
+   },
+   {
+    "title": "Multiple Charts and Reference Ink",
+    "slug": "charts-1-the-annotation-multiple-charts-and-reference-ink"
+   },
+   {
+    "title": "Line Charts",
+    "slug": "charts-2-chart-types-line-charts"
+   }
+  ]
+ },
+ {
+  "slug": "charts-2-chart-types-stacked-bars-and-waterfalls",
+  "title": "Stacked Bars and Waterfalls",
+  "area": "Charts",
+  "sub": "Chart types",
+  "badge": "rule",
+  "rule": "A stacked segment's value is the segment's own span — the size it draws between its two boundaries — never the cumulative height at its top edge. A waterfall step is the same rule on a floating segment: record the rise or fall the step itself draws. Rules are [category, segment series]; a printed total is its own rule, [category], when that locates it.",
+  "situation": "Reading the running total instead of the segment is the failure this family exists to catch. For estimates, read both boundaries and record the difference.",
+  "samples": 5,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Values and Tolerances",
+    "slug": "charts-1-the-annotation-values-and-tolerances"
+   },
+   {
+    "title": "Bars and Histograms",
+    "slug": "charts-2-chart-types-bars-and-histograms"
+   },
+   {
+    "title": "Dual-Axis and Combo Charts",
+    "slug": "charts-2-chart-types-dual-axis-and-combo-charts"
+   },
+   {
+    "title": "Legend and Overlay Values",
+    "slug": "charts-2-chart-types-legend-and-overlay-values"
+   }
+  ]
+ },
+ {
+  "slug": "diagrams-blueprints",
+  "title": "Blueprints",
+  "area": "Diagrams",
+  "sub": null,
+  "badge": "open",
+  "rule": "Do not turn a floor plan into a table. Describe it as an image, keeping every printed label, room name, dimension and annotation in the description, and flag the page.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Geographic Maps",
+    "slug": "diagrams-geographic-maps"
+   },
+   {
+    "title": "Electrical Schematics",
+    "slug": "diagrams-electrical-schematics"
+   },
+   {
+    "title": "Images",
+    "slug": "images-images"
+   }
+  ]
+ },
+ {
+  "slug": "diagrams-diagrams-and-flowcharts",
+  "title": "Diagrams and Flowcharts",
+  "area": "Diagrams",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Prefer Mermaid when the diagram is genuinely a graph — nodes and edges. Fall back to an HTML table when it is really tabular. Never leave it out.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "[Images and Figures](images-images-and-figures.html)",
+    "slug": null
+   },
+   {
+    "title": "[Electrical Schematics](diagrams-electrical-schematics.html)",
+    "slug": null
+   },
+   {
+    "title": "[Blueprints](diagrams-blueprints.html)",
+    "slug": null
+   },
+   {
+    "title": "[Geographic Maps](diagrams-geographic-maps.html)",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "diagrams-electrical-schematics",
+  "title": "Electrical Schematics",
+  "area": "Diagrams",
+  "sub": null,
+  "badge": "open",
+  "rule": "Do not encode a circuit as a Mermaid graph. Describe it, keeping every printed component label and value, and flag the page.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Chemical Molecules",
+    "slug": "other-chemical-molecules"
+   },
+   {
+    "title": "Slide Diagrams",
+    "slug": "diagrams-slide-diagrams"
+   },
+   {
+    "title": "Blueprints",
+    "slug": "diagrams-blueprints"
+   }
+  ]
+ },
+ {
+  "slug": "diagrams-geographic-maps",
+  "title": "Geographic Maps",
+  "area": "Diagrams",
+  "sub": null,
+  "badge": "open",
+  "rule": "Decide first what the map is for. A shaded data map may be transcribed as a table; a map whose content is geography must be described as an image. When you cannot tell, do both — description plus table — so nothing is lost, and flag the page.",
+  "situation": "A map appearing as a figure — typically a choropleth, or a labelled regional map.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Images",
+    "slug": "images-images"
+   },
+   {
+    "title": "Blueprints",
+    "slug": "diagrams-blueprints"
+   },
+   {
+    "title": "Slide Diagrams",
+    "slug": "diagrams-slide-diagrams"
+   }
+  ]
+ },
+ {
+  "slug": "diagrams-slide-diagrams",
+  "title": "Slide Diagrams",
+  "area": "Diagrams",
+  "sub": null,
+  "badge": "open",
+  "rule": "There is no settled encoding for a labelled conceptual diagram. Until there is: preserve every label printed on the figure, choose the reading that loses no content — a diagram fenced block holding the labels and their relationships — and flag the page.",
+  "situation": "A slide diagram or scientific figure is a picture whose meaning lives in its labels: names of parts, signal names, arrows showing direction. Treat the labels as content you must not lose. A plain prose description is only acceptable when the figure carries no labels at all.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Images",
+    "slug": "images-images"
+   },
+   {
+    "title": "Electrical Schematics",
+    "slug": "diagrams-electrical-schematics"
+   }
+  ]
+ },
+ {
+  "slug": "forms-1-the-output-format-ids-and-labels",
+  "title": "Ids and Labels",
+  "area": "Forms",
+  "sub": "Output format",
+  "badge": "rule",
+  "rule": "id = the printed field designator, exactly as printed, in escaped brackets outside the bold label. label = the printed caption, verbatim. A label never repeats the id.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "The Key-Value List",
+    "slug": "forms-1-the-output-format-the-key-value-list"
+   },
+   {
+    "title": "Fill-Ins",
+    "slug": "forms-2-fields-fill-ins"
+   },
+   {
+    "title": "Form Reading Order",
+    "slug": "forms-3-structure-form-reading-order"
+   }
+  ]
+ },
+ {
+  "slug": "forms-1-the-output-format-the-key-value-list",
+  "title": "The Key-Value List",
+  "area": "Forms",
+  "sub": "Output format",
+  "badge": "rule",
+  "rule": "A page with fillable form content is transcribed as a markdown key-value list — not a table. Every field is a list item using -.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Ids and Labels",
+    "slug": "forms-1-the-output-format-ids-and-labels"
+   },
+   {
+    "title": "Values Are Verbatim",
+    "slug": "forms-1-the-output-format-values-are-verbatim"
+   },
+   {
+    "title": "Fill-Ins",
+    "slug": "forms-2-fields-fill-ins"
+   },
+   {
+    "title": "Checkboxes",
+    "slug": "forms-2-fields-checkboxes"
+   },
+   {
+    "title": "Option Groups",
+    "slug": "forms-2-fields-option-groups"
+   }
+  ]
+ },
+ {
+  "slug": "forms-1-the-output-format-values-are-verbatim",
+  "title": "Values Are Verbatim",
+  "area": "Forms",
+  "sub": "Output format",
+  "badge": "rule",
+  "rule": "Transcribe entered content exactly as it appears. Never round, reformat, compute or summarise.",
+  "situation": "This is the same fidelity rule that governs everything else in Parse — see Cell Text Fidelity — applied to what someone wrote into a field.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "The Key-Value List",
+    "slug": "forms-1-the-output-format-the-key-value-list"
+   },
+   {
+    "title": "Fill-Ins",
+    "slug": "forms-2-fields-fill-ins"
+   },
+   {
+    "title": "Cell Text Fidelity",
+    "slug": null
+   },
+   {
+    "title": "Accounting Number Formats",
+    "slug": "tables-6-cell-values-accounting-number-formats"
+   }
+  ]
+ },
+ {
+  "slug": "forms-2-fields-blanks-inside-sentences",
+  "title": "Blanks Inside Sentences",
+  "area": "Forms",
+  "sub": "Fields",
+  "badge": "rule",
+  "rule": "Keep the sentence intact and replace each fill-in with [___] in place. Retain printed hints next to their own blank, once.",
+  "situation": "Affidavits, declarations and notarial blocks print their fields as prose with gaps in it:",
+  "samples": 3,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Fill-Ins",
+    "slug": "forms-2-fields-fill-ins"
+   },
+   {
+    "title": "Ids and Labels",
+    "slug": "forms-1-the-output-format-ids-and-labels"
+   },
+   {
+    "title": "Fields Outside the Form",
+    "slug": "forms-3-structure-fields-outside-the-form"
+   }
+  ]
+ },
+ {
+  "slug": "forms-2-fields-checkboxes",
+  "title": "Checkboxes",
+  "area": "Forms",
+  "sub": "Fields",
+  "badge": "rule",
+  "rule": "[x] checked, [ ] unchecked. An unchecked box is transcribed explicitly and never dropped.",
+  "situation": "",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Option Groups",
+    "slug": "forms-2-fields-option-groups"
+   },
+   {
+    "title": "The Key-Value List",
+    "slug": "forms-1-the-output-format-the-key-value-list"
+   },
+   {
+    "title": "Fill-Ins",
+    "slug": "forms-2-fields-fill-ins"
+   },
+   {
+    "title": "Tables Inside Forms",
+    "slug": "forms-3-structure-tables-inside-forms"
+   }
+  ]
+ },
+ {
+  "slug": "forms-2-fields-checklists",
+  "title": "Checklists",
+  "area": "Forms",
+  "sub": "Fields",
+  "badge": "rule",
+  "rule": "Put each checkbox before its printed label and nest the items under their group label. Keep a group-level checkbox on that group's line. Do not promote form labels to document headings.",
+  "situation": "A list of items each led by a box, sometimes under a heading that carries a box of its own. Nothing is being answered; the page is a to-do list or a required-documents list.",
+  "samples": 6,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Checkboxes",
+    "slug": "forms-2-fields-checkboxes"
+   },
+   {
+    "title": "Option Groups",
+    "slug": "forms-2-fields-option-groups"
+   },
+   {
+    "title": "The Key-Value List",
+    "slug": "forms-1-the-output-format-the-key-value-list"
+   },
+   {
+    "title": "Form Reading Order",
+    "slug": "forms-3-structure-form-reading-order"
+   }
+  ]
+ },
+ {
+  "slug": "forms-2-fields-fill-ins",
+  "title": "Fill-Ins",
+  "area": "Forms",
+  "sub": "Fields",
+  "badge": "rule",
+  "rule": "One line per printed entry field. A blank field is [___] — never omitted.",
+  "situation": "",
+  "samples": 8,
+  "counters": 0,
+  "related": [
+   {
+    "title": "The Key-Value List",
+    "slug": "forms-1-the-output-format-the-key-value-list"
+   },
+   {
+    "title": "Values Are Verbatim",
+    "slug": "forms-1-the-output-format-values-are-verbatim"
+   },
+   {
+    "title": "Sections and Grouped Fields",
+    "slug": "forms-3-structure-sections-and-grouped-fields"
+   },
+   {
+    "title": "Checkboxes",
+    "slug": "forms-2-fields-checkboxes"
+   },
+   {
+    "title": "Signatures",
+    "slug": "text-2-marks-on-the-page-signatures"
+   }
+  ]
+ },
+ {
+  "slug": "forms-2-fields-option-groups",
+  "title": "Option Groups",
+  "area": "Forms",
+  "sub": "Fields",
+  "badge": "rule",
+  "rule": "A question answered by ticking one or more of several printed boxes is one group: the caption line, then one nested box-first line per option. All options are listed, ticked or not.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Checkboxes",
+    "slug": "forms-2-fields-checkboxes"
+   },
+   {
+    "title": "The Key-Value List",
+    "slug": "forms-1-the-output-format-the-key-value-list"
+   },
+   {
+    "title": "Ids and Labels",
+    "slug": "forms-1-the-output-format-ids-and-labels"
+   }
+  ]
+ },
+ {
+  "slug": "forms-2-fields-printed-buttons-and-placeholders",
+  "title": "Printed Buttons and Placeholders",
+  "area": "Forms",
+  "sub": "Fields",
+  "badge": "open",
+  "rule": "Transcribe the text of a printed button or placeholder box where it sits, and flag the page. A box reserved for a stamp or seal is not a fill-in and gets no [___].",
+  "situation": "Fillable PDFs export their widgets into the page: Print, Save, Clear buttons and the notice beside them. Court forms reserve empty boxes — [SEAL], File Stamp Here, COURT USE ONLY — for something to be added by hand later.",
+  "samples": 3,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Fill-Ins",
+    "slug": "forms-2-fields-fill-ins"
+   },
+   {
+    "title": "Seals and Round Stamps",
+    "slug": "text-2-marks-on-the-page-seals-and-round-stamps"
+   },
+   {
+    "title": "Court Caption Blocks",
+    "slug": "layout-court-caption-blocks"
+   }
+  ]
+ },
+ {
+  "slug": "forms-3-structure-fields-outside-the-form",
+  "title": "Fields Outside the Form",
+  "area": "Forms",
+  "sub": "Structure",
+  "badge": "rule",
+  "rule": "Fields in headers, footers, or anywhere outside the main form element are still emitted. Above the form → before the form content. Otherwise → after it.",
+  "situation": "CORRECTED, Final K-1, Amended K-1 — these sit outside the ruled form body and are easy to sweep past, but each one changes what the whole document means. A K-1 marked Amended is not the same filing as one that is not.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Checkboxes",
+    "slug": "forms-2-fields-checkboxes"
+   },
+   {
+    "title": "Form Reading Order",
+    "slug": "forms-3-structure-form-reading-order"
+   },
+   {
+    "title": "The Key-Value List",
+    "slug": "forms-1-the-output-format-the-key-value-list"
+   }
+  ]
+ },
+ {
+  "slug": "forms-3-structure-form-reading-order",
+  "title": "Form Reading Order",
+  "area": "Forms",
+  "sub": "Structure",
+  "badge": "rule",
+  "rule": "Prefer the printed indexing scheme — the ids — over column-first or row-first geometry.",
+  "situation": "A form's ids are its intended order. Where lettered and numbered fields share a page, read one scheme through, then the other, rather than sweeping across the page and interleaving them.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Sections and Grouped Fields",
+    "slug": "forms-3-structure-sections-and-grouped-fields"
+   },
+   {
+    "title": "Ids and Labels",
+    "slug": "forms-1-the-output-format-ids-and-labels"
+   },
+   {
+    "title": "Fields Outside the Form",
+    "slug": "forms-3-structure-fields-outside-the-form"
+   },
+   {
+    "title": "Reading Order",
+    "slug": "layout-reading-order"
+   }
+  ]
+ },
+ {
+  "slug": "forms-3-structure-sections-and-grouped-fields",
+  "title": "Sections and Grouped Fields",
+  "area": "Forms",
+  "sub": "Structure",
+  "badge": "rule",
+  "rule": "A printed heading that names a group of fields opens a section. Only printed groupings get a parent — never wrap fields in a section the form does not print.",
+  "situation": "Two shapes, depending on the size of the grouping.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "The Key-Value List",
+    "slug": "forms-1-the-output-format-the-key-value-list"
+   },
+   {
+    "title": "Fill-Ins",
+    "slug": "forms-2-fields-fill-ins"
+   },
+   {
+    "title": "Form Reading Order",
+    "slug": "forms-3-structure-form-reading-order"
+   },
+   {
+    "title": "Ids and Labels",
+    "slug": "forms-1-the-output-format-ids-and-labels"
+   }
+  ]
+ },
+ {
+  "slug": "forms-3-structure-tables-inside-forms",
+  "title": "Tables Inside Forms",
+  "area": "Forms",
+  "sub": "Structure",
+  "badge": "rule",
+  "rule": "Use a table only for a genuine grid: one shared set of printed column headers over repeating same-shaped rows, or a printed row-by-column matrix. When ambiguous, prefer individual field lines.",
+  "situation": "",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "The Key-Value List",
+    "slug": "forms-1-the-output-format-the-key-value-list"
+   },
+   {
+    "title": "Checkboxes",
+    "slug": "forms-2-fields-checkboxes"
+   },
+   {
+    "title": "Blank and Spacer Rows",
+    "slug": null
+   },
+   {
+    "title": "Barely-Existing Columns and Headers",
+    "slug": null
+   },
+   {
+    "title": "Is This Even a Table",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "forms-forms-and-key-value-regions",
+  "title": "Forms and Key-Value Regions",
+  "area": "Forms",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Fill-in fields and checkbox regions are key-value content, not tables. Annotate only the genuine ruled tables on the page and leave the form fields alone — never build a two-column key/value table that is not printed on the page.",
+  "situation": "Form controls printed on the page — labels waiting for a value, checkbox rows, signature and date lines — look tabular because they line up in columns. They are not tables, and the alignment is typesetting, not structure.",
+  "samples": 4,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Marks and Symbols in Cells",
+    "slug": "tables-6-cell-values-marks-and-symbols-in-cells"
+   },
+   {
+    "title": "Is This Even a Table",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "forms-open-questions-on-forms",
+  "title": "Repeated and Unlabelled Fields",
+  "area": "Forms",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Keep repeating unlabelled field groups as anonymous groups in printed order. Use separate nested groups in items and blank lines between groups in Markdown. Do not invent Vehicle 1 headings.",
+  "situation": "",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "The Key-Value List",
+    "slug": "forms-1-the-output-format-the-key-value-list"
+   },
+   {
+    "title": "Values Are Verbatim",
+    "slug": "forms-1-the-output-format-values-are-verbatim"
+   },
+   {
+    "title": "Fields Outside the Form",
+    "slug": "forms-3-structure-fields-outside-the-form"
+   },
+   {
+    "title": "Sections and Grouped Fields",
+    "slug": "forms-3-structure-sections-and-grouped-fields"
+   }
+  ]
+ },
+ {
+  "slug": "images-images-and-figures",
+  "title": "Images and Figures",
+  "area": "Images",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Never emit ![caption](path). Never emit a bracketed placeholder like [The image shows…]. Describe the content as text, a table, or a diagram — whichever the image actually is.",
+  "situation": "The reasoning is that a parse output is consumed by a model or an extraction step. An image reference is a dead end to both; the content has to be in the text stream.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Diagrams and Flowcharts",
+    "slug": "diagrams-diagrams-and-flowcharts"
+   },
+   {
+    "title": "Cover Every Data Point",
+    "slug": "charts-1-the-annotation-cover-every-data-point"
+   },
+   {
+    "title": "Images",
+    "slug": "images-images"
+   },
+   {
+    "title": "Layout Regions",
+    "slug": "layout-layout-regions"
+   }
+  ]
+ },
+ {
+  "slug": "images-images",
+  "title": "Images",
+  "area": "Images",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Put the image's content into the text stream as whatever the image actually is — transcribed text, a table, or a diagram. Never a file reference, never a bracketed placeholder.",
+  "situation": "An image is not a thing you point at; it is content that happens to have been rasterised. Whatever a reader would take away from looking at it has to end up in the output as text, or it is lost.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Images and Figures",
+    "slug": "images-images-and-figures"
+   },
+   {
+    "title": "Iconography and Symbols",
+    "slug": "text-2-marks-on-the-page-iconography-and-symbols"
+   },
+   {
+    "title": "Slide Diagrams",
+    "slug": "diagrams-slide-diagrams"
+   },
+   {
+    "title": "What the Run Was Asked to Produce",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "images-logos",
+  "title": "Logos",
+  "area": "Images",
+  "sub": null,
+  "badge": "open",
+  "rule": "Transcribe the words a logo prints, where the logo sits in reading order. Do not describe the artwork, and do not drop the words. Flag the page only when the logo carries no legible text.",
+  "situation": "Almost every slide and letterhead carries one: a wordmark in the corner, a symbol beside it, sometimes a faint version behind the content. Images says describe decorative art in prose and transcribe any legible text; Ignoring and Rejecting says never ignore an ordinary logo. Neither says what a logo becomes in the output.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Images",
+    "slug": "images-images"
+   },
+   {
+    "title": "Margin Banners",
+    "slug": "text-2-marks-on-the-page-margin-banners"
+   },
+   {
+    "title": "Watermarks",
+    "slug": "text-2-marks-on-the-page-watermarks"
+   }
+  ]
+ },
+ {
+  "slug": "layout-annotation-granularity",
+  "title": "Annotation Granularity",
+  "area": "Layout",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Annotate at the granularity the page is being evaluated at — no finer. Ask for one level, not several; the finest level you name is the only one you get.",
+  "situation": "How finely a region is broken down — and therefore how precisely output can be traced back to the page.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Layout Regions",
+    "slug": "layout-layout-regions"
+   },
+   {
+    "title": "Repeated Identical Values",
+    "slug": null
+   },
+   {
+    "title": "Cell Text Fidelity",
+    "slug": null
+   },
+   {
+    "title": "The annotation QA checklist",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "layout-block-annotation",
+  "title": "Block Annotation",
+  "area": "Layout",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Draw one Block around every meaningful visible region on the page, give each a class and a position in reading order, and sweep the whole page before publishing. Missing content is an annotation error.",
+  "situation": "A Block is one coherent visual region — a paragraph, a heading, a list item, a picture, a table, a caption, a form area.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Block Classes",
+    "slug": "layout-block-classes"
+   },
+   {
+    "title": "Block Boundaries",
+    "slug": "layout-block-boundaries"
+   },
+   {
+    "title": "Reading Order",
+    "slug": "layout-reading-order"
+   },
+   {
+    "title": "Ignoring and Rejecting",
+    "slug": "layout-ignoring-and-rejecting"
+   },
+   {
+    "title": "Annotation Granularity",
+    "slug": "layout-annotation-granularity"
+   }
+  ]
+ },
+ {
+  "slug": "layout-block-boundaries",
+  "title": "Block Boundaries",
+  "area": "Layout",
+  "sub": null,
+  "badge": "rule",
+  "rule": "A Picture or Table Block contains the complete object and nothing else. It never absorbs the caption, the title, the source note, or nearby prose — those are their own Blocks.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Block Classes",
+    "slug": "layout-block-classes"
+   },
+   {
+    "title": "Block Annotation",
+    "slug": "layout-block-annotation"
+   },
+   {
+    "title": "Reading Order",
+    "slug": "layout-reading-order"
+   },
+   {
+    "title": "Titles Banners Captions",
+    "slug": null
+   },
+   {
+    "title": "Bottom Edge Totals and Islands",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "layout-block-classes",
+  "title": "Block Classes",
+  "area": "Layout",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Every Block gets exactly one class. If the class is genuinely unclear, add a review note and request a second review — never pick a class merely to finish the page.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Block Annotation",
+    "slug": "layout-block-annotation"
+   },
+   {
+    "title": "Block Boundaries",
+    "slug": "layout-block-boundaries"
+   },
+   {
+    "title": "Layout Regions",
+    "slug": "layout-layout-regions"
+   },
+   {
+    "title": "The Key-Value List",
+    "slug": "forms-1-the-output-format-the-key-value-list"
+   },
+   {
+    "title": "Checkboxes",
+    "slug": "forms-2-fields-checkboxes"
+   }
+  ]
+ },
+ {
+  "slug": "layout-court-caption-blocks",
+  "title": "Court Caption Blocks",
+  "area": "Layout",
+  "sub": null,
+  "badge": "open",
+  "rule": "Transcribe every string in the caption, left column first, then the right, each on its own line. Blank party lines are [___]. Do not build a two-column table, and flag the page.",
+  "situation": "The head of a court filing: the parties stacked on the left (Plaintiff, v., Defendant), a divider — a vertical rule, a column of § signs, or a box edge — and the court, case number and document title on the right.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Blanks Inside Sentences",
+    "slug": "forms-2-fields-blanks-inside-sentences"
+   },
+   {
+    "title": "Reading Order",
+    "slug": "layout-reading-order"
+   },
+   {
+    "title": "Is This Even a Table",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "layout-embedded-pages",
+  "title": "Embedded Pages",
+  "area": "Layout",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Transcribe the wrapper furniture, then the embedded page in its own reading order. Preserve both page numbers with their regions. Do not promote titles inside an embedded form screenshot into the wrapper's outline.",
+  "situation": "A page reproduced inside another page: a statute page shrunk into the middle of an exhibit sheet, a slide placed on a letter-size page. Each carries its own header and page number, so the sheet has two of everything.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Overlapping Text",
+    "slug": "text-2-marks-on-the-page-overlapping-text"
+   },
+   {
+    "title": "Court Caption Blocks",
+    "slug": "layout-court-caption-blocks"
+   },
+   {
+    "title": "Block Classes",
+    "slug": "layout-block-classes"
+   },
+   {
+    "title": "Printed Page Numbers",
+    "slug": "page-structure-printed-page-numbers"
+   }
+  ]
+ },
+ {
+  "slug": "layout-ignoring-and-rejecting",
+  "title": "Ignoring and Rejecting",
+  "area": "Layout",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Ignore this visible region is for a bounded exception. Always add a reason and a short review note.",
+  "situation": "Do not ignore ordinary logos, page numbers, or content that is merely difficult but readable.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Block Annotation",
+    "slug": "layout-block-annotation"
+   },
+   {
+    "title": "Reading Order",
+    "slug": "layout-reading-order"
+   },
+   {
+    "title": "The annotation QA checklist",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "layout-layout-regions",
+  "title": "Layout Regions",
+  "area": "Layout",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Label the region before you transcribe anything. The label decides which rule applies, so a mislabelled region is wrong no matter how carefully its contents are typed out.",
+  "situation": "Before anything is transcribed, the page is segmented into regions, each carrying a label. The label decides which rule applies — so getting the region right is upstream of every other decision in this guide.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Block Annotation",
+    "slug": "layout-block-annotation"
+   },
+   {
+    "title": "Block Classes",
+    "slug": "layout-block-classes"
+   },
+   {
+    "title": "Block Boundaries",
+    "slug": "layout-block-boundaries"
+   },
+   {
+    "title": "Reading Order",
+    "slug": "layout-reading-order"
+   },
+   {
+    "title": "Annotation Granularity",
+    "slug": "layout-annotation-granularity"
+   }
+  ]
+ },
+ {
+  "slug": "layout-pleading-line-numbers",
+  "title": "Pleading Line Numbers",
+  "area": "Layout",
+  "sub": null,
+  "badge": "open",
+  "rule": "Do not let the numbers land inside the body text. Keep the prose as continuous paragraphs, record once that the page is numbered pleading paper, and flag the page.",
+  "situation": "US court filings are printed on pleading paper: the numbers 1–28 run down the left margin, one per ruled line, with a double vertical rule between the numbers and the text. The numbers are cited in practice (\"page 9, line 14\") but they belong to the paper, not to the prose.",
+  "samples": 3,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Block Classes",
+    "slug": "layout-block-classes"
+   },
+   {
+    "title": "Reading Order",
+    "slug": "layout-reading-order"
+   },
+   {
+    "title": "Margin Banners",
+    "slug": "text-2-marks-on-the-page-margin-banners"
+   },
+   {
+    "title": "Printed Page Numbers",
+    "slug": "page-structure-printed-page-numbers"
+   }
+  ]
+ },
+ {
+  "slug": "layout-reading-order",
+  "title": "Reading Order",
+  "area": "Layout",
+  "sub": null,
+  "badge": "rule",
+  "rule": "One sequence across all accepted Blocks on the page. Start at 0, with no gaps and no duplicates.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Block Annotation",
+    "slug": "layout-block-annotation"
+   },
+   {
+    "title": "Block Classes",
+    "slug": "layout-block-classes"
+   },
+   {
+    "title": "Ignoring and Rejecting",
+    "slug": "layout-ignoring-and-rejecting"
+   },
+   {
+    "title": "Images and Figures",
+    "slug": "images-images-and-figures"
+   }
+  ]
+ },
+ {
+  "slug": "layout-slide-furniture",
+  "title": "Slide Furniture",
+  "area": "Layout",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Transcribe all printed navigation tabs in order as furniture. Preserve meaningful highlighting using the text-colour convention when it identifies the active section.",
+  "situation": "Presentation decks print things around their content that a document does not: a row of section tabs along the top edge with the current one highlighted, name labels overlaid on photographs, a running footer with the deck name and slide number.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Stat Tiles",
+    "slug": "layout-stat-tiles"
+   },
+   {
+    "title": "Logos",
+    "slug": "images-logos"
+   },
+   {
+    "title": "Margin Banners",
+    "slug": "text-2-marks-on-the-page-margin-banners"
+   }
+  ]
+ },
+ {
+  "slug": "layout-stat-tiles",
+  "title": "Stat Tiles",
+  "area": "Layout",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Write one printed label–value pair per stat tile, in tile reading order, under any real panel heading. Keep units and qualifiers attached.",
+  "situation": "A slide panel that prints a big number with a short label — Out-of-home +26.5%, Total -19.8% — usually two or three of them side by side under a heading.",
+  "samples": 3,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Borderless Whitespace Tables",
+    "slug": null
+   },
+   {
+    "title": "Slide Furniture",
+    "slug": "layout-slide-furniture"
+   },
+   {
+    "title": "Forms and Key-Value Regions",
+    "slug": "forms-forms-and-key-value-regions"
+   }
+  ]
+ },
+ {
+  "slug": "lists-bullets-and-sub-bullets",
+  "title": "Bullets and Sub-Bullets",
+  "area": "Lists",
+  "sub": null,
+  "badge": "rule",
+  "rule": "* for bullet points. - for sub-bullets.",
+  "situation": "Two markers, two levels — the distinction carries the nesting, so they are not interchangeable.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Checkboxes",
+    "slug": "forms-2-fields-checkboxes"
+   },
+   {
+    "title": "Record Groups and Multi-Line Cells",
+    "slug": null
+   },
+   {
+    "title": "Row-Label Hierarchy",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "other-chemical-molecules",
+  "title": "Chemical Molecules",
+  "area": "Other",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Use \\ce{...} for linear formulae, ions and reactions, and \\chemfig{...} for drawn structures, rings and branches. Put standalone markup in a fenced latex block. Preserve legible structure; describe unreadable portions and flag them instead of guessing.",
+  "situation": "Structural formulae and reaction equations printed as figures.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Electrical Schematics",
+    "slug": "diagrams-electrical-schematics"
+   },
+   {
+    "title": "Inline Equations",
+    "slug": "text-1-inline-formatting-inline-equations"
+   }
+  ]
+ },
+ {
+  "slug": "other-music-notation",
+  "title": "Music Notation",
+  "area": "Other",
+  "sub": null,
+  "badge": "open",
+  "rule": "There is no settled encoding for printed staves. Until there is: transcribe everything printed around the notation — title, tempo, key and time signatures, dynamics, lyrics, rehearsal marks, instrument names — describe the staves themselves rather than guessing at pitches, and flag the page.",
+  "situation": "A page of printed staves. The notes on the staff have no agreed textual form yet, but a music page is rarely only staves: it carries a great deal of ordinary printed text, and none of that may be lost while the staff question is open.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Images",
+    "slug": "images-images"
+   },
+   {
+    "title": "Chemical Molecules",
+    "slug": "other-chemical-molecules"
+   }
+  ]
+ },
+ {
+  "slug": "page-structure-dot-leader-lines",
+  "title": "Dot Leader Lines",
+  "area": "Page structure",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Remove dot leaders. Keep the label and the number on either side of them exactly as printed; emit nothing for the dots themselves.",
+  "situation": "This is a deliberate exception to verbatim transcription Everywhere else in this guide, printed ink survives — see Values Are Verbatim and Cell Text Fidelity. Dot leaders are the carve-out: they are the one printed mark that exists purely to guide the eye across a gutter and carry no information whatsoever.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Table of Contents",
+    "slug": "page-structure-table-of-contents"
+   },
+   {
+    "title": "Line Separators and Breaks",
+    "slug": "page-structure-line-separators-and-breaks"
+   }
+  ]
+ },
+ {
+  "slug": "page-structure-heading-depth-across-pages",
+  "title": "Heading Depth Across Pages",
+  "area": "Page structure",
+  "sub": null,
+  "badge": "rule",
+  "rule": "A new page does not restart the hierarchy. Give a heading the depth its place in the document implies. Only annotate a top-level heading where the page actually prints one.",
+  "situation": "A page break is a printing accident, not a structural boundary. The section that was open at the foot of one page is still open at the head of the next, and a heading that continues it keeps its depth.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Block Classes",
+    "slug": "layout-block-classes"
+   },
+   {
+    "title": "Recurring Page Furniture",
+    "slug": "page-structure-recurring-page-furniture"
+   },
+   {
+    "title": "Titles Banners Captions",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "page-structure-line-breaks-inside-a-block",
+  "title": "Line Breaks Inside a Block",
+  "area": "Page structure",
+  "sub": null,
+  "badge": "open",
+  "rule": "Which break to emit inside a single block is unsettled. Meanwhile: keep the block whole — one item, both lines, one break between them — emit a plain newline, never split it into two blocks, and flag the page.",
+  "situation": "One printed block that runs to more than one line because the page sets it that way: a stacked masthead, a postal address, a two-line banner, a title broken across a rule. The lines belong together; only the typesetting separates them.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Line Separators and Breaks",
+    "slug": "page-structure-line-separators-and-breaks"
+   },
+   {
+    "title": "Text Formatting Conventions",
+    "slug": null
+   },
+   {
+    "title": "Recurring Page Furniture",
+    "slug": "page-structure-recurring-page-furniture"
+   }
+  ]
+ },
+ {
+  "slug": "page-structure-line-separators-and-breaks",
+  "title": "Line Separators and Breaks",
+  "area": "Page structure",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Emit <hr/> for a printed section separator in reading order. Reserve --- for page boundaries; do not insert rules for whitespace alone.",
+  "situation": "A horizontal rule or separator printed between sections of a page. It is real printed content: it tells a reader that one block has ended and another begun, so it must survive into the output in some form.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Dot Leader Lines",
+    "slug": "page-structure-dot-leader-lines"
+   },
+   {
+    "title": "Text Formatting Conventions",
+    "slug": null
+   },
+   {
+    "title": "Line Breaks Inside a Block",
+    "slug": "page-structure-line-breaks-inside-a-block"
+   }
+  ]
+ },
+ {
+  "slug": "page-structure-marginal-notes",
+  "title": "Marginal Notes",
+  "area": "Page structure",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Place each marginal note immediately after the paragraph it annotates, as a separate block. If its attachment is uncertain, retain it separately and flag the page.",
+  "situation": "Statutes and some textbooks print short notes in the outer margin — a citation, a one-word gloss — aligned with the line they annotate. They are printed text, not handwriting, and they belong to a particular line.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Reading Order",
+    "slug": "layout-reading-order"
+   },
+   {
+    "title": "Run-In Headings",
+    "slug": "page-structure-run-in-headings"
+   },
+   {
+    "title": "Handwritten Annotations",
+    "slug": "text-2-marks-on-the-page-handwritten-annotations"
+   }
+  ]
+ },
+ {
+  "slug": "page-structure-numbered-section-headings",
+  "title": "Numbered Section Headings",
+  "area": "Page structure",
+  "sub": null,
+  "badge": "open",
+  "rule": "Keep the printed number with its heading text, exactly as printed. Choose heading or list item by what follows: a heading has body text under it, a list item is the text. Flag the page when the two readings are both plausible.",
+  "situation": "Legal and technical documents number their sections — 1., 1.1., 2.3. — and set each on its own line, often underlined or bold, with a paragraph beneath. On the page this is a heading; in the text layer it is indistinguishable from an ordered list.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Bullets and Sub-Bullets",
+    "slug": "lists-bullets-and-sub-bullets"
+   },
+   {
+    "title": "Block Classes",
+    "slug": "layout-block-classes"
+   },
+   {
+    "title": "Table of Contents",
+    "slug": "page-structure-table-of-contents"
+   },
+   {
+    "title": "Heading Depth Across Pages",
+    "slug": "page-structure-heading-depth-across-pages"
+   }
+  ]
+ },
+ {
+  "slug": "page-structure-printed-page-numbers",
+  "title": "Printed Page Numbers",
+  "area": "Page structure",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Record the folio twice: in the footer band as printed, and as the page's printed number on its own. The number the page shows is rarely the position of the sheet — capture both, and never leave the folio loose in the body.",
+  "situation": "The number a document prints on itself: 26, Page 6, Page 3 of 12, iv, A-3. It sits in the top or bottom margin, often beside a date, a form number or a URL.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Recurring Page Furniture",
+    "slug": "page-structure-recurring-page-furniture"
+   },
+   {
+    "title": "Block Classes",
+    "slug": "layout-block-classes"
+   }
+  ]
+ },
+ {
+  "slug": "page-structure-recognising-ambiguous-headings",
+  "title": "Recognising Ambiguous Headings",
+  "area": "Page structure",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Use a heading for a standalone structural title that organises what follows. Keep run-in labels, repeated item labels, captions and page furniture in their own roles. Never use font size alone.",
+  "situation": "Ask what the line does before choosing its depth. A short bold line can organise a section; a large banner can belong entirely to a form or table.",
+  "samples": 25,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Heading Depth Across Pages",
+    "slug": "page-structure-heading-depth-across-pages"
+   },
+   {
+    "title": "Run-In Headings",
+    "slug": "page-structure-run-in-headings"
+   },
+   {
+    "title": "Numbered Section Headings",
+    "slug": "page-structure-numbered-section-headings"
+   },
+   {
+    "title": "Stacked Headings",
+    "slug": "page-structure-stacked-headings"
+   },
+   {
+    "title": "Titles Banners Captions",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "page-structure-recurring-page-furniture",
+  "title": "Recurring Page Furniture",
+  "area": "Page structure",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Decide once for the document, not once per page. A band that is page furniture anywhere is page furniture on every page it appears on — header or footer, never body text and never a heading.",
+  "situation": "The repeated strip at the top or bottom margin: an agency name, a running title, a brand mark, a document or exhibit stamp, a revision date, a folio. It carries no argument; it tells the reader which document the sheet belongs to.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Block Classes",
+    "slug": "layout-block-classes"
+   },
+   {
+    "title": "Layout Regions",
+    "slug": "layout-layout-regions"
+   },
+   {
+    "title": "Images",
+    "slug": "images-images"
+   }
+  ]
+ },
+ {
+  "slug": "page-structure-run-in-headings",
+  "title": "Run-In Headings",
+  "area": "Page structure",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Keep a run-in label and its following sentence, value or URL in one paragraph. Preserve printed emphasis; do not promote the label to a Markdown heading.",
+  "situation": "A heading set at the start of its own paragraph, in bold or colour, with the body text continuing on the same line. Contracts number their clauses this way; glossaries print the term this way.",
+  "samples": 3,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Numbered Section Headings",
+    "slug": "page-structure-numbered-section-headings"
+   },
+   {
+    "title": "Stacked Headings",
+    "slug": "page-structure-stacked-headings"
+   },
+   {
+    "title": "Bold and Italics",
+    "slug": "text-1-inline-formatting-bold-and-italics"
+   }
+  ]
+ },
+ {
+  "slug": "page-structure-stacked-headings",
+  "title": "Stacked Headings",
+  "area": "Page structure",
+  "sub": null,
+  "badge": "rule",
+  "rule": "Join the wrapped lines of one title with spaces. Keep an article number with its title. Separate company names, exhibit labels and other furniture from the title; split title and subtitle only when the document establishes distinct roles.",
+  "situation": "A heading printed over two or three centred lines: an article number over its title, a note number over a title that wraps, a company name over a statement name.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Run-In Headings",
+    "slug": "page-structure-run-in-headings"
+   },
+   {
+    "title": "Numbered Section Headings",
+    "slug": "page-structure-numbered-section-headings"
+   },
+   {
+    "title": "Header Wrap vs Real Tier",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "page-structure-table-of-contents",
+  "title": "Table of Contents",
+  "area": "Page structure",
+  "sub": null,
+  "badge": "open",
+  "rule": "Whether a contents page is a table or a list is unsettled. Meanwhile: keep every entry and its page number, pair each label with its own number so nothing is orphaned, and flag the page.",
+  "situation": "A contents page: label, dot leader, page number.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Dot Leader Lines",
+    "slug": "page-structure-dot-leader-lines"
+   },
+   {
+    "title": "Is This Even a Table",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "page-structure-transcript-pages",
+  "title": "Transcript Pages",
+  "area": "Page structure",
+  "sub": null,
+  "badge": "open",
+  "rule": "Keep one output line per printed line, with its Q or A marker at the start of the line. Do not build a table, do not merge a wrapped answer into one paragraph, and flag the page.",
+  "situation": "A deposition or hearing transcript: numbered lines 1–25, a Q / A column, and text that wraps to the left margin on its continuation lines. The line numbers are cited (\"page 47, line 12\"), so the line structure is part of the content in a way ordinary prose is not.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Pleading Line Numbers",
+    "slug": "layout-pleading-line-numbers"
+   },
+   {
+    "title": "Redacted Text",
+    "slug": "text-2-marks-on-the-page-redacted-text"
+   },
+   {
+    "title": "Verse and Hard Line Breaks",
+    "slug": "text-1-inline-formatting-verse-and-hard-line-breaks"
+   }
+  ]
+ },
+ {
+  "slug": "tables-1-what-counts-as-a-table-borderless-whitespace-tables",
+  "title": "Borderless Whitespace-Aligned Tables",
+  "area": "Tables",
+  "sub": "What counts as a table",
+  "badge": "rule",
+  "rule": "A whitespace-aligned block is a table. Read the column tracks off the widest row, put every value in the track it sits in, and never fall back to preformatted text.",
+  "situation": "Typewriter and fixed-width reports where the columns exist only as alignment — no rules, no fills, no shading. Nothing on the page tells you where one column ends and the next begins except the whitespace.",
+  "samples": 8,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Is This Even a Table",
+    "slug": null
+   },
+   {
+    "title": "Cell Text Fidelity",
+    "slug": null
+   },
+   {
+    "title": "Gutter Columns",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-1-what-counts-as-a-table-chart-with-a-printed-data-grid",
+  "title": "Chart With a Printed Axis/Data Grid",
+  "area": "Tables",
+  "sub": "What counts as a table",
+  "badge": "rule",
+  "rule": "When a chart prints its data grid beside or beneath the canvas, annotate that grid exactly as printed — same orientation, same headers, same row order. Annotate nothing else for the chart.",
+  "situation": "Some charts print their numbers as a small grid next to the canvas: a bar chart with bucket-columns × metric-rows underneath, for example. That printed grid is often transposed relative to the [Category, Value] shape a chart is usually reasoned about in.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Rotated and Diagonal Content",
+    "slug": null
+   },
+   {
+    "title": "Duplicated Tables",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-1-what-counts-as-a-table-empty-pre-printed-grids",
+  "title": "Empty Pre-Printed Grids",
+  "area": "Tables",
+  "sub": "What counts as a table",
+  "badge": "rule",
+  "rule": "Annotate the grid: keep the headers, and keep every printed empty row as an empty row. Do not skip the table and do not reduce it to headers alone. Flag the page, so a reader can see the grid was empty rather than missed.",
+  "situation": "A blank form table — full ruled structure, headers printed, no values entered anywhere.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Header-Only Tables",
+    "slug": null
+   },
+   {
+    "title": "Forms and Key-Value Regions",
+    "slug": "forms-forms-and-key-value-regions"
+   },
+   {
+    "title": "Blank and Spacer Rows",
+    "slug": null
+   },
+   {
+    "title": "Is This Even a Table",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-1-what-counts-as-a-table-header-only-tables",
+  "title": "Header-Only Tables & Other Degenerate Outputs",
+  "area": "Tables",
+  "sub": "What counts as a table",
+  "badge": "rule",
+  "rule": "Never annotate a table that is a header with no body. Find the body and keep it with its header, or annotate the header as ordinary text — but never leave an orphan header row standing as a table.",
+  "situation": "A header row gets annotated as its own table while the rows it describes end up in a neighbouring region as plain text. The result claims there is a table with no data in it, and separately claims there is a run of loose numbers with no meaning.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Split Tables Sharing a Header",
+    "slug": null
+   },
+   {
+    "title": "Empty Pre-Printed Grids",
+    "slug": "tables-1-what-counts-as-a-table-empty-pre-printed-grids"
+   },
+   {
+    "title": "Side-by-Side Mini Tables",
+    "slug": null
+   },
+   {
+    "title": "Is This Even a Table",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-1-what-counts-as-a-table-is-this-even-a-table",
+  "title": "Is This Even a Table?",
+  "area": "Tables",
+  "sub": "What counts as a table",
+  "badge": "rule",
+  "rule": "Annotate a region as a table when its rows and columns encode a relation — when the position of a value in the grid is what tells you what the value means. Nothing else qualifies.",
+  "situation": "This is the first decision you make on a page, and everything else depends on it. A single page will often show the whole spectrum at once: real grids, gridded legends, ungridded label: value spec stacks, address blocks, and two-column prose that looks like a grid but is not.",
+  "samples": 0,
+  "counters": 6,
+  "related": [
+   {
+    "title": "Forms and Key-Value Regions",
+    "slug": "forms-forms-and-key-value-regions"
+   },
+   {
+    "title": "Borderless Whitespace Tables",
+    "slug": null
+   },
+   {
+    "title": "Table of Contents",
+    "slug": "page-structure-table-of-contents"
+   },
+   {
+    "title": "Header-Only Tables",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-2-boundaries-bands-inside-the-grid",
+  "title": "Bands Inside the Grid: dates, cohorts, shading",
+  "area": "Tables",
+  "sub": "Boundaries",
+  "badge": "rule",
+  "rule": "A full-width band inside a grid — a date line, a section line, a change of shading — does not end the table. Keep one table and annotate the band as a row spanning every column.",
+  "situation": "The tell is the column headers. If the headers are not re-declared under the band, the table never closed: the band is an internal divider, not a boundary.",
+  "samples": 5,
+  "counters": 1,
+  "related": [
+   {
+    "title": "Repeated Headers and Title Bands",
+    "slug": null
+   },
+   {
+    "title": "Titles Banners Captions",
+    "slug": null
+   },
+   {
+    "title": "Multi-Row Header Tiers",
+    "slug": "tables-3-headers-multi-row-header-tiers"
+   },
+   {
+    "title": "Barely-Existing Columns and Headers",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-2-boundaries-column-continuation",
+  "title": "Column Continuation — one series printed as side-by-side halves",
+  "area": "Tables",
+  "sub": "Boundaries",
+  "badge": "rule",
+  "rule": "One long series printed as side-by-side blocks is one table per printed block, each carrying its own copy of the headers. Do not stack the blocks into one table, and never zip them into wide rows.",
+  "situation": "A long series — states A–Z, durations 1–36 — printed as two or three blocks beside each other under one title, with the headers repeated over each block and the key continuing from one block to the next.",
+  "samples": 4,
+  "counters": 2,
+  "related": [
+   {
+    "title": "Horizontal Slicing",
+    "slug": null
+   },
+   {
+    "title": "Split Tables Sharing a Header",
+    "slug": null
+   },
+   {
+    "title": "Repeated Headers and Title Bands",
+    "slug": null
+   },
+   {
+    "title": "Cross-Page Tables",
+    "slug": "tables-2-boundaries-cross-page-tables"
+   }
+  ]
+ },
+ {
+  "slug": "tables-2-boundaries-continued-in-the-title",
+  "title": "\"(continued)\" in the Title",
+  "area": "Tables",
+  "sub": "Boundaries",
+  "badge": "rule",
+  "rule": "Keep the continuation marker. (cont'd), (continued), Table 5 — … (cont.) is printed text and stays in the title verbatim. Annotate the fragment on this page as its own table, and note that it continues an earlier one.",
+  "situation": "Table 5 — Lapse Rates (cont'd)     ← explicit continuation marker | Duration | Rate |",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Cross-Page Tables",
+    "slug": "tables-2-boundaries-cross-page-tables"
+   },
+   {
+    "title": "Repeated Headers and Title Bands",
+    "slug": null
+   },
+   {
+    "title": "Titles Banners Captions",
+    "slug": null
+   },
+   {
+    "title": "What the Run Was Asked to Produce",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-2-boundaries-cross-page-tables",
+  "title": "Cross-Page Tables",
+  "area": "Tables",
+  "sub": "Boundaries",
+  "badge": "open",
+  "rule": "Annotate each page's fragment on its own page, complete and exactly as printed — nothing is dropped and nothing is carried across. Then note that the fragment looks like a continuation, and flag the page.",
+  "situation": "A table runs off the bottom of one page and picks up on the next, sometimes with the headers repeated, sometimes not, sometimes with \"(continued)\" in the title.",
+  "samples": 6,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Continued in the Title",
+    "slug": null
+   },
+   {
+    "title": "Repeated Headers and Title Bands",
+    "slug": null
+   },
+   {
+    "title": "Column Continuation",
+    "slug": null
+   },
+   {
+    "title": "Horizontal Slicing",
+    "slug": null
+   },
+   {
+    "title": "What the Run Was Asked to Produce",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-2-boundaries-duplicated-tables",
+  "title": "Page Prints the Same Table Twice",
+  "area": "Tables",
+  "sub": "Boundaries",
+  "badge": "rule",
+  "rule": "If the page prints the same table twice, annotate it twice. Transcription is not summarisation — never dedupe page content.",
+  "situation": "Page prints:                    Wrong: [Table X]  …  [Table X again]   [Table X]     ← second copy silently dropped",
+  "samples": 0,
+  "counters": 1,
+  "related": [
+   {
+    "title": "Cell Text Fidelity",
+    "slug": null
+   },
+   {
+    "title": "Chart With a Printed Data Grid",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-2-boundaries-group-and-cohort-bands",
+  "title": "Group and Cohort Bands",
+  "area": "Tables",
+  "sub": "Boundaries",
+  "badge": "rule",
+  "rule": "Bands over stacked grids resolve on one question: is there a shared row spine? Shared spine → one table. No shared spine and no column headers → one table per band, with the band as its header row.",
+  "situation": "Check the row spine first, then the column headers. Those two signals decide it; the bands themselves look identical in both cases.",
+  "samples": 5,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Bands Inside the Grid",
+    "slug": null
+   },
+   {
+    "title": "Barely-Existing Columns and Headers",
+    "slug": null
+   },
+   {
+    "title": "Repeated Headers and Title Bands",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-2-boundaries-horizontal-slicing",
+  "title": "Horizontal Slicing — too-wide table printed in stacked blocks",
+  "area": "Tables",
+  "sub": "Boundaries",
+  "badge": "rule",
+  "rule": "One table per printed block, each keeping its repeated row-label column. Never re-widen the blocks into a single wide table.",
+  "situation": "A table too wide for the page is printed as column blocks stacked vertically, with the row-label column repeated in each block.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Column Continuation",
+    "slug": null
+   },
+   {
+    "title": "Cross-Page Tables",
+    "slug": "tables-2-boundaries-cross-page-tables"
+   },
+   {
+    "title": "Repeated Headers and Title Bands",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-2-boundaries-repeated-headers-and-title-bands",
+  "title": "Repeated Headers / Title Bands Mid-Page",
+  "area": "Tables",
+  "sub": "Boundaries",
+  "badge": "rule",
+  "rule": "When the column headers are printed again after data rows, close the table and start a new one at the repeat. Header repetition is the boundary signal.",
+  "situation": "",
+  "samples": 1,
+  "counters": 1,
+  "related": [
+   {
+    "title": "Split Tables Sharing a Header",
+    "slug": null
+   },
+   {
+    "title": "Cross-Page Tables",
+    "slug": "tables-2-boundaries-cross-page-tables"
+   },
+   {
+    "title": "Bands Inside the Grid",
+    "slug": null
+   },
+   {
+    "title": "Continued in the Title",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-2-boundaries-side-by-side-mini-tables",
+  "title": "Side-by-Side Independent Mini-Tables",
+  "area": "Tables",
+  "sub": "Boundaries",
+  "badge": "rule",
+  "rule": "Boxes sitting side by side with their own titles and their own schemas are separate tables — even when their rows line up perfectly. Never weave neighbouring tables together, and never fold a small side table into the middle of another table's body.",
+  "situation": "Printed:  [Box A]      [Box B]        Woven output (the failure): | a1 | a2 |  | b1 | b2 |    | a1 | a2 | b1 | b2 | | a3 | a4 |  | b3 | b4 |    | a3 | a4 | b3 | b4 | ↑ rows from unrelated boxes glued together",
+  "samples": 6,
+  "counters": 1,
+  "related": [
+   {
+    "title": "Column Continuation",
+    "slug": null
+   },
+   {
+    "title": "Is This Even a Table",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-2-boundaries-split-tables-sharing-a-header",
+  "title": "Split Tables Sharing One Header Row / Label Column",
+  "area": "Tables",
+  "sub": "Boundaries",
+  "badge": "rule",
+  "rule": "If two fragments share a header row or a label column that is printed only once, annotate them as one table. The missing header is the proof that the second fragment was never meant to stand alone.",
+  "situation": "You will meet a grid printed as two or more visually separated fragments — a gap, a page-design break, a divider — where the header row or the label column is printed once and not repeated in the second fragment. Read the second fragment on its own: if it is unreadable without the header above it, it is not a separate table. Emitting it as a separate headerless table, or dropping it, loses the meaning of every value ",
+  "samples": 5,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Repeated Headers and Title Bands",
+    "slug": null
+   },
+   {
+    "title": "Column Continuation",
+    "slug": null
+   },
+   {
+    "title": "Header-Only Tables",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-3-headers-barely-existing-columns-and-headers",
+  "title": "Columns / Headers That Barely Exist",
+  "area": "Tables",
+  "sub": "Headers",
+  "badge": "rule",
+  "rule": "Transcribe what is printed and add nothing. Never drop a column or a header because it is empty, plainly styled or easy to miss; never invent a label for a cell that has none.",
+  "situation": "Four situations on this page look like nothing and are routinely lost. All four are the same mistake in one of two directions — a drop or an invention.",
+  "samples": 5,
+  "counters": 1,
+  "related": [
+   {
+    "title": "Repeated Identical Values",
+    "slug": null
+   },
+   {
+    "title": "Header Body Column Count Mismatch",
+    "slug": null
+   },
+   {
+    "title": "Multi-Row Header Tiers",
+    "slug": "tables-3-headers-multi-row-header-tiers"
+   },
+   {
+    "title": "Blank and Spacer Rows",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-3-headers-header-wrap-vs-real-tier",
+  "title": "Header Text Wrap vs. Real Tier",
+  "area": "Tables",
+  "sub": "Headers",
+  "badge": "rule",
+  "rule": "Apply the border test: a line with a rule beneath it, standing over two or more self-standing leaf labels, is a real tier. Fragments that simply stack with no border and read as one phrase are a wrapped label — join them with a space into a single header cell.",
+  "situation": "Only \"Common Stock\" is a real tier here: it has a rule beneath it and spans two self-standing leaves, Shares and Amount. The other three are single wrapped labels — \"Capital in Excess of Par Value\" is one column heading broken across two lines to fit. Treating all four the same way splits every wrapped label into a phantom two-row tier, which is the error this note exists to prevent.",
+  "samples": 8,
+  "counters": 1,
+  "related": [
+   {
+    "title": "Multi-Row Header Tiers",
+    "slug": "tables-3-headers-multi-row-header-tiers"
+   },
+   {
+    "title": "Units Row",
+    "slug": null
+   },
+   {
+    "title": "Barely-Existing Columns and Headers",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-3-headers-multi-row-header-tiers",
+  "title": "Multi-Row Header Tiers",
+  "area": "Tables",
+  "sub": "Headers",
+  "badge": "rule",
+  "rule": "Keep every printed header tier as its own row, with exact colspans. A group header spans only its data columns; the row-label stub takes a rowspan across the header rows instead.",
+  "situation": "Printed:  |            BI          |            PD          | | Indicated  | Proposed  | Indicated  | Proposed  |",
+  "samples": 5,
+  "counters": 2,
+  "related": [
+   {
+    "title": "Header Wrap vs Real Tier",
+    "slug": null
+   },
+   {
+    "title": "Units Row",
+    "slug": null
+   },
+   {
+    "title": "Barely-Existing Columns and Headers",
+    "slug": null
+   },
+   {
+    "title": "Bands Inside the Grid",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-3-headers-sec-period-tiers",
+  "title": "SEC Period Tiers",
+  "area": "Tables",
+  "sub": "Headers",
+  "badge": "rule",
+  "rule": "Annotate the period stack as printed tiers: period groups over their own date leaves, an apex qualifier above them, stacked month/year joined into one leaf label, and the units note kept as the corner header cell.",
+  "situation": "This is the header stack you meet in every 10-K and 10-Q. It looks ambiguous but every part of it has a fixed answer.",
+  "samples": 3,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Multi-Row Header Tiers",
+    "slug": "tables-3-headers-multi-row-header-tiers"
+   },
+   {
+    "title": "Header Wrap vs Real Tier",
+    "slug": null
+   },
+   {
+    "title": "Units Row",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-3-headers-units-row",
+  "title": "Units Row Under the Header",
+  "area": "Tables",
+  "sub": "Headers",
+  "badge": "either",
+  "rule": "A units line under the header may be annotated as a second header row, or folded into the header label above it (\"Premium ($000)\"). Both are acceptable — pick one and use it consistently across a document. What is never acceptable is letting it become the first body row.",
+  "situation": "",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Multi-Row Header Tiers",
+    "slug": "tables-3-headers-multi-row-header-tiers"
+   },
+   {
+    "title": "Header Wrap vs Real Tier",
+    "slug": null
+   },
+   {
+    "title": "Accounting Number Formats",
+    "slug": "tables-6-cell-values-accounting-number-formats"
+   }
+  ]
+ },
+ {
+  "slug": "tables-4-columns-gutter-columns",
+  "title": "Currency / Unit / Separator Gutter Columns",
+  "area": "Tables",
+  "sub": "Columns",
+  "badge": "rule",
+  "rule": "A currency glyph attaches to its value in one cell — $ 277.09. A marker numeral such as (i) or (ii) gets its own column, always.",
+  "situation": "PDFs frequently typeset $ in its own column track, and print ranges as value — value with the dash in a track of its own. Those tracks are real in the typesetting, but they are layout, not data.",
+  "samples": 6,
+  "counters": 1,
+  "related": [
+   {
+    "title": "Accounting Number Formats",
+    "slug": "tables-6-cell-values-accounting-number-formats"
+   },
+   {
+    "title": "Barely-Existing Columns and Headers",
+    "slug": null
+   },
+   {
+    "title": "Units Row",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-4-columns-header-body-column-count-mismatch",
+  "title": "Header Row and Body Disagree on Column Count",
+  "area": "Tables",
+  "sub": "Columns",
+  "badge": "rule",
+  "rule": "Pad the short side with empty cells. Every row carries the full column count; the gap is closed with <td></td>, never with a duplicated or invented value. Flag the page — padding is a repair, and a reader should be able to see one was made.",
+  "situation": "Header:  | Duration | Factor | Trend |     ← 3 columns Body:    | 1        | 0.94   |             ← Trend all-blank → body reads as 2 | 2        | 0.91   |",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Barely-Existing Columns and Headers",
+    "slug": null
+   },
+   {
+    "title": "Repeated Identical Values",
+    "slug": null
+   },
+   {
+    "title": "Blank and Spacer Rows",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-5-rows-and-cells-blank-and-spacer-rows",
+  "title": "Blank / Spacer Rows",
+  "area": "Tables",
+  "sub": "Rows and cells",
+  "badge": "either",
+  "rule": "Keeping a genuinely printed blank row, or leaving it out, are both accepted. Keep it when the whitespace is doing structural work — when it is the only thing separating two sections. Pick one habit and stay consistent within a document.",
+  "situation": "",
+  "samples": 3,
+  "counters": 3,
+  "related": [
+   {
+    "title": "Bands Inside the Grid",
+    "slug": null
+   },
+   {
+    "title": "Barely-Existing Columns and Headers",
+    "slug": null
+   },
+   {
+    "title": "Empty Pre-Printed Grids",
+    "slug": "tables-1-what-counts-as-a-table-empty-pre-printed-grids"
+   }
+  ]
+ },
+ {
+  "slug": "tables-5-rows-and-cells-nested-tables",
+  "title": "Nested Tables",
+  "area": "Tables",
+  "sub": "Rows and cells",
+  "badge": "rule",
+  "rule": "Subdivide the cell into the outer table's own grid. Add the rows and columns the inner grid needs, and rowspan the neighbouring cells across them. No nested <table> element, and no flattening into text.",
+  "situation": "A cell that itself contains a small grid: a fee schedule inside a plan-comparison cell, a mini-table of components inside one row of a summary.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Record Groups and Multi-Line Cells",
+    "slug": null
+   },
+   {
+    "title": "Multi-Row Header Tiers",
+    "slug": "tables-3-headers-multi-row-header-tiers"
+   }
+  ]
+ },
+ {
+  "slug": "tables-5-rows-and-cells-record-groups-and-multi-line-cells",
+  "title": "Record Groups & Multi-Line Cells",
+  "area": "Tables",
+  "sub": "Rows and cells",
+  "badge": "rule",
+  "rule": "Give independently printed records their own rows, with rowspan only on genuinely merged cells. Keep one prose cell as one cell; use <br> between its title and paragraph. Never collapse parallel record lists across columns into one cell.",
+  "situation": "Printed boxed row:        Annotate as one <tr> per line: | Products   | States |   | MoneyGuard | AL | | MoneyGuard | AL     |   | MG II      | AK | | MG II      | AK     |   |            | AZ | |            | AZ     |",
+  "samples": 8,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Repeated Identical Values",
+    "slug": null
+   },
+   {
+    "title": "Nested Tables",
+    "slug": "tables-5-rows-and-cells-nested-tables"
+   },
+   {
+    "title": "Row-Label Hierarchy",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-5-rows-and-cells-repeated-identical-values",
+  "title": "Repeated Identical Values Down a Column",
+  "area": "Tables",
+  "sub": "Rows and cells",
+  "badge": "rule",
+  "rule": "Use rowspan only where the page genuinely merged the cell. A value printed k times at k distinct vertical positions is k cells. Never merge repeated content.",
+  "situation": "\"82.13%\" printed nine separate times, \"Data Page\" repeated down a column, the same rate on every row — the temptation is to collapse them into one spanning cell. Don't.",
+  "samples": 6,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Barely-Existing Columns and Headers",
+    "slug": null
+   },
+   {
+    "title": "Record Groups and Multi-Line Cells",
+    "slug": null
+   },
+   {
+    "title": "Header Body Column Count Mismatch",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-5-rows-and-cells-row-label-hierarchy",
+  "title": "Row-Label Hierarchy via Indentation",
+  "area": "Tables",
+  "sub": "Rows and cells",
+  "badge": "rule",
+  "rule": "Carry the nesting as an absolute level on the label cell: <td data-level=\"2\">iPhone</td>. Level 0 is the leftmost stub, 1 its children, and so on — counted from the left edge of the column, not from the row above.",
+  "situation": "Financial statements and rate manuals encode hierarchy by indenting the row label. Flatten it and \"iPhone\" and \"Total net sales\" look like siblings.",
+  "samples": 8,
+  "counters": 1,
+  "related": [
+   {
+    "title": "Total and Subtotal Rows",
+    "slug": null
+   },
+   {
+    "title": "Record Groups and Multi-Line Cells",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-5-rows-and-cells-total-and-subtotal-rows",
+  "title": "Total / Subtotal Rows",
+  "area": "Tables",
+  "sub": "Rows and cells",
+  "badge": "rule",
+  "rule": "The label cell is a <th>; the value cells stay <td>. Carry the row's position with the same absolute level used for the stub hierarchy — a top-level total is data-level=\"0\". Keep the label and values exactly as printed, and bold only if the page prints it bold.",
+  "situation": "",
+  "samples": 11,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Bottom Edge Totals and Islands",
+    "slug": null
+   },
+   {
+    "title": "Row-Label Hierarchy",
+    "slug": null
+   },
+   {
+    "title": "Bold and Italic Inside Tables",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-6-cell-values-accounting-number-formats",
+  "title": "Accounting Number Formats",
+  "area": "Tables",
+  "sub": "Cell values",
+  "badge": "rule",
+  "rule": "Verbatim only. Transcribe every number exactly as printed — parentheses, currency dashes, separators and change markers included. Emit no normalised twin alongside it; extraction normalises downstream.",
+  "situation": "Accounting pages print numbers in shapes that look like they are asking to be tidied up. They are not. Copy the cell, character for character.",
+  "samples": 5,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Cell Text Fidelity",
+    "slug": null
+   },
+   {
+    "title": "Marks and Symbols in Cells",
+    "slug": "tables-6-cell-values-marks-and-symbols-in-cells"
+   },
+   {
+    "title": "Gutter Columns",
+    "slug": null
+   },
+   {
+    "title": "Units Row",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-6-cell-values-bold-and-italic-inside-tables",
+  "title": "Bold / Italic Inside Tables",
+  "area": "Tables",
+  "sub": "Cell values",
+  "badge": "rule",
+  "rule": "Mark bold, italic and underline per cell, and only where the printed glyphs are actually heavier or slanted. Never style a whole column or a whole header row on principle.",
+  "situation": "The same goes for strikeout marks and coloured text: they are properties of the glyphs in one cell, not of the role that cell plays.",
+  "samples": 5,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Bold and Italics",
+    "slug": "text-1-inline-formatting-bold-and-italics"
+   },
+   {
+    "title": "Barely-Existing Columns and Headers",
+    "slug": null
+   },
+   {
+    "title": "Struck and Replaced Values",
+    "slug": null
+   },
+   {
+    "title": "Total and Subtotal Rows",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-6-cell-values-cell-text-fidelity",
+  "title": "Cell Text Fidelity: image vs OCR",
+  "area": "Tables",
+  "sub": "Cell values",
+  "badge": "rule",
+  "rule": "The page image is the only authority for what a cell says — not the text layer, not OCR, and not what the value ought to be. If a character cannot be read at any zoom, write [illegible] rather than a plausible guess.",
+  "situation": "The text layer and the rendered image disagree at the character level far more often than people assume, and the cost of a single wrong digit depends entirely on who is reading the table. Treat the text layer as a hint that tells you roughly what is there, and the image as the thing that decides.",
+  "samples": 1,
+  "counters": 3,
+  "related": [
+   {
+    "title": "Struck and Replaced Values",
+    "slug": null
+   },
+   {
+    "title": "Duplicated Tables",
+    "slug": null
+   },
+   {
+    "title": "Accounting Number Formats",
+    "slug": "tables-6-cell-values-accounting-number-formats"
+   },
+   {
+    "title": "Borderless Whitespace Tables",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-6-cell-values-color-as-the-value",
+  "title": "Color as the Value",
+  "area": "Tables",
+  "sub": "Cell values",
+  "badge": "rule",
+  "rule": "Write an empty <mark> carrying the colour as the cell's content: <td><mark style=\"background-color: red\"></mark></td>. Use the nearest HTML colour name, never the meaning the legend assigns it, and never leave the cell blank.",
+  "situation": "Risk matrices and heatmap tables put the meaning in the fill. The cell has no text at all:",
+  "samples": 2,
+  "counters": 2,
+  "related": [
+   {
+    "title": "Text Colors",
+    "slug": "text-2-marks-on-the-page-text-colors"
+   },
+   {
+    "title": "Highlighted Text",
+    "slug": "text-1-inline-formatting-highlighted-text"
+   },
+   {
+    "title": "Marks and Symbols in Cells",
+    "slug": "tables-6-cell-values-marks-and-symbols-in-cells"
+   },
+   {
+    "title": "Iconography and Symbols",
+    "slug": "text-2-marks-on-the-page-iconography-and-symbols"
+   },
+   {
+    "title": "Rotated and Diagonal Content",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-6-cell-values-handwriting-and-stamps",
+  "title": "Handwriting & Stamps Over Printed Grids",
+  "area": "Tables",
+  "sub": "Cell values",
+  "badge": "rule",
+  "rule": "Handwriting over a printed value — keep both, struck-through print first: ~~60~~ 55. Same markup as a redline replacement. A stamp — keep its text, emit it outside the table as page-level content. Never assign it to a cell.",
+  "situation": "Filled-in ledgers and approved/void stamps put ink on top of a grid that was printed empty.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Struck and Replaced Values",
+    "slug": null
+   },
+   {
+    "title": "Watermarks",
+    "slug": "text-2-marks-on-the-page-watermarks"
+   },
+   {
+    "title": "Cell Text Fidelity",
+    "slug": null
+   },
+   {
+    "title": "Signatures",
+    "slug": "text-2-marks-on-the-page-signatures"
+   }
+  ]
+ },
+ {
+  "slug": "tables-6-cell-values-marks-and-symbols-in-cells",
+  "title": "Marks and Symbols in Cells",
+  "area": "Tables",
+  "sub": "Cell values",
+  "badge": "rule",
+  "rule": "Footnote superscripts stay attached to the value in the same cell. An em-dash alone in a cell is a value, not an empty cell. A cell whose content is a symbol or icon gets a semantic transcription of what the mark means — never an emoji substitute.",
+  "situation": "A sun/water requirements table where the icons are the values — a full sun versus a partial sun, one droplet versus two. Leave those cells empty and the table says nothing at all.",
+  "samples": 6,
+  "counters": 1,
+  "related": [
+   {
+    "title": "Marks and Symbols in Cells",
+    "slug": "tables-6-cell-values-marks-and-symbols-in-cells"
+   },
+   {
+    "title": "Iconography and Symbols",
+    "slug": "text-2-marks-on-the-page-iconography-and-symbols"
+   },
+   {
+    "title": "Superscript and Subscript",
+    "slug": "text-1-inline-formatting-superscript-and-subscript"
+   },
+   {
+    "title": "Color as the Value",
+    "slug": "tables-6-cell-values-color-as-the-value"
+   },
+   {
+    "title": "Accounting Number Formats",
+    "slug": "tables-6-cell-values-accounting-number-formats"
+   }
+  ]
+ },
+ {
+  "slug": "tables-6-cell-values-struck-and-replaced-values",
+  "title": "Struck-and-Replaced Values (redlined rate tables)",
+  "area": "Tables",
+  "sub": "Cell values",
+  "badge": "rule",
+  "rule": "Both values in one cell, struck first — ~~1.316~~ 1.335 — never merged into one figure. The ~~ covers exactly the glyphs that are struck on the page: 1.~~316~~ 335 when only the digits are crossed out. Then re-read every other cell in that column — one struck cell means the whole column is in play.",
+  "situation": "A cell holds an old value crossed out plus its replacement. OCR joins them without a trace:",
+  "samples": 3,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Cell Text Fidelity",
+    "slug": null
+   },
+   {
+    "title": "Handwriting and Stamps",
+    "slug": null
+   },
+   {
+    "title": "Underlined Text",
+    "slug": "text-1-inline-formatting-underlined-text"
+   },
+   {
+    "title": "Watermarks",
+    "slug": "text-2-marks-on-the-page-watermarks"
+   }
+  ]
+ },
+ {
+  "slug": "tables-7-titles-and-edges-bottom-edge-totals-and-islands",
+  "title": "The Bottom Edge: totals, summary lines, islands",
+  "area": "Tables",
+  "sub": "Titles and edges",
+  "badge": "rule",
+  "rule": "Content below or beside a table is never dropped, even when it sits outside the ruled frame. If it continues the table's ruled grid, annotate it as rows of that table; if it stands apart as its own unbordered block, give it its own small key-value table.",
+  "situation": "The bottom edge is where content goes missing most often, because everything here sits past the last rule of the frame — and it is usually the numbers the reader actually wanted.",
+  "samples": 6,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Total and Subtotal Rows",
+    "slug": null
+   },
+   {
+    "title": "Footnotes Inside the Frame",
+    "slug": null
+   },
+   {
+    "title": "Titles Banners Captions",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-7-titles-and-edges-footnotes-inside-the-frame",
+  "title": "Footnote Lines Inside the Frame",
+  "area": "Tables",
+  "sub": "Titles and edges",
+  "badge": "rule",
+  "rule": "A footnote goes outside the table, as caption text after it — even when the page prints it inside the ruled border. This is a deliberate exception to the frame test.",
+  "situation": "A footnote line printed within the table's own ruled border:",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Titles Banners Captions",
+    "slug": null
+   },
+   {
+    "title": "Bottom Edge Totals and Islands",
+    "slug": null
+   },
+   {
+    "title": "Marks and Symbols in Cells",
+    "slug": "tables-6-cell-values-marks-and-symbols-in-cells"
+   }
+  ]
+ },
+ {
+  "slug": "tables-7-titles-and-edges-titles-banners-captions",
+  "title": "Titles, Banners, Captions",
+  "area": "Tables",
+  "sub": "Titles and edges",
+  "badge": "rule",
+  "rule": "For a table-only title, the frame and the fill decide. A band that shares the table's border or fill is a header row inside the table; text that sits outside the ruled frame is a caption outside it. A title appears once — never both as text above the table and as a row within it.",
+  "situation": "22. Consolidated Income Statement        ← title line above the table: | Revenue | 2024 | 2023 |              ## heading? first header row? both?",
+  "samples": 5,
+  "counters": 1,
+  "related": [
+   {
+    "title": "Titles Banners Captions",
+    "slug": null
+   },
+   {
+    "title": "Footnotes Inside the Frame",
+    "slug": null
+   },
+   {
+    "title": "Bands Inside the Grid",
+    "slug": null
+   },
+   {
+    "title": "Continued in the Title",
+    "slug": null
+   },
+   {
+    "title": "Heading Depth Across Pages",
+    "slug": "page-structure-heading-depth-across-pages"
+   }
+  ]
+ },
+ {
+  "slug": "tables-8-special-table-types-rotated-and-diagonal-content",
+  "title": "Rotated & Diagonal Content",
+  "area": "Tables",
+  "sub": "Special types",
+  "badge": "rule",
+  "rule": "Read a rotated table in its own orientation, never in page orientation. Keep a diagonally split corner as one cell with both labels separated by a slash — Region \\ Year, the label across the top first.",
+  "situation": "One printed cell carrying two labels: MONTH across the top, COUNTRY down the side, split by a diagonal rule. There is only one cell to put them in.",
+  "samples": 3,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Multi-Row Header Tiers",
+    "slug": "tables-3-headers-multi-row-header-tiers"
+   },
+   {
+    "title": "Barely-Existing Columns and Headers",
+    "slug": null
+   },
+   {
+    "title": "Chart With a Printed Data Grid",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "tables-8-special-table-types-triangles-and-matrix-tables",
+  "title": "Triangles & Matrix Tables (loss development)",
+  "area": "Tables",
+  "sub": "Special types",
+  "badge": "rule",
+  "rule": "Every row carries the full column count. Pad the jagged half with individual empty cells — one <td></td> per missing position. Never a colspan or rowspan over the empty region, and never a 0 or any other invented value.",
+  "situation": "Loss development exhibits and similar matrices are jagged on purpose. The missing half is meaningfully empty — that development period has not happened yet — not data somebody failed to read.",
+  "samples": 1,
+  "counters": 1,
+  "related": [
+   {
+    "title": "Marks and Symbols in Cells",
+    "slug": "tables-6-cell-values-marks-and-symbols-in-cells"
+   },
+   {
+    "title": "Blank and Spacer Rows",
+    "slug": null
+   },
+   {
+    "title": "Header Body Column Count Mismatch",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "text-1-inline-formatting-bold-and-italics",
+  "title": "Bold and Italics",
+  "area": "Text",
+  "sub": "Inline formatting",
+  "badge": "rule",
+  "rule": "Write bold and italic in markdown — **bold** and *italic*. Apply them only where the printed glyphs are actually heavier or slanted.",
+  "situation": "HTML tags are reserved for the things markdown cannot express at all — see Underlined Text, Superscript and Subscript and Highlighted Text. Do not use <b>, <i>, <strong> or <em> for ordinary emphasis.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Text Formatting Conventions",
+    "slug": null
+   },
+   {
+    "title": "Bold and Italic Inside Tables",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "text-1-inline-formatting-displayed-equations",
+  "title": "Displayed Equations",
+  "area": "Text",
+  "sub": "Inline formatting",
+  "badge": "rule",
+  "rule": "Write displayed mathematics inside $$ delimiters and put its printed equation number after the closing delimiter as plain text within the same formula block.",
+  "situation": "An equation set on its own line, usually centred, with a number at the right margin — (1), (2) — that the prose cites.",
+  "samples": 3,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Inline Equations",
+    "slug": "text-1-inline-formatting-inline-equations"
+   },
+   {
+    "title": "Block Classes",
+    "slug": "layout-block-classes"
+   },
+   {
+    "title": "Drop Caps",
+    "slug": "text-1-inline-formatting-drop-caps"
+   }
+  ]
+ },
+ {
+  "slug": "text-1-inline-formatting-drop-caps",
+  "title": "Drop Caps",
+  "area": "Text",
+  "sub": "Inline formatting",
+  "badge": "rule",
+  "rule": "Join a drop cap directly to the rest of its word with no extra space or special styling. Flag only a genuinely unreadable initial.",
+  "situation": "A drop cap is an enlarged first letter, sunk two or more lines into the opening paragraph. The letter belongs to the first word; the text layer often separates it, and a line-by-line reading puts the rest of the word on a different line from its initial.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Bold and Italics",
+    "slug": "text-1-inline-formatting-bold-and-italics"
+   },
+   {
+    "title": "Cell Text Fidelity",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "text-1-inline-formatting-escaping-printed-marks",
+  "title": "Escaping Printed Marks",
+  "area": "Text",
+  "sub": "Inline formatting",
+  "badge": "rule",
+  "rule": "A character the page prints is content, even when Markdown would read it as syntax. Escape it with a backslash so it cannot open a span — \\*\\*, \\_, \\| — and never delete it to avoid the collision.",
+  "situation": "Some marks a document prints are also Markdown's own punctuation. A menu that flags allergens with **, a form that labels a field _____, a legal citation using |: transcribe the mark, and stop it being read as markup.",
+  "samples": 4,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Superscript and Subscript",
+    "slug": "text-1-inline-formatting-superscript-and-subscript"
+   },
+   {
+    "title": "Text Formatting Conventions",
+    "slug": null
+   },
+   {
+    "title": "Marks and Symbols in Cells",
+    "slug": "tables-6-cell-values-marks-and-symbols-in-cells"
+   },
+   {
+    "title": "Bold and Italics",
+    "slug": "text-1-inline-formatting-bold-and-italics"
+   }
+  ]
+ },
+ {
+  "slug": "text-1-inline-formatting-highlighted-text",
+  "title": "Highlighted Text",
+  "area": "Text",
+  "sub": "Inline formatting",
+  "badge": "rule",
+  "rule": "Wrap highlighted text in <mark> and carry the highlighter colour as an attribute: <mark style=\"background-color: yellow\">the highlighted phrase</mark>.",
+  "situation": "Text with a highlighter background is content, not decoration. Do not drop the highlight, and do not reduce it to bold or italic.",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Text Formatting Conventions",
+    "slug": null
+   },
+   {
+    "title": "Text Colors",
+    "slug": "text-2-marks-on-the-page-text-colors"
+   },
+   {
+    "title": "Bold and Italic Inside Tables",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "text-1-inline-formatting-inline-equations",
+  "title": "Inline Equations",
+  "area": "Text",
+  "sub": "Inline formatting",
+  "badge": "rule",
+  "rule": "Wrap every equation in $$ … $$, inline ones included. Do not use single-$ delimiters.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Text Formatting Conventions",
+    "slug": null
+   },
+   {
+    "title": "Chemical Molecules",
+    "slug": "other-chemical-molecules"
+   }
+  ]
+ },
+ {
+  "slug": "text-1-inline-formatting-line-end-hyphenation",
+  "title": "Line-End Hyphenation",
+  "area": "Text",
+  "sub": "Inline formatting",
+  "badge": "rule",
+  "rule": "Join line-end word fragments and remove a purely typesetting hyphen. Keep lexical compound hyphens. When the distinction cannot be established, preserve the visible hyphen and flag the word.",
+  "situation": "Justified prose breaks words at line ends with a hyphen. The break is typesetting; the word is one word. But a compound that happens to break at its own hyphen looks identical.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Cell Text Fidelity",
+    "slug": null
+   },
+   {
+    "title": "Drop Caps",
+    "slug": "text-1-inline-formatting-drop-caps"
+   },
+   {
+    "title": "Header Wrap vs Real Tier",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "text-1-inline-formatting-links",
+  "title": "Links",
+  "area": "Text",
+  "sub": "Inline formatting",
+  "badge": "rule",
+  "rule": "Transcribe hyperlinks and email addresses as raw text. Only use link syntax — <email>, [url](url) — when link extraction has been explicitly requested.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Text Formatting Conventions",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "text-1-inline-formatting-quote-blocks",
+  "title": "Quote Blocks",
+  "area": "Text",
+  "sub": "Inline formatting",
+  "badge": "rule",
+  "rule": "Flatten quoted or inset regions. Transcribe the content as ordinary text, headings and tables included — do not add > block markers.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Text Formatting Conventions",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "text-1-inline-formatting-small-capitals",
+  "title": "Small Capitals",
+  "area": "Text",
+  "sub": "Inline formatting",
+  "badge": "rule",
+  "rule": "Transcribe the capital letterforms visible in small caps as uppercase letters. Do not add small-caps styling or silently substitute the text layer's mixed case.",
+  "situation": "Running heads, bylines and firm names are often set in small capitals: capital letterforms at lowercase height, usually with a full-size initial. The text layer may hold Jackson while the page shows JACKSON; markdown has no small-caps mark.",
+  "samples": 3,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Cell Text Fidelity",
+    "slug": null
+   },
+   {
+    "title": "Bold and Italics",
+    "slug": "text-1-inline-formatting-bold-and-italics"
+   },
+   {
+    "title": "Escaping Printed Marks",
+    "slug": "text-1-inline-formatting-escaping-printed-marks"
+   }
+  ]
+ },
+ {
+  "slug": "text-1-inline-formatting-superscript-and-subscript",
+  "title": "Superscript and Subscript",
+  "area": "Text",
+  "sub": "Inline formatting",
+  "badge": "rule",
+  "rule": "Always use <sup> and <sub> tags. Never substitute a Unicode superscript or subscript glyph.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Text Formatting Conventions",
+    "slug": null
+   },
+   {
+    "title": "Marks and Symbols in Cells",
+    "slug": "tables-6-cell-values-marks-and-symbols-in-cells"
+   },
+   {
+    "title": "Chemical Molecules",
+    "slug": "other-chemical-molecules"
+   },
+   {
+    "title": "Escaping Printed Marks",
+    "slug": "text-1-inline-formatting-escaping-printed-marks"
+   }
+  ]
+ },
+ {
+  "slug": "text-1-inline-formatting-underlined-text",
+  "title": "Underlined Text",
+  "area": "Text",
+  "sub": "Inline formatting",
+  "badge": "rule",
+  "rule": "Wrap underlined text in <u> tags. Do not use <ins>, and never use _ text _.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Text Formatting Conventions",
+    "slug": null
+   },
+   {
+    "title": "Struck and Replaced Values",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "text-1-inline-formatting-verse-and-hard-line-breaks",
+  "title": "Verse and Hard Line Breaks",
+  "area": "Text",
+  "sub": "Inline formatting",
+  "badge": "open",
+  "rule": "Keep one printed line per output line. Do not reflow verse into a paragraph. Flag the page.",
+  "situation": "Poetry, song text, addresses and deliberately broken lines carry meaning in their line breaks. Markdown joins single newlines into one paragraph, so the breaks vanish unless they are marked.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Bullets and Sub-Bullets",
+    "slug": "lists-bullets-and-sub-bullets"
+   },
+   {
+    "title": "QR Codes and Bar Codes",
+    "slug": "text-2-marks-on-the-page-qr-codes-and-bar-codes"
+   },
+   {
+    "title": "Links",
+    "slug": "text-1-inline-formatting-links"
+   },
+   {
+    "title": "Line Breaks Inside a Block",
+    "slug": "page-structure-line-breaks-inside-a-block"
+   }
+  ]
+ },
+ {
+  "slug": "text-2-marks-on-the-page-clipped-text",
+  "title": "Clipped Text",
+  "area": "Text",
+  "sub": "Marks on the page",
+  "badge": "rule",
+  "rule": "Transcribe only visible characters at a clipped page edge. Keep the fragment and flag the clipping outside the text; do not complete the word or append an unprinted ellipsis.",
+  "situation": "A page whose content runs past the printable edge: the last letters of a label, the end of a sentence, the right-hand column of a table are simply absent. Nothing is overprinted or redacted; the ink was never there.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Cell Text Fidelity",
+    "slug": null
+   },
+   {
+    "title": "Overlapping Text",
+    "slug": "text-2-marks-on-the-page-overlapping-text"
+   },
+   {
+    "title": "Ignoring and Rejecting",
+    "slug": "layout-ignoring-and-rejecting"
+   }
+  ]
+ },
+ {
+  "slug": "text-2-marks-on-the-page-e-signature-tags",
+  "title": "E-Signature Tags",
+  "area": "Text",
+  "sub": "Marks on the page",
+  "badge": "rule",
+  "rule": "Keep an unsigned field as [___]. Transcribe a visible SIGN or INITIAL tag separately as an instruction beside the field, never as a signature or filled value.",
+  "situation": "Electronic signing tools print a small coloured tab beside each field the signer must complete — \"SIGN\", \"INITIAL\", an arrow. The tab is not a signature and not part of the form; it is an instruction to a future signer, often left in the exported file.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Signatures",
+    "slug": "text-2-marks-on-the-page-signatures"
+   },
+   {
+    "title": "Fill-Ins",
+    "slug": "forms-2-fields-fill-ins"
+   },
+   {
+    "title": "Iconography and Symbols",
+    "slug": "text-2-marks-on-the-page-iconography-and-symbols"
+   }
+  ]
+ },
+ {
+  "slug": "text-2-marks-on-the-page-handwritten-annotations",
+  "title": "Handwritten Annotations",
+  "area": "Text",
+  "sub": "Marks on the page",
+  "badge": "rule",
+  "rule": "Transcribe a marginal handwritten note as [handwritten: legible words] in a separate block near the content it annotates. Preserve visible fragments and flag unreadable portions.",
+  "situation": "A note written on a printed page: an exhibit reference in the margin, a circled item, an arrow with a word, a reviewer's initials. Handwriting and Stamps settles handwriting that replaces a printed value inside a table; a note in the margin of prose replaces nothing.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Handwriting and Stamps",
+    "slug": null
+   },
+   {
+    "title": "Signatures",
+    "slug": "text-2-marks-on-the-page-signatures"
+   },
+   {
+    "title": "Margin Banners",
+    "slug": "text-2-marks-on-the-page-margin-banners"
+   }
+  ]
+ },
+ {
+  "slug": "text-2-marks-on-the-page-iconography-and-symbols",
+  "title": "Iconography and Symbols",
+  "area": "Text",
+  "sub": "Marks on the page",
+  "badge": "open",
+  "rule": "Never drop an icon that carries meaning. Transcribe it with a bracketed semantic tag — [yes], [no], [locked] — so the value survives, and flag the page so the encoding can be revisited.",
+  "situation": "Small symbols and images that stand in for a value rather than decorate — a tick in a feature-comparison column, a padlock, a sun or water icon used as the cell content itself.",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Marks and Symbols in Cells",
+    "slug": "tables-6-cell-values-marks-and-symbols-in-cells"
+   },
+   {
+    "title": "Color as the Value",
+    "slug": "tables-6-cell-values-color-as-the-value"
+   }
+  ]
+ },
+ {
+  "slug": "text-2-marks-on-the-page-margin-banners",
+  "title": "Margin Banners",
+  "area": "Text",
+  "sub": "Marks on the page",
+  "badge": "rule",
+  "rule": "Transcribe rotated margin text once as a separate furniture block outside the body flow. Preserve its words, including branding; do not use a watermark tag unless the text actually overlays the content.",
+  "situation": "Text printed rotated along the page margin, outside the content area: an archive stamp, a brand line, a firm mark. Unlike a watermark it does not overlap the content, and unlike a page header it is not in the top or bottom margin.",
+  "samples": 4,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Watermarks",
+    "slug": "text-2-marks-on-the-page-watermarks"
+   },
+   {
+    "title": "Pleading Line Numbers",
+    "slug": "layout-pleading-line-numbers"
+   },
+   {
+    "title": "Block Classes",
+    "slug": "layout-block-classes"
+   },
+   {
+    "title": "Recurring Page Furniture",
+    "slug": "page-structure-recurring-page-furniture"
+   }
+  ]
+ },
+ {
+  "slug": "text-2-marks-on-the-page-overlapping-text",
+  "title": "Overlapping Text",
+  "area": "Text",
+  "sub": "Marks on the page",
+  "badge": "rule",
+  "rule": "Transcribe each legible overprinted string whole in a separate block, stamp first at the overlap. Preserve readable fragments and flag any obscured characters rather than reconstructing them.",
+  "situation": "Two printed strings occupy the same space. The common case is a court e-filing stamp — Case 1:19-cv-00892  Document 36  Filed 04/04/19  Page 2 of 2 — laid across a header the page already had, so the two texts interleave character by character.",
+  "samples": 3,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Watermarks",
+    "slug": "text-2-marks-on-the-page-watermarks"
+   },
+   {
+    "title": "Handwriting and Stamps",
+    "slug": null
+   },
+   {
+    "title": "Cell Text Fidelity",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "text-2-marks-on-the-page-qr-codes-and-bar-codes",
+  "title": "QR Codes and Bar Codes",
+  "area": "Text",
+  "sub": "Marks on the page",
+  "badge": "rule",
+  "rule": "Put the decoded content in the alt text and a literal label in the target slot, and give the code its own item carrying the scan value and the image crop.",
+  "situation": "",
+  "samples": 0,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Images",
+    "slug": "images-images"
+   },
+   {
+    "title": "Iconography and Symbols",
+    "slug": "text-2-marks-on-the-page-iconography-and-symbols"
+   }
+  ]
+ },
+ {
+  "slug": "text-2-marks-on-the-page-redacted-text",
+  "title": "Redacted Text",
+  "area": "Text",
+  "sub": "Marks on the page",
+  "badge": "rule",
+  "rule": "Write [REDACTED] once per contiguous redacted span. Keep visible text and any exemption code; do not infer hidden characters or their count. Use ordinary region coordinates when available.",
+  "situation": "Text blacked out or boxed over in the source document.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Signatures",
+    "slug": "text-2-marks-on-the-page-signatures"
+   },
+   {
+    "title": "Watermarks",
+    "slug": "text-2-marks-on-the-page-watermarks"
+   }
+  ]
+ },
+ {
+  "slug": "text-2-marks-on-the-page-seals-and-round-stamps",
+  "title": "Seals and Round Stamps",
+  "area": "Text",
+  "sub": "Marks on the page",
+  "badge": "rule",
+  "rule": "Use [seal: printed text] for a seal, preserving all legible rim and centre text in readable order. Keep it separate from body prose; use [seal] only when no text is legible and flag that limitation.",
+  "situation": "A round or oval impression — an auditor's firm seal, a notary seal, a court seal — printed or inked on the page, usually beside a signature. Its text runs around the rim.",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Signatures",
+    "slug": "text-2-marks-on-the-page-signatures"
+   },
+   {
+    "title": "Handwriting and Stamps",
+    "slug": null
+   },
+   {
+    "title": "Watermarks",
+    "slug": "text-2-marks-on-the-page-watermarks"
+   }
+  ]
+ },
+ {
+  "slug": "text-2-marks-on-the-page-signatures",
+  "title": "Signatures",
+  "area": "Text",
+  "sub": "Marks on the page",
+  "badge": "rule",
+  "rule": "Mark a handwritten signature with a bracketed placeholder. Include the name only when the glyphs are genuinely legible.",
+  "situation": "A handwritten signature over a signature line.",
+  "samples": 4,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Handwriting and Stamps",
+    "slug": null
+   },
+   {
+    "title": "Text Formatting Conventions",
+    "slug": null
+   }
+  ]
+ },
+ {
+  "slug": "text-2-marks-on-the-page-text-colors",
+  "title": "Text Colors",
+  "area": "Text",
+  "sub": "Marks on the page",
+  "badge": "open",
+  "rule": "Ignore colour when it is decoration. When colour carries the meaning, never let the content vanish — record it with the nearest HTML colour name, and flag the page.",
+  "situation": "",
+  "samples": 1,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Highlighted Text",
+    "slug": "text-1-inline-formatting-highlighted-text"
+   },
+   {
+    "title": "Color as the Value",
+    "slug": "tables-6-cell-values-color-as-the-value"
+   }
+  ]
+ },
+ {
+  "slug": "text-2-marks-on-the-page-watermarks",
+  "title": "Watermarks",
+  "area": "Text",
+  "sub": "Marks on the page",
+  "badge": "open",
+  "rule": "Never delete a watermark and never leave it sitting inside the body text. Record it once, out of the reading flow, and flag the page.",
+  "situation": "Diagonal or background text stamped across the page — \"DRAFT\", \"Redline Version\", \"CONFIDENTIAL\", \"VOID\".",
+  "samples": 2,
+  "counters": 0,
+  "related": [
+   {
+    "title": "Margin Banners",
+    "slug": "text-2-marks-on-the-page-margin-banners"
+   },
+   {
+    "title": "Handwriting and Stamps",
+    "slug": null
+   },
+   {
+    "title": "Redacted Text",
+    "slug": "text-2-marks-on-the-page-redacted-text"
+   }
+  ]
+ }
+]
