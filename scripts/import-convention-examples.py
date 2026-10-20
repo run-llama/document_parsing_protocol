@@ -2,19 +2,18 @@
 """Import example data from an existing export of the convention library.
 
 Usage: python3 scripts/import-convention-examples.py /path/to/export/pages
-Only text, explicit table cells and source links are retained. Remote HTML is
+Exact Markdown source and a sanitised rendering are retained for every expected output. Remote HTML is
 never executed or embedded. An optional --assets manifest attaches local source
 images previously downloaded by sync-convention-library.py.
 """
 import argparse
-import os
 import hashlib
 import json
 import re
 from html.parser import HTMLParser
 from pathlib import Path
 
-BASE = os.environ.get('DPP_LIBRARY_URL', '')  # only used to key images against the sync manifest
+BASE = 'protocol-source/'
 ROOT = Path(__file__).resolve().parents[1]
 
 class Node:
@@ -84,16 +83,16 @@ def table_data(table):
 def snippet(pre):
     code = next(pre.walk('code'), pre)
     language = code.attrs.get('class', '').removeprefix('language-') or 'text'
-    return {'language': language, 'text': code.text().strip()}
+    return {'language': language, 'text': code.text()}
 
-ALLOWED = {'p','ul','ol','li','strong','em','u','sup','sub','del','s','mark','br','hr','table','caption','thead','tbody','tr','th','td','h1','h2','h3','h4','pre','code','blockquote'}
-ALLOWED_ATTRS = {'colspan','rowspan','data-level','data-source','data-color','start','class'}
+ALLOWED = {'p','ul','ol','li','strong','em','u','sup','sub','del','s','mark','br','hr','table','caption','thead','tbody','tr','th','td','h1','h2','h3','h4','pre','code','blockquote','font','details','summary'}
+ALLOWED_ATTRS = {'colspan','rowspan','data-level','data-source','data-color','start','class','color'}
 HEADING_SHIFT = {'h1':'h3','h2':'h3','h3':'h4','h4':'h4'}
 
 def escape(text):
     return text.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('"','&quot;')
 
-def sanitized(node):
+def sanitized(node, assets=None, links=None):
     """Rendered output as HTML limited to an allowlist of tags and attributes. Text is re-escaped;
     links, images, scripts, styles and unknown tags are dropped (their text is kept)."""
     out = []
@@ -101,25 +100,36 @@ def sanitized(node):
         if not isinstance(child, Node):
             out.append(escape(child)); continue
         tag = HEADING_SHIFT.get(child.tag, child.tag)
+        if tag in {'script', 'style', 'iframe', 'object'}:
+            continue
+        if tag == 'img' and assets is not None:
+            src = assets.get(child.attrs.get('src', ''))
+            if src:
+                out.append(f'<img src="{escape(src)}" alt="{escape(child.attrs.get("alt", ""))}" loading="lazy">')
+            continue
+        if tag == 'a' and links is not None:
+            href = links.get(child.attrs.get('href', ''))
+            if href:
+                out.append(f'<a href="{escape(href)}">{sanitized(child, assets, links)}</a>')
+                continue
         if tag not in ALLOWED:
-            out.append(sanitized(child)); continue
+            out.append(sanitized(child, assets, links)); continue
         attrs = ''.join(f' {k}="{escape(v)}"' for k, v in child.attrs.items() if k in ALLOWED_ATTRS and re.fullmatch(r'[\w #.,-]*', v or ''))
+        style = child.attrs.get('style', '')
+        if tag == 'mark' and re.fullmatch(r'background-color:\s*(?:[a-zA-Z]+|#[0-9a-fA-F]{3,8})\s*;?', style):
+            attrs += f' style="{escape(style)}"'
         if tag in {'br','hr'}:
             out.append(f'<{tag}>'); continue
-        out.append(f'<{tag}{attrs}>{sanitized(child)}</{tag}>')
+        out.append(f'<{tag}{attrs}>{sanitized(child, assets, links)}</{tag}>')
     return ''.join(out)
 
 def output_from(figure):
-    """One expected-output figure: rendered tables when that is all it holds, else the Markdown source."""
-    label = next(figure.walk('figcaption'), Node()).plain()
+    """Retain exact source even for table-only examples; never reconstruct normative markup."""
     wrap = next((c for c in figure.children if isinstance(c, Node) and c.tag == 'div'), figure)
-    parts = [c for c in wrap.children if isinstance(c, Node)]
-    tables = [{'label': label, 'rows': rows} for rows in (table_data(t) for t in wrap.walk('table')) if rows]
-    only_tables = tables and all(p.tag == 'table' or (p.tag == 'p' and 'el' in p.attrs.get('class', '').split()) for p in parts)
     source = next((pre for details in figure.walk('details') for pre in details.walk('pre')), None)
-    snippets = [] if only_tables or source is None else [{**snippet(source), 'language': 'markdown'}]
-    rendered = '' if only_tables else re.sub(r'\s+', ' ', sanitized(wrap)).strip()
-    return {'tables': tables if only_tables else [], 'snippets': snippets, 'rendered': rendered}
+    snippets = [] if source is None else [{**snippet(source), 'language': 'markdown'}]
+    rendered = sanitized(wrap).strip()
+    return {'tables': [], 'snippets': snippets, 'rendered': rendered}
 
 def example_from(nodes, heading, index):
     paragraphs, images, tables, snippets, rendered, bad = [], [], [], [], [], None
@@ -214,7 +224,9 @@ def main():
     index = json.loads(index_path.read_text()) if args.merge and index_path.exists() else {}
     for slug, bundle in result.items():
         if manifest:
-            bundle['retrievedAt'] = manifest['retrievedAt']
+            bundle['sourceRevision'] = manifest.get('sourceRevision', '')
+            if 'retrievedAt' in manifest:
+                bundle['retrievedAt'] = manifest['retrievedAt']
         (output/(slug+'.json')).write_text(json.dumps(public_bundle(bundle), ensure_ascii=False, separators=(',',':'))+'\n')
         index[slug] = {'samples':sum(e['kind']=='sample' for e in bundle['examples']), 'counters':sum(e['kind']=='counter' for e in bundle['examples']), 'tables':sum(len(e['tables']) for e in bundle['examples']), 'encodings':len(bundle['worked'])}
     (ROOT/'app/data/convention-examples-index.json').write_text(json.dumps(index, indent=2)+'\n')

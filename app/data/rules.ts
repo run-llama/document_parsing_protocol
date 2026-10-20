@@ -1,1 +1,1 @@
-export type Badge = "rule" | "either" | "open";
+export type Badge = "rule" | "either" | "open" | "reference";

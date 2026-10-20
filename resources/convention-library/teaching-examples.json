@@ -1,0 +1,2182 @@
+{
+  "license": "CC0-1.0",
+  "provenance": "Original constructed illustrations authored for this guide; no third-party documents or customer data.",
+  "examples": {
+    "image-text": {
+      "id": "teaching-image-text",
+      "name": "Text inside an image is still text",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Transcribe all visible text, including the printed typo “Wednsday”. Do not substitute an image link, a summary or a corrected spelling. The top line is a notice label, not a document section.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/image-text.svg",
+          "sha256": "ff000efde4696d72c82911af99eef1aef4d10f9ffa355652eb6f1e4c3b4c198c",
+          "bytes": 392
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "Delivery notice\n\nArrives Wednsday at 09:30.\n\nGate B — keep this slip."
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "![Delivery notice](notice.png)"
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "image-table": {
+      "id": "teaching-image-table",
+      "name": "A pictured table stays a table",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "The image contains a two-column table. Preserve both rows and the printed headers; a prose summary loses the cell relationships.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/image-table.svg",
+          "sha256": "628a617abfe62bd8638a641cdac247677b464383dc3e6f4583d254419b7c7c79",
+          "bytes": 779
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "<table>\n<tr><th>Item</th><th>Count</th></tr>\n<tr><td>Pencils</td><td>12</td></tr>\n<tr><td>Pens</td><td>7</td></tr>\n</table>"
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "A table listing stationery supplies."
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "image-flow": {
+      "id": "teaching-image-flow",
+      "name": "A flow image becomes a diagram",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Keep all three printed labels and both directed connections. This simple flow fits Mermaid; other faithful supported diagram languages are valid.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/image-flow.svg",
+          "sha256": "fc5b40f2d1211207ab18626aa2d2c47052ec256d872d42744a67445c6039b30f",
+          "bytes": 899
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "```diagram/mermaid\nflowchart LR\n  A[Receive] --> B[Review]\n  B --> C[Archive]\n```"
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "[A three-step process diagram]"
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "image-art": {
+      "id": "teaching-image-art",
+      "name": "Decorative artwork needs a description",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "There are no labels or data points to transcribe. Describe the visible artwork in prose without inventing a place, date or artist.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/image-art.svg",
+          "sha256": "1a67586790773d4ab9b58130c19d3fb748de1942f48338aa47ac7ef8bc4b9366",
+          "bytes": 463
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "An illustration of two overlapping mountains beneath a yellow sun in a pale blue sky. The taller mountain on the left has a white peak."
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "![Mountains](mountains.png)"
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "image-chart": {
+      "id": "teaching-image-chart",
+      "name": "A chart image preserves its values",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Use the printed values 4 and 8, not estimates from bar heights. Keep the title and month labels in the chart table.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/image-chart.svg",
+          "sha256": "b7e8934079b541afeaeba293e9423531207c2704b0505d3ddd2a0048f0cd2dc9",
+          "bytes": 731
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "<table data-source=\"chart\">\n<caption>Orders</caption>\n<tr><th>Month</th><th>Orders</th></tr>\n<tr><td>Apr</td><td>4</td></tr>\n<tr><td>May</td><td>8</td></tr>\n</table>"
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "Orders increased from April to May."
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "equation": {
+      "id": "teaching-equation",
+      "name": "An equation inside a sentence",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "This is mathematical notation, so encode the equation as LaTeX with double-dollar delimiters, even inside a sentence.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/equation.svg",
+          "sha256": "e5a833411e8d8a0c3c891ef22d8ca68f0241880a60fdc09edd9d265ebb0ddb38",
+          "bytes": 350
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "The energy is $$E = mc^{2}$$."
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "The energy is $E = mc^2$."
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "bold-italic": {
+      "id": "teaching-bold-italic",
+      "name": "Preserve bold and italic without inventing emphasis",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Only “Urgent” is bold and only “review” is italic. The rest stays plain.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/bold-italic.svg",
+          "sha256": "42b5e4c64d9592d9ffe4a6664ebea71d5f6f8cbd85febdc751c49cd49ed59e2e",
+          "bytes": 386
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "**Urgent** *review* required."
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "**Urgent review required.**"
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "highlight": {
+      "id": "teaching-highlight",
+      "name": "A yellow highlight has its own markup",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Preserve the yellow background as a highlight; it does not imply bold or meaningful yellow text.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/highlight.svg",
+          "sha256": "0768eff4e3b9e1391703df33e9235fa5685c120986a7009d3b0fc578a99d8db8",
+          "bytes": 424
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "Bring <mark style=\"background-color: yellow\">photo ID</mark> tomorrow."
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "Bring **photo ID** tomorrow."
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "underline": {
+      "id": "teaching-underline",
+      "name": "Underline is not italic",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "The entire printed sentence is underlined. Use the underline tag, not Markdown underscores.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/underline.svg",
+          "sha256": "3845180f0bab694de02f769769387c2cdb70b318c00a7303955e134b15574c1b",
+          "bytes": 329
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "<u>Return by Friday.</u>"
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "_Return by Friday._"
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "super-sub": {
+      "id": "teaching-super-sub",
+      "name": "Raised references and lowered chemical indices",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "These are non-mathematical raised and lowered characters. Keep them as tags, not Unicode substitutions.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/super-sub.svg",
+          "sha256": "2271dd0d568be973f6536157eee308195ad4557e816e625396919617dbcec32b",
+          "bytes": 434
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "Water: H<sub>2</sub>O\n\nSee note<sup>3</sup>"
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "Water: H₂O\n\nSee note³"
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "link": {
+      "id": "teaching-link",
+      "name": "A printed URL is raw text by default",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "No link extraction was requested. Transcribe the visible URL; do not infer a different target.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/link.svg",
+          "sha256": "a125fb3177a6d914688792aec5a3c3d722062c56e9769425707e417efd119301",
+          "bytes": 310
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "Help:\nhttps://example.org/help"
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "Help:\n[Support portal](https://example.org/help)"
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "quote": {
+      "id": "teaching-quote",
+      "name": "An inset quotation is ordinary text",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Preserve the quotation marks and printed line break. The inset styling does not authorize Markdown block-quote markers.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/quote.svg",
+          "sha256": "48f7b8396226e390cb9ed0a184a904d9a902ee9e90cf0ae6be95c90886117d9a",
+          "bytes": 383
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "“Measure twice,\ncut once.”"
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "> “Measure twice,\n> cut once.”"
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "linebreak": {
+      "id": "teaching-linebreak",
+      "name": "Two printed lines form one block",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "This is one two-line block. Keep a plain newline, with no blank paragraph, trailing spaces or <br>.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/linebreak.svg",
+          "sha256": "bf674cd009f14afe25ea9aefc94e09fa1bc4d0d21b514a5a6125d67c53214e59",
+          "bytes": 331
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "Please keep this receipt\nuntil your order arrives."
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "Please keep this receipt<br>until your order arrives."
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "separator": {
+      "id": "teaching-separator",
+      "name": "A printed divider is not a page boundary",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Both labels are on one page with a visible divider. Use <hr/>; reserve --- for a change of page.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/separator.svg",
+          "sha256": "93a665d879388cc31ae3dd74140f229216b5961dab84029847d35351ef9a45b7",
+          "bytes": 387
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "Morning session\n\n<hr/>\n\nAfternoon session"
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "Morning session\n\n---\n\nAfternoon session"
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "header-only": {
+      "id": "teaching-header-only",
+      "name": "Headers without a body are ordinary text",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "This is the complete available crop. No data rows or adjoining page are available. Preserve the labels without creating an empty table or inventing rows.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/header-only.svg",
+          "sha256": "bb511b5fe1b1d4fa727e6136d4bcedfd1c24fd8fd6f847e953e9c471b2385448",
+          "bytes": 422
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "Product\nQuantity\nPrice"
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "<table><tr><th>Product</th><th>Quantity</th><th>Price</th></tr></table>"
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "form-values": {
+      "id": "teaching-form-values",
+      "name": "Keep values verbatim and blank fields explicit",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "These are labeled fill-in fields, not a table. Keep leading zeros and the ambiguous date exactly as printed; do not infer a currency or expand the date. The third answer line is empty.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/form-values.svg",
+          "sha256": "591aed87ec63ba54eb091090812878778cc4da8dcea0a1d0841263490da6db47",
+          "bytes": 607
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "- \\[1\\] **Amount:** 0012.50\n- \\[2\\] **Date:** 03/04/26\n- \\[3\\] **Reference:** [blank]"
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "- **Amount:** $12.50\n- **Date:** March 4, 2026"
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "form-order": {
+      "id": "teaching-form-order",
+      "name": "Printed IDs override a row-wise scan",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Read fields 1, 2, 3, 4. A geometric left-to-right sweep across each row would incorrectly produce 1, 3, 2, 4.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/form-order.svg",
+          "sha256": "64d071d7ceb17f7b884d7d96d6a7808fe3020245d2ec4ccd023435925ede2e11",
+          "bytes": 417
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "- \\[1\\] **Name:** Ada\n- \\[2\\] **Code:** 007\n- \\[3\\] **City:** Dover\n- \\[4\\] **Zone:** East"
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "table-correction": {
+      "id": "teaching-table-correction",
+      "name": "A correction and a stamp play different roles",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "The blue slanted “10” represents a handwritten correction to the struck 12. Retain both. The REVIEWED stamp is below the grid and stays outside the table. This is a schematic teaching illustration of handwriting.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/table-correction.svg",
+          "sha256": "8ce00fdc6a66bf083f23eb4687761553e847a44db5481284cdb4de8889ca0a61",
+          "bytes": 1002
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "<table>\n<tr><th>Item</th><th>Count</th></tr>\n<tr><td>Pencils</td><td>~~12~~ 10</td></tr>\n<tr><td>Pens</td><td>7</td></tr>\n</table>\n\nREVIEWED"
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "document-page-one": {
+      "id": "teaching-document-page-one",
+      "name": "Document structure continues across pages",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Two consecutive interior pages are shown in order. The document title is on an earlier cover; sections use level 2 and subsections level 3. The running header is plain text on both pages. The printed folios stay in their footer bands; they are not physical sheet indices.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/document-page-one.svg",
+          "sha256": "1a90b4881161c72b0bb881b96a3ce6e3a6255ab6a67886bbdf235c8a4fa26364",
+          "bytes": 520
+        },
+        {
+          "src": "/teaching-examples/document-page-two.svg",
+          "sha256": "7346493c9cbc8849c89fd659316113b54ac68cc451e8fd5c5f160dafa1bf9295",
+          "bytes": 442
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "FIELD GUIDE\n\n## 2 Maintenance\n\n### 2.1 Inspection\n\nInspect daily.\n\nRevision A · Page 4\n\n---\n\nFIELD GUIDE\n\n### 2.2 Cleaning\n\nClean weekly.\n\nRevision A · Page 5"
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "cover": {
+      "id": "teaching-cover",
+      "name": "The cover title is not a recurring section",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "This is the cover of a paged document. Its title is a Title element. A matching running header on later interior pages is page furniture, not another Title.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/cover.svg",
+          "sha256": "b36bffba26c0b31a398d8e77bc97e5ec81383f4d8f5b03354ef551ba25068792",
+          "bytes": 323
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "# FIELD GUIDE\n\nRevision A"
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "box": {
+      "id": "teaching-box",
+      "name": "One picture, one element box",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Element-level boxes were requested. The illustration is a single rectangular Picture region at x=120, y=80, width=240, height=120 in the 720×300 page coordinate space. The first block is the Markdown; the JSON below it is a separate sidecar, not extra document text.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/box.svg",
+          "sha256": "6ba00caa2e83a8c5f5cfb57ac3c4c0791b8571b71773aa4a9a99fa78eccac6d2",
+          "bytes": 277
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "<!-- el p=1 x=120 y=80 w=240 h=120 -->\nA pale blue rectangle with a blue outline."
+        },
+        {
+          "language": "json",
+          "text": "{\n  \"pages\": [\n    {\n      \"page\": 1,\n      \"width\": 720,\n      \"height\": 300,\n      \"items\": [\n        {\n          \"type\": \"Picture\",\n          \"md\": \"A pale blue rectangle with a blue outline.\",\n          \"bBox\": {\n            \"x\": 120,\n            \"y\": 80,\n            \"w\": 240,\n            \"h\": 120\n          }\n        }\n      ]\n    }\n  ]\n}"
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "spacer-alternatives": {
+      "id": "teaching-spacer-alternatives",
+      "name": "A real blank row admits two encodings",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "The empty ruled row is a purely decorative spacer, not the only boundary between groups. Keeping it (shown here) and omitting it both conform. Once chosen, use the same treatment for this situation throughout the document. The second snippet is the alternative output, not extra document content.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/spacer-alternatives.svg",
+          "sha256": "13389d56265d01c67010829186db66aab43d58da595aa2c4ba5a4e8fd1902aa2",
+          "bytes": 851
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "<table>\n<tr><th>Item</th><th>Count</th></tr>\n<tr><td>Pencils</td><td>12</td></tr>\n<tr><td></td><td></td></tr>\n<tr><td>Pens</td><td>7</td></tr>\n</table>"
+        },
+        {
+          "language": "markdown",
+          "text": "<table>\n<tr><th>Item</th><th>Count</th></tr>\n<tr><td>Pencils</td><td>12</td></tr>\n<tr><td>Pens</td><td>7</td></tr>\n</table>"
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "circuit-divider": {
+      "id": "teaching-circuit-divider",
+      "name": "A resistor divider preserves the branch and values",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "This is a component-level circuit, not a process flow. Preserve R1, R2, their printed values, the ground symbol and the VOUT branch at the marked junction. Do not calculate an unprinted output voltage.",
+        "Original public-domain teaching material (CC0). Source and expected output were authored for this guide; no customer documents are used."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/circuit-divider.png",
+          "sha256": "92ceb61b69bf8acba6f3e91271a050d8eb8dd48263239c106b8b1de9c7108187",
+          "bytes": 26628
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "```diagram/circuitikz\n\\begin{circuitikz}[american]\n\\draw (0,4) node[above]{VIN} to[R,l=$R1\\ 10\\,k\\Omega$] (0,2)\n  to[R,l=$R2\\ 20\\,k\\Omega$] (0,0) node[ground]{};\n\\draw (0,2) node[circ]{} -- (2,2) node[right]{VOUT};\n\\end{circuitikz}\n```"
+        }
+      ],
+      "rendered": "",
+      "bad": null,
+      "encodingValidation": "Compiled with pdflatex and rendered with Poppler; source image is that rendering."
+    },
+    "circuit-crossing": {
+      "id": "teaching-circuit-crossing",
+      "name": "Crossing wires are not automatically connected",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Compare with the other crossing example: there is no junction marker. Preserve the two crossing wires without asserting an electrical connection at their crossing. Do not infer hidden connections from proximity.",
+        "Original public-domain teaching material (CC0). Source and expected output were authored for this guide; no customer documents are used."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/circuit-crossing.png",
+          "sha256": "97dc28fb39e3fb57ae6dfafceea8cfb227385905c8716ae1910bebeca45dd5e4",
+          "bytes": 11924
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "```diagram/circuitikz\n\\begin{circuitikz}\n\\draw (0,1) node[left]{A} -- (2,1) node[right]{B};\n\\draw (1,0) node[below]{D} -- (1,2) node[above]{C};\n\n\\end{circuitikz}\n```"
+        }
+      ],
+      "rendered": "",
+      "bad": null,
+      "encodingValidation": "Compiled with pdflatex and rendered with Poppler; source image is that rendering."
+    },
+    "circuit-junction": {
+      "id": "teaching-circuit-junction",
+      "name": "The junction dot changes connectivity",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Compare with the other crossing example: the visible dot joins all four labeled ends. Do not infer hidden connections from proximity.",
+        "Original public-domain teaching material (CC0). Source and expected output were authored for this guide; no customer documents are used."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/circuit-junction.png",
+          "sha256": "4ddbaaf11adf055d0708671a1d7f506c0de3f657dd6c760db4fa99b7926e0154",
+          "bytes": 12549
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "```diagram/circuitikz\n\\begin{circuitikz}\n\\draw (0,1) node[left]{A} -- (2,1) node[right]{B};\n\\draw (1,0) node[below]{D} -- (1,2) node[above]{C};\n\\node[circ] at (1,1) {};\n\\end{circuitikz}\n```"
+        }
+      ],
+      "rendered": "",
+      "bad": null,
+      "encodingValidation": "Compiled with pdflatex and rendered with Poppler; source image is that rendering."
+    },
+    "chem-reaction": {
+      "id": "teaching-chem-reaction",
+      "name": "A printed reaction keeps coefficients and its arrow",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Use mhchem for a linear reaction. Preserve the printed coefficients and arrow; do not replace the reaction with its name or add conditions that are not printed.",
+        "Original public-domain teaching material (CC0). Source and expected output were authored for this guide; no customer documents are used."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/chem-reaction.png",
+          "sha256": "6472288e2a8e9d4ac5075875d9a382f14977b4bf5cb02785dcc87a4423a39ab1",
+          "bytes": 8535
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "```latex\n\\ce{2H2 + O2 -> 2H2O}\n```"
+        }
+      ],
+      "rendered": "",
+      "bad": null,
+      "encodingValidation": "Compiled with pdflatex and rendered with Poppler; source image is that rendering."
+    },
+    "chem-ring": {
+      "id": "teaching-chem-ring",
+      "name": "A ring needs its bond pattern",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "The six-membered ring has three alternating double bonds. A formula such as C6H6 alone would discard the drawn structure. This is a complete chemfig encoding of the shown ring.",
+        "Original public-domain teaching material (CC0). Source and expected output were authored for this guide; no customer documents are used."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/chem-ring.png",
+          "sha256": "ad9cfc7e86be623710dda2117d16fd638cdb0e8478112f281bdca16c40c2b7bd",
+          "bytes": 16404
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "```latex\n\\chemfig{*6(-=-=-=)}\n```"
+        }
+      ],
+      "rendered": "",
+      "bad": null,
+      "encodingValidation": "Compiled with pdflatex and rendered with Poppler; source image is that rendering."
+    },
+    "chem-stereo": {
+      "id": "teaching-chem-stereo",
+      "name": "Solid and hashed wedges must survive",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Preserve the solid wedge to F, hashed wedge to Br and ordinary bonds to H and Cl. Do not flatten them to four identical bonds or infer an R/S name not printed on the source.",
+        "Original public-domain teaching material (CC0). Source and expected output were authored for this guide; no customer documents are used."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/chem-stereo.png",
+          "sha256": "d4bd5e24be1c09aff6352e9c015ff614c748755de1edab2c8338da87792ccd9e",
+          "bytes": 15910
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "```latex\n\\chemfig{C(-[:180]H)(-[:0]Cl)(<[:90]F)(<:[:270]Br)}\n```"
+        }
+      ],
+      "rendered": "",
+      "bad": null,
+      "encodingValidation": "Compiled with pdflatex and rendered with Poppler; source image is that rendering."
+    },
+    "plan-encoding": {
+      "id": "teaching-plan-encoding",
+      "name": "A floor plan retains the doorway and printed dimensions",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "The internal wall has a visible opening and a door swing into Store. Keep both room labels and the two printed overall dimensions. Drawing coordinates reproduce the schematic; they do not authorize invented room dimensions or calculated areas. This simple plan has a faithful encoding, so a description fallback is unnecessary.",
+        "Original public-domain teaching material (CC0). Source and expected output were authored for this guide; no customer documents are used."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/plan-encoding.png",
+          "sha256": "af65c1432261e5555c5ec7f45b82ea86d5169be6fe75b08979347b67f1e007ba",
+          "bytes": 17160
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "```diagram/tikz\n\\begin{tikzpicture}[x=1cm,y=1cm]\n\\draw[thick] (0,0) rectangle (6,4);\n\\draw[thick] (3,0) -- (3,1) (3,2) -- (3,4);\n\\draw (3,1) -- (4,1);\n\\draw (4,1) arc[start angle=0,end angle=90,radius=1];\n\\node at (1.5,2.5) {Office};\n\\node at (4.5,2.5) {Store};\n\\draw[<->] (0,-0.5) -- (6,-0.5) node[midway,below]{6.0 m};\n\\draw[<->] (-0.5,0) -- (-0.5,4) node[midway,left]{4.0 m};\n\\end{tikzpicture}\n```"
+        }
+      ],
+      "rendered": "",
+      "bad": null,
+      "encodingValidation": "Compiled with pdflatex and rendered with Poppler; source image is that rendering."
+    },
+    "grounding-element": {
+      "id": "teaching-grounding-element",
+      "name": "The same service page at element granularity",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "This interior page has a level-2 section heading, one two-line paragraph and a footer. Element boxes were requested. The Markdown and sidecar below are separate deliverables; the footer is not part of the paragraph. Coordinates use the original 720×420 image, not its on-screen display size.",
+        "QA: the second paragraph line starts at character 15 in the element Markdown. Heading word ranges start after the “## ” prefix. Returning both line and word ranges for a word-only request would violate the requested granularity.",
+        "Original public-domain teaching material (CC0). Source and expected output were authored for this guide; no customer documents are used."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/grounding-page.png",
+          "sha256": "e3cd5a89f61a676c9f21927a793f767ad6c7613f6a88519d8696fe8617d6628c",
+          "bytes": 12745
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "<!-- el p=1 x=48 y=54 w=179 h=22 -->\n## Service note\n\n<!-- el p=1 x=48 y=131 w=159 h=62 -->\nCheck valve A.\nRecord 12 psi.\n\n<!-- el p=1 x=48 y=369 w=74 h=17 -->\nRev B | 7"
+        },
+        {
+          "language": "json",
+          "text": "{\n  \"pages\": [\n    {\n      \"page\": 1,\n      \"width\": 720,\n      \"height\": 420,\n      \"items\": [\n        {\n          \"type\": \"Section-header\",\n          \"md\": \"## Service note\",\n          \"bBox\": {\n            \"x\": 48,\n            \"y\": 54,\n            \"w\": 179,\n            \"h\": 22\n          }\n        },\n        {\n          \"type\": \"Text\",\n          \"md\": \"Check valve A.\\nRecord 12 psi.\",\n          \"bBox\": {\n            \"x\": 48,\n            \"y\": 131,\n            \"w\": 159,\n            \"h\": 62\n          }\n        },\n        {\n          \"type\": \"Page-footer\",\n          \"md\": \"Rev B | 7\",\n          \"bBox\": {\n            \"x\": 48,\n            \"y\": 369,\n            \"w\": 74,\n            \"h\": 17\n          }\n        }\n      ]\n    }\n  ]\n}"
+        }
+      ],
+      "rendered": "",
+      "bad": null,
+      "geometry": {
+        "level": "element",
+        "markdown": "<!-- el p=1 x=48 y=54 w=179 h=22 -->\n## Service note\n\n<!-- el p=1 x=48 y=131 w=159 h=62 -->\nCheck valve A.\nRecord 12 psi.\n\n<!-- el p=1 x=48 y=369 w=74 h=17 -->\nRev B | 7",
+        "sidecar": {
+          "pages": [
+            {
+              "page": 1,
+              "width": 720,
+              "height": 420,
+              "items": [
+                {
+                  "type": "Section-header",
+                  "md": "## Service note",
+                  "bBox": {
+                    "x": 48,
+                    "y": 54,
+                    "w": 179,
+                    "h": 22
+                  }
+                },
+                {
+                  "type": "Text",
+                  "md": "Check valve A.\nRecord 12 psi.",
+                  "bBox": {
+                    "x": 48,
+                    "y": 131,
+                    "w": 159,
+                    "h": 62
+                  }
+                },
+                {
+                  "type": "Page-footer",
+                  "md": "Rev B | 7",
+                  "bBox": {
+                    "x": 48,
+                    "y": 369,
+                    "w": 74,
+                    "h": 17
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "grounding-line": {
+      "id": "teaching-grounding-line",
+      "name": "The same service page at line granularity",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "This interior page has a level-2 section heading, one two-line paragraph and a footer. Line boxes were requested. The Markdown and sidecar below are separate deliverables; the footer is not part of the paragraph. Coordinates use the original 720×420 image, not its on-screen display size.",
+        "QA: the second paragraph line starts at character 15 in the element Markdown. Heading word ranges start after the “## ” prefix. Returning both line and word ranges for a word-only request would violate the requested granularity.",
+        "Original public-domain teaching material (CC0). Source and expected output were authored for this guide; no customer documents are used."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/grounding-page.png",
+          "sha256": "e3cd5a89f61a676c9f21927a793f767ad6c7613f6a88519d8696fe8617d6628c",
+          "bytes": 12745
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "<!-- el p=1 x=48 y=54 w=179 h=22 -->\n## Service note\n\n<!-- el p=1 x=48 y=131 w=159 h=62 -->\nCheck valve A.\nRecord 12 psi.\n\n<!-- el p=1 x=48 y=369 w=74 h=17 -->\nRev B | 7"
+        },
+        {
+          "language": "json",
+          "text": "{\n  \"pages\": [\n    {\n      \"page\": 1,\n      \"width\": 720,\n      \"height\": 420,\n      \"items\": [\n        {\n          \"type\": \"Section-header\",\n          \"md\": \"## Service note\",\n          \"bBox\": {\n            \"x\": 48,\n            \"y\": 54,\n            \"w\": 179,\n            \"h\": 22\n          },\n          \"layoutAwareBbox\": [\n            {\n              \"x\": 48,\n              \"y\": 54,\n              \"w\": 179,\n              \"h\": 22,\n              \"startIndex\": 3,\n              \"endIndex\": 15\n            }\n          ]\n        },\n        {\n          \"type\": \"Text\",\n          \"md\": \"Check valve A.\\nRecord 12 psi.\",\n          \"bBox\": {\n            \"x\": 48,\n            \"y\": 131,\n            \"w\": 159,\n            \"h\": 62\n          },\n          \"layoutAwareBbox\": [\n            {\n              \"x\": 48,\n              \"y\": 131,\n              \"w\": 159,\n              \"h\": 17,\n              \"startIndex\": 0,\n              \"endIndex\": 14\n            },\n            {\n              \"x\": 48,\n              \"y\": 171,\n              \"w\": 153,\n              \"h\": 22,\n              \"startIndex\": 15,\n              \"endIndex\": 29\n            }\n          ]\n        },\n        {\n          \"type\": \"Page-footer\",\n          \"md\": \"Rev B | 7\",\n          \"bBox\": {\n            \"x\": 48,\n            \"y\": 369,\n            \"w\": 74,\n            \"h\": 17\n          },\n          \"layoutAwareBbox\": [\n            {\n              \"x\": 48,\n              \"y\": 369,\n              \"w\": 74,\n              \"h\": 17,\n              \"startIndex\": 0,\n              \"endIndex\": 9\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
+        }
+      ],
+      "rendered": "",
+      "bad": null,
+      "geometry": {
+        "level": "line",
+        "markdown": "<!-- el p=1 x=48 y=54 w=179 h=22 -->\n## Service note\n\n<!-- el p=1 x=48 y=131 w=159 h=62 -->\nCheck valve A.\nRecord 12 psi.\n\n<!-- el p=1 x=48 y=369 w=74 h=17 -->\nRev B | 7",
+        "sidecar": {
+          "pages": [
+            {
+              "page": 1,
+              "width": 720,
+              "height": 420,
+              "items": [
+                {
+                  "type": "Section-header",
+                  "md": "## Service note",
+                  "bBox": {
+                    "x": 48,
+                    "y": 54,
+                    "w": 179,
+                    "h": 22
+                  },
+                  "layoutAwareBbox": [
+                    {
+                      "x": 48,
+                      "y": 54,
+                      "w": 179,
+                      "h": 22,
+                      "startIndex": 3,
+                      "endIndex": 15
+                    }
+                  ]
+                },
+                {
+                  "type": "Text",
+                  "md": "Check valve A.\nRecord 12 psi.",
+                  "bBox": {
+                    "x": 48,
+                    "y": 131,
+                    "w": 159,
+                    "h": 62
+                  },
+                  "layoutAwareBbox": [
+                    {
+                      "x": 48,
+                      "y": 131,
+                      "w": 159,
+                      "h": 17,
+                      "startIndex": 0,
+                      "endIndex": 14
+                    },
+                    {
+                      "x": 48,
+                      "y": 171,
+                      "w": 153,
+                      "h": 22,
+                      "startIndex": 15,
+                      "endIndex": 29
+                    }
+                  ]
+                },
+                {
+                  "type": "Page-footer",
+                  "md": "Rev B | 7",
+                  "bBox": {
+                    "x": 48,
+                    "y": 369,
+                    "w": 74,
+                    "h": 17
+                  },
+                  "layoutAwareBbox": [
+                    {
+                      "x": 48,
+                      "y": 369,
+                      "w": 74,
+                      "h": 17,
+                      "startIndex": 0,
+                      "endIndex": 9
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "grounding-word": {
+      "id": "teaching-grounding-word",
+      "name": "The same service page at word granularity",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "This interior page has a level-2 section heading, one two-line paragraph and a footer. Word boxes were requested. The Markdown and sidecar below are separate deliverables; the footer is not part of the paragraph. Coordinates use the original 720×420 image, not its on-screen display size.",
+        "QA: the second paragraph line starts at character 15 in the element Markdown. Heading word ranges start after the “## ” prefix. Returning both line and word ranges for a word-only request would violate the requested granularity.",
+        "Original public-domain teaching material (CC0). Source and expected output were authored for this guide; no customer documents are used."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/grounding-page.png",
+          "sha256": "e3cd5a89f61a676c9f21927a793f767ad6c7613f6a88519d8696fe8617d6628c",
+          "bytes": 12745
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "<!-- el p=1 x=48 y=54 w=179 h=22 -->\n## Service note\n\n<!-- el p=1 x=48 y=131 w=159 h=62 -->\nCheck valve A.\nRecord 12 psi.\n\n<!-- el p=1 x=48 y=369 w=74 h=17 -->\nRev B | 7"
+        },
+        {
+          "language": "json",
+          "text": "{\n  \"pages\": [\n    {\n      \"page\": 1,\n      \"width\": 720,\n      \"height\": 420,\n      \"items\": [\n        {\n          \"type\": \"Section-header\",\n          \"md\": \"## Service note\",\n          \"bBox\": {\n            \"x\": 48,\n            \"y\": 54,\n            \"w\": 179,\n            \"h\": 22\n          },\n          \"layoutAwareBbox\": [\n            {\n              \"x\": 48.0,\n              \"y\": 54,\n              \"w\": 108.0,\n              \"h\": 22,\n              \"startIndex\": 3,\n              \"endIndex\": 10\n            },\n            {\n              \"x\": 164.0,\n              \"y\": 55,\n              \"w\": 63.0,\n              \"h\": 21,\n              \"startIndex\": 11,\n              \"endIndex\": 15\n            }\n          ]\n        },\n        {\n          \"type\": \"Text\",\n          \"md\": \"Check valve A.\\nRecord 12 psi.\",\n          \"bBox\": {\n            \"x\": 48,\n            \"y\": 131,\n            \"w\": 159,\n            \"h\": 62\n          },\n          \"layoutAwareBbox\": [\n            {\n              \"x\": 48.0,\n              \"y\": 131,\n              \"w\": 67.0,\n              \"h\": 17,\n              \"startIndex\": 0,\n              \"endIndex\": 5\n            },\n            {\n              \"x\": 122.0,\n              \"y\": 131,\n              \"w\": 55.0,\n              \"h\": 17,\n              \"startIndex\": 6,\n              \"endIndex\": 11\n            },\n            {\n              \"x\": 183.0,\n              \"y\": 131,\n              \"w\": 24.0,\n              \"h\": 17,\n              \"startIndex\": 12,\n              \"endIndex\": 14\n            },\n            {\n              \"x\": 48.0,\n              \"y\": 171,\n              \"w\": 76.0,\n              \"h\": 17,\n              \"startIndex\": 15,\n              \"endIndex\": 21\n            },\n            {\n              \"x\": 131.0,\n              \"y\": 171,\n              \"w\": 26.0,\n              \"h\": 17,\n              \"startIndex\": 22,\n              \"endIndex\": 24\n            },\n            {\n              \"x\": 164.0,\n              \"y\": 171,\n              \"w\": 37.0,\n              \"h\": 22,\n              \"startIndex\": 25,\n              \"endIndex\": 29\n            }\n          ]\n        },\n        {\n          \"type\": \"Page-footer\",\n          \"md\": \"Rev B | 7\",\n          \"bBox\": {\n            \"x\": 48,\n            \"y\": 369,\n            \"w\": 74,\n            \"h\": 17\n          },\n          \"layoutAwareBbox\": [\n            {\n              \"x\": 48.0,\n              \"y\": 369,\n              \"w\": 32.0,\n              \"h\": 13,\n              \"startIndex\": 0,\n              \"endIndex\": 3\n            },\n            {\n              \"x\": 85.0,\n              \"y\": 369,\n              \"w\": 12.0,\n              \"h\": 13,\n              \"startIndex\": 4,\n              \"endIndex\": 5\n            },\n            {\n              \"x\": 102.0,\n              \"y\": 369,\n              \"w\": 5.0,\n              \"h\": 17,\n              \"startIndex\": 6,\n              \"endIndex\": 7\n            },\n            {\n              \"x\": 112.0,\n              \"y\": 369,\n              \"w\": 10.0,\n              \"h\": 13,\n              \"startIndex\": 8,\n              \"endIndex\": 9\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
+        }
+      ],
+      "rendered": "",
+      "bad": null,
+      "geometry": {
+        "level": "word",
+        "markdown": "<!-- el p=1 x=48 y=54 w=179 h=22 -->\n## Service note\n\n<!-- el p=1 x=48 y=131 w=159 h=62 -->\nCheck valve A.\nRecord 12 psi.\n\n<!-- el p=1 x=48 y=369 w=74 h=17 -->\nRev B | 7",
+        "sidecar": {
+          "pages": [
+            {
+              "page": 1,
+              "width": 720,
+              "height": 420,
+              "items": [
+                {
+                  "type": "Section-header",
+                  "md": "## Service note",
+                  "bBox": {
+                    "x": 48,
+                    "y": 54,
+                    "w": 179,
+                    "h": 22
+                  },
+                  "layoutAwareBbox": [
+                    {
+                      "x": 48.0,
+                      "y": 54,
+                      "w": 108.0,
+                      "h": 22,
+                      "startIndex": 3,
+                      "endIndex": 10
+                    },
+                    {
+                      "x": 164.0,
+                      "y": 55,
+                      "w": 63.0,
+                      "h": 21,
+                      "startIndex": 11,
+                      "endIndex": 15
+                    }
+                  ]
+                },
+                {
+                  "type": "Text",
+                  "md": "Check valve A.\nRecord 12 psi.",
+                  "bBox": {
+                    "x": 48,
+                    "y": 131,
+                    "w": 159,
+                    "h": 62
+                  },
+                  "layoutAwareBbox": [
+                    {
+                      "x": 48.0,
+                      "y": 131,
+                      "w": 67.0,
+                      "h": 17,
+                      "startIndex": 0,
+                      "endIndex": 5
+                    },
+                    {
+                      "x": 122.0,
+                      "y": 131,
+                      "w": 55.0,
+                      "h": 17,
+                      "startIndex": 6,
+                      "endIndex": 11
+                    },
+                    {
+                      "x": 183.0,
+                      "y": 131,
+                      "w": 24.0,
+                      "h": 17,
+                      "startIndex": 12,
+                      "endIndex": 14
+                    },
+                    {
+                      "x": 48.0,
+                      "y": 171,
+                      "w": 76.0,
+                      "h": 17,
+                      "startIndex": 15,
+                      "endIndex": 21
+                    },
+                    {
+                      "x": 131.0,
+                      "y": 171,
+                      "w": 26.0,
+                      "h": 17,
+                      "startIndex": 22,
+                      "endIndex": 24
+                    },
+                    {
+                      "x": 164.0,
+                      "y": 171,
+                      "w": 37.0,
+                      "h": 22,
+                      "startIndex": 25,
+                      "endIndex": 29
+                    }
+                  ]
+                },
+                {
+                  "type": "Page-footer",
+                  "md": "Rev B | 7",
+                  "bBox": {
+                    "x": 48,
+                    "y": 369,
+                    "w": 74,
+                    "h": 17
+                  },
+                  "layoutAwareBbox": [
+                    {
+                      "x": 48.0,
+                      "y": 369,
+                      "w": 32.0,
+                      "h": 13,
+                      "startIndex": 0,
+                      "endIndex": 3
+                    },
+                    {
+                      "x": 85.0,
+                      "y": 369,
+                      "w": 12.0,
+                      "h": 13,
+                      "startIndex": 4,
+                      "endIndex": 5
+                    },
+                    {
+                      "x": 102.0,
+                      "y": 369,
+                      "w": 5.0,
+                      "h": 17,
+                      "startIndex": 6,
+                      "endIndex": 7
+                    },
+                    {
+                      "x": 112.0,
+                      "y": 369,
+                      "w": 10.0,
+                      "h": 13,
+                      "startIndex": 8,
+                      "endIndex": 9
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "visibility": {
+      "id": "teaching-visibility",
+      "name": "Extractable strings are not necessarily visible content",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "At the normal rendered size, only the white heading and meeting line are readable. The original SVG deliberately contains zero-opacity text, #010101 text on #000000 and 0.01-pixel text. Do not recover those strings by inspecting source/XML and pretend they were visible. Very small text that is genuinely readable remains content; this is not a blanket size threshold.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/visibility.svg",
+          "sha256": "9e92503a1033da7a82fa0c285b3f0ef79b60c184a2d2f8d14104a25fc162b73d",
+          "bytes": 632
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "Public notice\n\nMeeting at 10:00."
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "Public notice\n\nMeeting at 10:00.\n\nINVISIBLE_TOKEN\nLOW_CONTRAST_TOKEN\nTINY_TOKEN"
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "mixed-math": {
+      "id": "teaching-mixed-math",
+      "name": "Currency and inline mathematics share one sentence",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "The first dollar sign is a printed currency symbol. Only x = 2 is mathematics; the double delimiters prevent an unrelated currency sign from being mistaken for an equation boundary.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/mixed-math.svg",
+          "sha256": "32cdf60b8344b13ec667e3797ed8cef0a321f43e1161420006a164e11909ed1c",
+          "bytes": 268
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "Fee: $5. Use $$x = 2$$ to continue."
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "Fee: $$5. Use x = 2$ to continue."
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "underline-redline": {
+      "id": "teaching-underline-redline",
+      "name": "A replacement underline is not an insertion-history tag",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Keep the visibly struck 60 and the visibly underlined replacement 55. Do not silently discard the deleted value, infer an edit-history <ins> tag, or encode the underline as italic.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/underline-redline.svg",
+          "sha256": "364a917f91aa9556d62bc45cbe3744f6b460a61dec4e41f280f23cc213147f01",
+          "bytes": 487
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "Rate: ~~60~~ <u>55</u>"
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "Rate: <ins>55</ins>"
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "quote-table": {
+      "id": "teaching-quote-table",
+      "name": "An inset can contain a heading and a table",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "In this document the printed Safety note is a level-2 section heading. The inset background does not turn its contents into a Markdown block quote. Preserve the heading, paragraph and table without > prefixes.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/quote-table.svg",
+          "sha256": "5728faeeadc47db252baeba34811a9cf4d015b4832122cbf0d701a441849956a",
+          "bytes": 815
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "## Safety note\n\nKeep dry.\n\n<table>\n<tr><th>Item</th><th>Limit</th></tr>\n<tr><td>Crates</td><td>3</td></tr>\n</table>"
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "superscript-boundary": {
+      "id": "teaching-superscript-boundary",
+      "name": "A footnote marker and a mathematical exponent differ",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "The first raised 2 is a note reference and uses <sup>. The second belongs to a mathematical expression and stays inside LaTeX. Do not turn both into Unicode ² or apply one markup to both.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/superscript-boundary.svg",
+          "sha256": "a132fe3072fdae81e87c5b797e04d1fbbf436432c54505215c15cb386495e0cb",
+          "bytes": 440
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "See note<sup>2</sup>\n\nThen compute $$x^{2}$$."
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "link-default": {
+      "id": "teaching-link-default",
+      "name": "Default: preserve the visible anchor text",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "The document link target is https://example.org/handbook, supplied as link metadata, not printed on the page. Link extraction is OFF. Keep only the visible anchor text; do not append the hidden URL.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/link-default.svg",
+          "sha256": "ff1b669c398116211859325c7a43c593091141a24b221056b3e3dc99bca822e2",
+          "bytes": 255
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "Read the handbook"
+        }
+      ],
+      "rendered": "",
+      "bad": {
+        "tables": [],
+        "snippets": [
+          {
+            "language": "markdown",
+            "text": "Read the handbook https://example.org/handbook"
+          }
+        ],
+        "rendered": ""
+      }
+    },
+    "link-enabled": {
+      "id": "teaching-link-enabled",
+      "name": "Link extraction requested: retain the actual target",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Same printed source and metadata as the previous case. Link extraction is explicitly ON. The URL is supplied document metadata for this constructed example; it is not inferred from the words or recoverable from the picture alone.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/link-enabled.svg",
+          "sha256": "ff1b669c398116211859325c7a43c593091141a24b221056b3e3dc99bca822e2",
+          "bytes": 255
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "[Read the handbook](https://example.org/handbook)"
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "folio-default": {
+      "id": "teaching-folio-default",
+      "name": "Printed folio extraction OFF",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "The printed page number is iv, even though this is physical sheet 1. Separate folio extraction is not requested. The printed folio still survives in its footer band.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/folio-default.svg",
+          "sha256": "cacb8a3d9d054102f9061b1eef684bb4bf0bacb413a978df27416d1bcf97d65b",
+          "bytes": 323
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "Inspection complete.\n\nField notes · Page iv"
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "folio-enabled": {
+      "id": "teaching-folio-enabled",
+      "name": "Printed folio extraction ON",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "The printed page number is iv, even though this is physical sheet 1. Separate folio extraction is requested. The JSON snippet is a page-metadata excerpt, not a complete sidecar or additional document text.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/folio-enabled.svg",
+          "sha256": "cacb8a3d9d054102f9061b1eef684bb4bf0bacb413a978df27416d1bcf97d65b",
+          "bytes": 323
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "Inspection complete.\n\nField notes · Page iv"
+        },
+        {
+          "language": "json",
+          "text": "{\"page\": 1, \"printedPageNumber\": \"iv\"}"
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "mark-default": {
+      "id": "teaching-mark-default",
+      "name": "Graphic references OFF: preserve the mark’s content",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "This fictional logo contains the printed word NORTH and a blue triangle. With saved-graphic references OFF, put that content into the text stream.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/mark-default.svg",
+          "sha256": "eb27b1a48753a44c52b55e67454b3b0439db6919aa97ca69ba223e379f62b810",
+          "bytes": 297
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "NORTH — a blue triangular mark."
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "mark-enabled": {
+      "id": "teaching-mark-enabled",
+      "name": "Graphic references ON: an explicit saved-image option",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Same fictional logo. Saved-graphic references are explicitly allowed by the request under the open Output Options rule. The local target is the actual packaged source, not an invented remote file. This permission does not apply to the default Images rule.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/mark-enabled.svg",
+          "sha256": "eb27b1a48753a44c52b55e67454b3b0439db6919aa97ca69ba223e379f62b810",
+          "bytes": 297
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "![NORTH — a blue triangular mark](/teaching-examples/mark-enabled.svg)"
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "table-join-default": {
+      "id": "teaching-table-join-default",
+      "name": "Cross-page table joining OFF",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "These are consecutive pages of one continued table, supplied in order. Joining is OFF. Keep each fragment with its printed header and use --- between the two source pages.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/table-join-default.svg",
+          "sha256": "0959c6c16f59f9ecbb222f58ba71459a67c454a5ad662a1c5657147f6facea56",
+          "bytes": 611
+        },
+        {
+          "src": "/teaching-examples/option-table-page-two.svg",
+          "sha256": "5b9310ba9f03aa679d3c79b904357b5234f05b492e727856223a31208d1c62d5",
+          "bytes": 607
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "<table><tr><th>Item</th><th>Count</th></tr><tr><td>Pencils</td><td>12</td></tr></table>\n\n---\n\n<table><tr><th>Item</th><th>Count</th></tr><tr><td>Pens</td><td>7</td></tr></table>"
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "table-join-enabled": {
+      "id": "teaching-table-join-enabled",
+      "name": "Cross-page table joining ON",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "These are consecutive pages of one continued table, supplied in order. The request explicitly permits joining. This snippet shows the joined-table representation; it is not an example of a page-preserving sidecar. The repeated header is retained once.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/table-join-enabled.svg",
+          "sha256": "0959c6c16f59f9ecbb222f58ba71459a67c454a5ad662a1c5657147f6facea56",
+          "bytes": 611
+        },
+        {
+          "src": "/teaching-examples/option-table-page-two.svg",
+          "sha256": "5b9310ba9f03aa679d3c79b904357b5234f05b492e727856223a31208d1c62d5",
+          "bytes": 607
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "<table><tr><th>Item</th><th>Count</th></tr><tr><td>Pencils</td><td>12</td></tr><tr><td>Pens</td><td>7</td></tr></table>"
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "figure-context": {
+      "id": "teaching-figure-context",
+      "name": "A diagram stays between its surrounding paragraphs",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "Keep reading order: paragraph, diagram, caption, paragraph. The printed caption is ordinary adjacent text, not a new document heading. Do not move the figure to the end or replace it with a filename.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/figure-context.svg",
+          "sha256": "e7c71665c7e9b89583d65ff9bdb1c0092f4141a3f1187d8e735bb81d758f68a5",
+          "bytes": 801
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "Before the process, register.\n\n```diagram/mermaid\nflowchart LR\n  A[Receive] --> B[Review]\n```\n\nFigure 1. Intake workflow\n\nAfter review, send a receipt."
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    },
+    "form-sections": {
+      "id": "teaching-form-sections",
+      "name": "Lettered and numbered sections do not interleave",
+      "kind": "sample",
+      "constructed": true,
+      "paragraphs": [
+        "The page prints two distinct section headings. Complete CONTACT’s A/B sequence, then PAYMENT’s 1/2 sequence. Do not produce A, 1, B, 2 or invent a common wrapper around the sections.",
+        "Original constructed illustration, dedicated to the public domain under CC0. It explains the existing convention; it does not add a requirement."
+      ],
+      "sourceImages": [
+        {
+          "src": "/teaching-examples/form-sections.svg",
+          "sha256": "de6cd8eac38277d212b636f2d20924e61828735a102c5330dee511d31bf6c0e6",
+          "bytes": 557
+        }
+      ],
+      "tables": [],
+      "snippets": [
+        {
+          "language": "markdown",
+          "text": "### CONTACT\n\n- \\[A\\] **Name:** Ada\n- \\[B\\] **City:** Dover\n\n### PAYMENT\n\n- \\[1\\] **Amount:** 12.50\n- \\[2\\] **Code:** 007"
+        }
+      ],
+      "rendered": "",
+      "bad": null
+    }
+  },
+  "conventions": {
+    "images-images": {
+      "examples": [
+        "image-text",
+        "image-table",
+        "image-chart",
+        "image-flow",
+        "image-art"
+      ],
+      "focus": "Choose the representation from the content inside an image. This page covers classification; Images and Figures covers keeping that content in the surrounding page."
+    },
+    "images-images-and-figures": {
+      "examples": [
+        "figure-context",
+        "quote-table",
+        "equation"
+      ],
+      "focus": "Integrate a figure into the page: preserve surrounding prose, its caption, internal structure and mathematical content. For the basic choice between text, table, chart, diagram and artwork, see Images."
+    },
+    "01-conventions-requirements-language": {
+      "examples": [
+        "image-text",
+        "image-table"
+      ],
+      "focus": "Apply the focal MUST to a concrete output: an image link or summary loses content. Passing this one requirement does not establish whole-document conformance; status and scope still come from the rule badges."
+    },
+    "01-conventions-conformance": {
+      "examples": [
+        "image-text",
+        "image-table"
+      ],
+      "focus": "Apply the focal MUST to a concrete output: an image link or summary loses content. Passing this one requirement does not establish whole-document conformance; status and scope still come from the rule badges."
+    },
+    "01-conventions-rule-status-and-scope": {
+      "examples": [
+        "image-text",
+        "image-table"
+      ],
+      "focus": "Apply the focal MUST to a concrete output: an image link or summary loses content. Passing this one requirement does not establish whole-document conformance; status and scope still come from the rule badges."
+    },
+    "02-principles-the-page-is-the-ground-truth": {
+      "examples": [
+        "visibility",
+        "image-text",
+        "header-only"
+      ],
+      "focus": "Compare visible content with hidden-but-extractable strings, then preserve an actual printed typo and avoid inventing absent table rows. Visibility is determined from the rendering, not from the presence of text objects."
+    },
+    "02-principles-never-drop-never-invent": {
+      "examples": [
+        "image-text",
+        "header-only"
+      ],
+      "focus": "Read only what is visible. Preserve a typo and refuse to fill in missing table rows from expectation."
+    },
+    "02-principles-traceability": {
+      "examples": [
+        "grounding-element",
+        "grounding-word"
+      ],
+      "focus": "Follow each output element back to the same service page. The footer has its own location; word character ranges refer to each element’s Markdown, including its syntax."
+    },
+    "layout-annotation-granularity": {
+      "examples": [
+        "grounding-element",
+        "grounding-line",
+        "grounding-word"
+      ],
+      "focus": "Switch between three requests for the exact same page. Region boxes remain; finer boxes change with the requested level. The result must not mix line and word ranges."
+    },
+    "03-output-model-the-sidecar": {
+      "examples": [
+        "grounding-line",
+        "grounding-word"
+      ],
+      "focus": "Compare the Markdown anchors with the separate sidecar: same page, same item order, identical element boxes and character ranges into each item’s own Markdown."
+    },
+    "03-output-model-elements": {
+      "examples": [
+        "image-table",
+        "form-values",
+        "image-flow"
+      ],
+      "focus": "Similar rectangular regions can be tables, forms or pictures. Choose the class from the content and role before choosing the output syntax; these samples omit optional boxes."
+    },
+    "layout-block-annotation": {
+      "examples": [
+        "image-table",
+        "form-values",
+        "image-flow"
+      ],
+      "focus": "Similar rectangular regions can be tables, forms or pictures. Choose the class from the content and role before choosing the output syntax; these samples omit optional boxes."
+    },
+    "layout-layout-regions": {
+      "examples": [
+        "image-table",
+        "form-values",
+        "image-flow"
+      ],
+      "focus": "Similar rectangular regions can be tables, forms or pictures. Choose the class from the content and role before choosing the output syntax; these samples omit optional boxes."
+    },
+    "03-output-model-markdown-rendering": {
+      "examples": [
+        "separator",
+        "document-page-one"
+      ],
+      "focus": "Contrast a printed line within one page with an actual page boundary between two source images."
+    },
+    "03-output-model-output-options": {
+      "examples": [
+        "folio-default",
+        "folio-enabled",
+        "mark-default",
+        "mark-enabled",
+        "table-join-default",
+        "table-join-enabled"
+      ],
+      "focus": "Compare the same inputs under three request settings: separate folio extraction, saved-graphic references and cross-page table joining. The continued-title variant uses the same joining option; any printed “continued” marker must also be retained. These illustrate the existing open rule without making it settled."
+    },
+    "04-document-level-document-rules": {
+      "examples": [
+        "document-page-one"
+      ],
+      "focus": "Both source pages belong to one document. Preserve the heading depth, classify repeated margin bands consistently, and keep each printed folio with its footer. Separate folio extraction is not requested in this example."
+    },
+    "page-structure-heading-depth-across-pages": {
+      "examples": [
+        "document-page-one"
+      ],
+      "focus": "Both source pages belong to one document. Preserve the heading depth, classify repeated margin bands consistently, and keep each printed folio with its footer. Separate folio extraction is not requested in this example."
+    },
+    "page-structure-recurring-page-furniture": {
+      "examples": [
+        "document-page-one"
+      ],
+      "focus": "Both source pages belong to one document. Preserve the heading depth, classify repeated margin bands consistently, and keep each printed folio with its footer. Separate folio extraction is not requested in this example."
+    },
+    "page-structure-printed-page-numbers": {
+      "examples": [
+        "document-page-one"
+      ],
+      "focus": "Both source pages belong to one document. Preserve the heading depth, classify repeated margin bands consistently, and keep each printed folio with its footer. Separate folio extraction is not requested in this example."
+    },
+    "04-document-level-document-type": {
+      "examples": [
+        "cover",
+        "document-page-one"
+      ],
+      "focus": "Compare the cover with later interior pages of the same document. The repeated text FIELD GUIDE changes role: Title on the cover, Page-header in the interior."
+    },
+    "04-document-level-choices-made-once-per-document": {
+      "examples": [
+        "spacer-alternatives"
+      ],
+      "focus": "Both displayed encodings conform for this genuinely blank spacer row. Pick one treatment and apply it consistently wherever the same situation recurs in the document."
+    },
+    "a-equivalent-forms-accepted-alternatives": {
+      "examples": [
+        "spacer-alternatives"
+      ],
+      "focus": "Both displayed encodings conform for this genuinely blank spacer row. Pick one treatment and apply it consistently wherever the same situation recurs in the document."
+    },
+    "page-structure-line-breaks-inside-a-block": {
+      "examples": [
+        "linebreak"
+      ],
+      "focus": "A source line break is not a new paragraph."
+    },
+    "page-structure-line-separators-and-breaks": {
+      "examples": [
+        "separator",
+        "document-page-one"
+      ],
+      "focus": "The first sample has a divider on one page. The second has two source pages. They require different separators."
+    },
+    "07-text-text-formatting-conventions": {
+      "examples": [
+        "bold-italic",
+        "highlight",
+        "underline",
+        "super-sub",
+        "equation"
+      ],
+      "focus": "Compare visible glyph styles, background highlighting, raised/lowered text and mathematical notation. Each has its own encoding."
+    },
+    "text-1-inline-formatting-bold-and-italics": {
+      "examples": [
+        "bold-italic"
+      ],
+      "focus": "The source shows the printed appearance; the output shows the precise markup required by this convention."
+    },
+    "text-1-inline-formatting-highlighted-text": {
+      "examples": [
+        "highlight"
+      ],
+      "focus": "The source shows the printed appearance; the output shows the precise markup required by this convention."
+    },
+    "text-1-inline-formatting-inline-equations": {
+      "examples": [
+        "mixed-math",
+        "equation"
+      ],
+      "focus": "Distinguish printed currency from mathematics before choosing delimiters."
+    },
+    "text-1-inline-formatting-links": {
+      "examples": [
+        "link-default",
+        "link-enabled",
+        "link"
+      ],
+      "focus": "Switch between identical sources with link extraction OFF and ON. The hidden target is explicitly supplied as document metadata, never guessed from pixels."
+    },
+    "text-1-inline-formatting-quote-blocks": {
+      "examples": [
+        "quote-table",
+        "quote"
+      ],
+      "focus": "First preserve a real heading and table inside an inset, then handle a simple quotation. Flatten the visual container without flattening its internal structure."
+    },
+    "text-1-inline-formatting-superscript-and-subscript": {
+      "examples": [
+        "superscript-boundary",
+        "super-sub"
+      ],
+      "focus": "Raised text can be a reference marker or part of an equation. The two cases use different representations."
+    },
+    "text-1-inline-formatting-underlined-text": {
+      "examples": [
+        "underline-redline",
+        "underline",
+        "separator"
+      ],
+      "focus": "Compare an underlined replacement, an ordinary underline and a printed divider. Their positions and roles determine the output."
+    },
+    "tables-1-what-counts-as-a-table-header-only-tables": {
+      "examples": [
+        "header-only"
+      ],
+      "focus": "The crop has no body and no joinable continuation. Do not manufacture a header-only HTML table."
+    },
+    "tables-6-cell-values-handwriting-and-stamps": {
+      "examples": [
+        "table-correction"
+      ],
+      "focus": "Preserve the old and replacement values together, while keeping a page-level stamp outside the table."
+    },
+    "forms-1-the-output-format-the-key-value-list": {
+      "examples": [
+        "form-values"
+      ],
+      "focus": "Follow printed labels and IDs, preserve the exact values, and explicitly represent the empty field."
+    },
+    "forms-1-the-output-format-values-are-verbatim": {
+      "examples": [
+        "form-values"
+      ],
+      "focus": "Follow printed labels and IDs, preserve the exact values, and explicitly represent the empty field."
+    },
+    "forms-3-structure-form-reading-order": {
+      "examples": [
+        "form-sections",
+        "form-order"
+      ],
+      "focus": "Compare separate lettered/numbered sections with a single numbered sequence. Printed grouping and IDs govern field order, not a row-wise scan."
+    },
+    "c-producing-ground-truth-producing-ground-truth": {
+      "examples": [
+        "form-sections",
+        "header-only"
+      ],
+      "focus": "Walk through a successful annotation and a tempting but invalid table construction. Compare the decisions with the exact output.",
+      "workflow": [
+        "Start from the rendered source, not from a parser prediction.",
+        "Inventory visible text and structural relationships.",
+        "Choose the applicable conventions and produce their prescribed encoding.",
+        "Compare every output value and structure with its source; reject invented groups and silently dropped content."
+      ]
+    },
+    "c-producing-ground-truth-about-the-examples": {
+      "examples": [
+        "image-text",
+        "image-table"
+      ],
+      "focus": "Use these original constructed samples to practice reading the page before checking its expected encoding. They are teaching material, not evidence of a provider score."
+    },
+    "c-producing-ground-truth-ground-truth-charts": {
+      "examples": [
+        "image-chart"
+      ],
+      "focus": "Worked annotation workflow: read the source, make the structural decisions, produce the output, then correct the tempting error.",
+      "workflow": [
+        "Read the printed title, categories and numeric labels.",
+        "Use the printed values 4 and 8; do not estimate them from pixels.",
+        "Write a chart table with its caption.",
+        "QA correction: replace a trend-only sentence with all printed data points."
+      ]
+    },
+    "charts-1-the-annotation-the-ground-truth-file": {
+      "examples": [
+        "image-chart"
+      ],
+      "focus": "This illustration shows the source and its Markdown target. The full reference below explains the separate annotation/test files; this teaching panel is not a substitute for those files."
+    },
+    "c-producing-ground-truth-ground-truth-headings-and-page-structure": {
+      "examples": [
+        "document-page-one"
+      ],
+      "focus": "Worked annotation workflow: read the source, make the structural decisions, produce the output, then correct the tempting error.",
+      "workflow": [
+        "Read both pages before deciding heading depth.",
+        "Keep FIELD GUIDE as recurring furniture on these interior pages.",
+        "Continue subsection depth on the second page.",
+        "QA correction: remove the invented top-level heading caused by restarting at each page."
+      ]
+    },
+    "c-producing-ground-truth-ground-truth-images-diagrams-and-other": {
+      "examples": [
+        "circuit-divider"
+      ],
+      "focus": "Worked annotation workflow: read the source, make the structural decisions, produce the output, then correct the tempting error.",
+      "workflow": [
+        "Classify the figure as an electrical circuit.",
+        "Inventory printed designators, values and net labels.",
+        "Encode the two resistors and the branch at the junction.",
+        "QA correction: remove any calculated VOUT voltage; the source prints none."
+      ]
+    },
+    "c-producing-ground-truth-ground-truth-inline-formatting": {
+      "examples": [
+        "underline-redline"
+      ],
+      "focus": "Worked annotation workflow: read the source, make the structural decisions, produce the output, then correct the tempting error.",
+      "workflow": [
+        "Locate the crossed-out 60 and underlined 55.",
+        "Transcribe both values before adding markup.",
+        "Apply strikeout to 60 and underline to 55 only.",
+        "QA correction: reject “Rate: 55”, which silently drops printed deleted content."
+      ]
+    },
+    "c-producing-ground-truth-ground-truth-layout": {
+      "examples": [
+        "grounding-word"
+      ],
+      "focus": "Worked annotation workflow: read the source, make the structural decisions, produce the output, then correct the tempting error.",
+      "workflow": [
+        "Separate heading, two-line body and footer.",
+        "Transcribe Markdown in reading order.",
+        "Measure element and requested word boxes in source coordinates.",
+        "QA correction: second-line character offsets include the newline; heading offsets include “## ”."
+      ]
+    },
+    "c-producing-ground-truth-ground-truth-lists-and-forms": {
+      "examples": [
+        "form-sections"
+      ],
+      "focus": "Worked annotation workflow: read the source, make the structural decisions, produce the output, then correct the tempting error.",
+      "workflow": [
+        "Identify the two printed section bands.",
+        "Transcribe each label, ID and value without normalizing 007.",
+        "Order A/B inside CONTACT and 1/2 inside PAYMENT.",
+        "QA correction: reject an A,1,B,2 interleaving produced by row-first geometry."
+      ]
+    },
+    "c-producing-ground-truth-ground-truth-marks-on-the-page": {
+      "examples": [
+        "table-correction"
+      ],
+      "focus": "Worked annotation workflow: read the source, make the structural decisions, produce the output, then correct the tempting error.",
+      "workflow": [
+        "Locate the original cell value and its correction.",
+        "Keep the struck value before the replacement.",
+        "Place the REVIEWED stamp outside the table.",
+        "QA correction: do not attach the stamp to the nearest cell."
+      ]
+    },
+    "c-producing-ground-truth-ground-truth-tables-1-3": {
+      "examples": [
+        "header-only"
+      ],
+      "focus": "Worked annotation workflow: read the source, make the structural decisions, produce the output, then correct the tempting error.",
+      "workflow": [
+        "Inspect the entire available crop and check for an available continuation.",
+        "Confirm that this example has headers but no body or joinable page.",
+        "Transcribe the header text as ordinary text.",
+        "QA correction: remove the empty HTML table; do not fabricate a body."
+      ]
+    },
+    "c-producing-ground-truth-the-annotation-qa-checklist": {
+      "examples": [
+        "form-sections",
+        "header-only"
+      ],
+      "focus": "Walk through a successful annotation and a tempting but invalid table construction. Compare the decisions with the exact output.",
+      "workflow": [
+        "Start from the rendered source, not from a parser prediction.",
+        "Inventory visible text and structural relationships.",
+        "Choose the applicable conventions and produce their prescribed encoding.",
+        "Compare every output value and structure with its source; reject invented groups and silently dropped content."
+      ]
+    },
+    "c-producing-ground-truth-ground-truth-tables-4-8": {
+      "examples": [
+        "table-correction"
+      ],
+      "focus": "Worked annotation workflow: read the source, make the structural decisions, produce the output, then correct the tempting error.",
+      "workflow": [
+        "Read the grid and each cell boundary.",
+        "Preserve the original and replacement values in the same cell.",
+        "Keep the stamp outside the grid.",
+        "QA correction: do not silently substitute the new value or create a stamp column."
+      ]
+    },
+    "d-quick-reference-quick-reference": {
+      "examples": [
+        "image-text",
+        "image-table",
+        "image-flow",
+        "form-values"
+      ],
+      "focus": "A few representative source-to-output examples. The reference below lists the full set of rules; these panels do not replace it."
+    },
+    "diagrams-electrical-schematics": {
+      "examples": [
+        "circuit-divider",
+        "circuit-crossing",
+        "circuit-junction"
+      ],
+      "focus": "Start with a real component circuit, then compare the same crossing with and without a junction dot. Each expected encoding is compilable CircuiTikZ."
+    },
+    "other-chemical-molecules": {
+      "examples": [
+        "chem-reaction",
+        "chem-ring",
+        "chem-stereo"
+      ],
+      "focus": "Compare a linear reaction, a ring and stereochemical bonds. Each source was rendered from the complete displayed mhchem or chemfig encoding."
+    },
+    "diagrams-blueprints": {
+      "examples": [
+        "plan-encoding"
+      ],
+      "focus": "The first example demonstrates the preferred faithful encoding. The RFC’s larger plan remains below as its explicitly conditional description-fallback example; complexity alone does not justify choosing that fallback."
+    },
+    "forms-3-structure-sections-and-grouped-fields": {
+      "examples": [
+        "form-sections"
+      ],
+      "focus": "Only the printed CONTACT and PAYMENT headings create groups. The output keeps each field sequence inside its actual section."
+    }
+  }
+}

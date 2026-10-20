@@ -4,8 +4,8 @@ import { usePathname } from "next/navigation";
 
 const links = [
   { href: "/guide", label: "Guide", match: (path: string) => path.startsWith("/guide") },
+  { href: "/protocol/rfc.html", label: "Full RFC", match: () => false },
   { href: "/#adopt", label: "Try it", match: () => false },
-  { href: "/decisions", label: "Decisions", match: (path: string) => path.startsWith("/decisions") },
 ];
 
 export default function SiteNav() {
@@ -22,6 +22,6 @@ export function SiteFooter() {
   return <footer className="rs-footer rs-width">
     <Link className="rs-wordmark" href="/">DPP</Link>
     <span>Document Parsing Protocol · Working draft 0.1</span>
-    <div className="rs-footer-links"><Link href="/guide">Guide</Link><Link href="/practice">Practice</Link><Link href="/example">Worked page</Link><Link href="/decisions">Decision register</Link><Link href="/#methods">About this draft</Link></div>
+    <div className="rs-footer-links"><Link href="/guide">Guide</Link><Link href="/practice">Practice</Link><Link href="/example">Worked page</Link><Link href="/#methods">About this draft</Link></div>
   </footer>;
 }

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "protocol:build": "python3 scripts/sync-protocol.py",
+    "protocol:check": "python3 scripts/sync-protocol.py --check"
   },
   "dependencies": {
     "next": "16.3.5",

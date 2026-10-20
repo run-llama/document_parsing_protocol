@@ -52,8 +52,9 @@ export function Snippets({ snippets }: { snippets: Snippet[] }) {
 // The output the guide specifies: tables as tables, otherwise the guide's own rendering with its Markdown behind a toggle.
 // `rendered` is produced at import time from an allowlist of tags; nothing else from the library reaches the page.
 function OutputBody({ output, spans, code }: { output: Output; spans: boolean; code: boolean }) {
-  if (output.tables.length) return <Extract tables={output.tables} spans={spans} code={code} />;
+  if (code && output.snippets.length) return <Snippets snippets={output.snippets} />;
   if (output.rendered && !code) return <div className="rs-rendered" dangerouslySetInnerHTML={{ __html: output.rendered }} />;
+  if (output.tables.length) return <Extract tables={output.tables} spans={spans} code={code} />;
   return <Snippets snippets={output.snippets} />;
 }
 

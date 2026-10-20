@@ -2,21 +2,32 @@
 
 A protocol for how to make truthful and AI-friendly interpretation of documents. DPP proposes
 shared conventions for representing documents as structured data, preserving their content,
-structure, and uncertainty. This repository holds the public site: the guide of 130 conventions
-with worked examples, a practice set, a worked page, the decision register, and a starter skill
-for using DPP in an assistant.
+structure, and uncertainty. This repository holds the protocol source, the RFC and skill
+builders, and the public site: the guide of conventions with worked examples, a practice set,
+a worked page, and a starter skill for using DPP in an assistant.
 
 Working draft 0.1.
+
+## Layout
+
+| Path | What it is |
+| --- | --- |
+| `protocol/` | The protocol source: one Markdown file per rule, grouped by chapter. Edit these. |
+| `scripts/sync-protocol.py` | Builds the RFC, the convention pages' data, images, and the ChatGPT/Claude skill downloads from `protocol/`. |
+| `app/` | The Next.js site. |
+| `app/data/atlas.json`, `public/convention-examples/` | Generated convention data and example bundles. Do not edit by hand. |
+| `resources/convention-library/` | Example provenance, teaching examples, and slug aliases used by the build. |
+| `resources/dpp-parse/`, `public/downloads/` | The starter skill sources and the generated downloads. |
 
 ## Site map
 
 | Route | What it is |
 | --- | --- |
 | `/` | Opening walkthrough (IRS Form 1040), the guide index, Try it, draft status |
-| `/guide`, `/guide/<slug>` | One page per convention: rule, example beside expected output, counter-example, look-alike, history |
+| `/guide`, `/guide/<slug>` | One page per convention: rule, example beside expected output, counter-example, look-alike |
 | `/example` | Apple's FY2024 statement of operations with eight parsing decisions |
-| `/practice` | 38 short exercises built from the look-alike pairs |
-| `/decisions` | The decision register: 104 records behind the conventions |
+| `/practice` | Short exercises built from the look-alike pairs |
+| `/protocol/rfc.html` | The full RFC, generated from `protocol/` |
 
 ## Development
 
@@ -25,39 +36,32 @@ pnpm install
 pnpm dev
 ```
 
-Then open http://localhost:3000. The site is a Next.js app; pages under `app/guide/[slug]` are
-pre-rendered from `app/data/atlas.json` (the conventions) and `public/convention-examples/*.json`
-(the examples).
-
-Checks:
+Then open http://localhost:3000. Checks:
 
 ```sh
 npx tsc --noEmit
 pnpm exec eslint app
 pnpm exec next build --webpack
+node --experimental-strip-types --test tests/*.test.mjs
+. .venv-protocol/bin/activate && python -m unittest discover -s tests -p 'test_*.py'
 ```
 
-## Content pipeline
+## Editing the protocol and rebuilding the RFC
 
-- `app/data/atlas.json` — the 130 conventions (title, subject, status, rule, context, related).
-- `app/data/amb.json` and `app/data/decision-conventions.json` — the decision register and its links to conventions.
-- `app/data/pairs.ts` — the synthetic look-alike pairs, which also feed `/practice`.
-- `public/convention-examples/*.json` — per-convention example bundles: source images, scenario,
-  expected output (tables, Markdown source, and a sanitised rendered view), non-conforming output
-  for counter-examples, and worked encodings.
-- `public/documents/conventions/` — the example source images referenced by the bundles.
-
-The bundles are produced from the maintainers' convention guide by
-`scripts/sync-convention-library.py`, which fetches the guide, downloads referenced images, and
-runs `scripts/import-convention-examples.py`. Set `DPP_LIBRARY_URL` to the guide's base URL
-first; the sync writes its manifest to `resources/convention-library/`, which is ignored by git.
+[Quick guide: generate the RFC from source](docs/build-rfc.md) — setup, commands, output paths, and local preview.
 
 ```sh
-DPP_LIBRARY_URL=https://guide.example/ python3 scripts/sync-convention-library.py /tmp/dpp-live-pages
+python3 -m venv .venv-protocol
+. .venv-protocol/bin/activate
+python -m pip install -r scripts/protocol-requirements.txt
+pnpm protocol:build
 ```
 
-`scripts/build-dpp-starter.py` rebuilds the downloads under `public/downloads/` from
-`resources/dpp-parse/`.
+One build refreshes the conventions, full RFC, images, and ChatGPT/Claude skill
+downloads. The full RFC remains at `/protocol/rfc.html` and `/protocol/rfc.md`,
+behind the existing password gate. Internal decision records remain excluded.
+Commit the sources and generated artifacts together; `pnpm protocol:check`
+checks that they agree.
 
 ## Password-protected access
 
@@ -105,9 +109,47 @@ wrong passwords, tampered cookies, cross-origin login, and authenticated access.
 
 Vercel configuration reference: https://vercel.com/docs/environment-variables
 
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
 ## Provenance
 
 The opening figure reproduces page 1 of IRS Form 1040 (2020), a public-domain U.S. government
 document. The worked page reproduces Apple's published FY2024 statement of operations with
-explanatory overlays. Convention examples pair source images with the expected output the guide
-specifies for them; counter-examples also show the non-conforming output the convention rules out.
+explanatory overlays. Convention examples pair source images with the expected output the
+protocol specifies for them; counter-examples also show the non-conforming output the
+convention rules out. Image clearance is recorded in `resources/convention-library/`.

@@ -43,5 +43,10 @@ next-env.d.ts
 # Commit the configuration template, never the real credentials.
 !.env.example
 
-# Written by scripts/sync-convention-library.py; records the guide's internal URLs.
-/resources/convention-library/
+# Python import checks
+__pycache__/
+*.pyc
+
+# Intermediate protocol build (published artifacts are packaged separately)
+/protocol/site/
+/.venv-protocol/

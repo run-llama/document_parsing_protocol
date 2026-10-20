@@ -5,8 +5,8 @@ const base = process.argv[2] ?? 'http://localhost:3011';
 const config = getAccessConfig();
 assert.ok(config, 'Set SITE_PASSWORD and SITE_SESSION_SECRET before running this check.');
 const request = (path, options = {}) => fetch(new URL(path, base), { redirect: 'manual', ...options });
-const pages = ['/', '/guide', '/guide/tables-3-headers-multi-row-header-tiers', '/practice', '/example', '/decisions'];
-const files = ['/downloads/dpp-parse-0.1.zip', '/downloads/DPP-0.1-starter-reference.md', '/documents/apple-fy2024-q4-financial-statements.pdf', '/documents/apple-fy2024-q4-page-1.png', '/convention-examples/tables-3-headers-multi-row-header-tiers.json', '/documents/conventions/00a5aab20b2c-zoo-3lineperrowhili.png', '/favicon.ico'];
+const pages = ['/guide/images-images', '/', '/guide', '/guide/tables-3-headers-multi-row-header-tiers', '/practice', '/example'];
+const files = ['/teaching-examples/image-text.svg', '/protocol/rfc.html', '/protocol/rfc.md', '/protocol/style.css', '/downloads/dpp-parse-0.1.zip', '/downloads/DPP-0.1-starter-reference.md', '/documents/apple-fy2024-q4-financial-statements.pdf', '/documents/apple-fy2024-q4-page-1.png', '/convention-examples/tables-3-headers-multi-row-header-tiers.json', '/documents/conventions/00a5aab20b2c-zoo-3lineperrowhili.png', '/favicon.ico'];
 const internals = ['/_next/image?url=%2Fdocuments%2Fapple-fy2024-q4-page-1.png&w=640&q=75', '/_next/data/test/research.json', '/_next/static/test.js'];
 
 for (const path of [...pages, ...files, ...internals]) {

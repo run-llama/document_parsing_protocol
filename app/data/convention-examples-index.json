@@ -1,207 +1,51 @@
 {
-  "charts-1-the-annotation-cover-every-data-point": {
-    "samples": 1,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 0
-  },
-  "charts-1-the-annotation-labels": {
-    "samples": 1,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 0
-  },
-  "charts-1-the-annotation-multiple-charts-and-reference-ink": {
-    "samples": 4,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 0
-  },
-  "charts-1-the-annotation-the-ground-truth-file": {
-    "samples": 0,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 3
-  },
-  "charts-1-the-annotation-values-and-tolerances": {
-    "samples": 2,
-    "counters": 0,
-    "tables": 2,
-    "encodings": 0
-  },
-  "charts-2-chart-types-bars-and-histograms": {
-    "samples": 2,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 0
-  },
-  "charts-2-chart-types-dual-axis-and-combo-charts": {
-    "samples": 1,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 0
-  },
-  "charts-2-chart-types-gantt-and-sankey-charts": {
-    "samples": 6,
-    "counters": 0,
-    "tables": 2,
-    "encodings": 0
-  },
-  "charts-2-chart-types-legend-and-overlay-values": {
-    "samples": 2,
-    "counters": 0,
-    "tables": 2,
-    "encodings": 0
-  },
-  "charts-2-chart-types-line-charts": {
-    "samples": 2,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 0
-  },
-  "charts-2-chart-types-log-scale-charts": {
-    "samples": 1,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 0
-  },
-  "charts-2-chart-types-maps-and-treemaps": {
-    "samples": 4,
-    "counters": 1,
-    "tables": 2,
-    "encodings": 0
-  },
-  "charts-2-chart-types-scatter-and-error-bars": {
-    "samples": 6,
-    "counters": 0,
-    "tables": 1,
-    "encodings": 0
-  },
-  "charts-2-chart-types-stacked-bars-and-waterfalls": {
-    "samples": 5,
-    "counters": 0,
-    "tables": 1,
-    "encodings": 0
-  },
-  "diagrams-diagrams-and-flowcharts": {
-    "samples": 1,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 2
-  },
-  "diagrams-electrical-schematics": {
-    "samples": 0,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 1
-  },
-  "diagrams-geographic-maps": {
-    "samples": 3,
-    "counters": 0,
-    "tables": 1,
-    "encodings": 1
-  },
-  "diagrams-slide-diagrams": {
-    "samples": 1,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 1
-  },
-  "forms-1-the-output-format-ids-and-labels": {
-    "samples": 0,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 1
-  },
-  "forms-1-the-output-format-the-key-value-list": {
-    "samples": 0,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 2
-  },
-  "forms-1-the-output-format-values-are-verbatim": {
-    "samples": 0,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 1
-  },
-  "forms-2-fields-blanks-inside-sentences": {
-    "samples": 3,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 2
-  },
-  "forms-2-fields-checkboxes": {
-    "samples": 1,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 2
-  },
-  "forms-2-fields-checklists": {
-    "samples": 6,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 2
-  },
-  "forms-2-fields-fill-ins": {
-    "samples": 8,
-    "counters": 0,
-    "tables": 3,
-    "encodings": 2
-  },
-  "forms-2-fields-option-groups": {
-    "samples": 0,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 4
-  },
-  "forms-2-fields-printed-buttons-and-placeholders": {
-    "samples": 3,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 0
-  },
-  "forms-3-structure-fields-outside-the-form": {
-    "samples": 1,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 0
-  },
-  "forms-3-structure-sections-and-grouped-fields": {
-    "samples": 0,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 3
-  },
-  "forms-3-structure-tables-inside-forms": {
-    "samples": 1,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 3
-  },
-  "forms-forms-and-key-value-regions": {
-    "samples": 4,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 2
-  },
-  "forms-open-questions-on-forms": {
-    "samples": 1,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 0
-  },
-  "images-logos": {
-    "samples": 2,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 0
-  },
   "layout-annotation-granularity": {
     "samples": 0,
     "counters": 0,
     "tables": 0,
     "encodings": 1
+  },
+  "03-output-model-the-sidecar": {
+    "samples": 0,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "tables-2-boundaries-cross-page-tables": {
+    "samples": 6,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "04-document-level-document-type": {
+    "samples": 0,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "page-structure-heading-depth-across-pages": {
+    "samples": 0,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "page-structure-recurring-page-furniture": {
+    "samples": 0,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "layout-block-boundaries": {
+    "samples": 4,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "layout-block-classes": {
+    "samples": 4,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
   },
   "layout-court-caption-blocks": {
     "samples": 2,
@@ -227,6 +71,12 @@
     "tables": 0,
     "encodings": 2
   },
+  "layout-reading-order": {
+    "samples": 3,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
   "layout-slide-furniture": {
     "samples": 2,
     "counters": 0,
@@ -239,25 +89,19 @@
     "tables": 0,
     "encodings": 1
   },
-  "lists-bullets-and-sub-bullets": {
-    "samples": 2,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 2
-  },
   "page-structure-dot-leader-lines": {
     "samples": 2,
-    "counters": 0,
-    "tables": 2,
-    "encodings": 1
-  },
-  "page-structure-heading-depth-across-pages": {
-    "samples": 0,
     "counters": 0,
     "tables": 0,
     "encodings": 1
   },
   "page-structure-line-breaks-inside-a-block": {
+    "samples": 0,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "page-structure-line-separators-and-breaks": {
     "samples": 0,
     "counters": 0,
     "tables": 0,
@@ -287,12 +131,6 @@
     "tables": 0,
     "encodings": 1
   },
-  "page-structure-recurring-page-furniture": {
-    "samples": 0,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 1
-  },
   "page-structure-run-in-headings": {
     "samples": 3,
     "counters": 0,
@@ -302,7 +140,7 @@
   "page-structure-stacked-headings": {
     "samples": 2,
     "counters": 0,
-    "tables": 1,
+    "tables": 0,
     "encodings": 2
   },
   "page-structure-table-of-contents": {
@@ -315,246 +153,6 @@
     "samples": 1,
     "counters": 0,
     "tables": 0,
-    "encodings": 1
-  },
-  "tables-1-what-counts-as-a-table-borderless-whitespace-tables": {
-    "samples": 8,
-    "counters": 0,
-    "tables": 8,
-    "encodings": 1
-  },
-  "tables-1-what-counts-as-a-table-chart-with-a-printed-data-grid": {
-    "samples": 1,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 1
-  },
-  "tables-1-what-counts-as-a-table-empty-pre-printed-grids": {
-    "samples": 2,
-    "counters": 0,
-    "tables": 1,
-    "encodings": 1
-  },
-  "tables-1-what-counts-as-a-table-header-only-tables": {
-    "samples": 0,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 1
-  },
-  "tables-1-what-counts-as-a-table-is-this-even-a-table": {
-    "samples": 1,
-    "counters": 5,
-    "tables": 1,
-    "encodings": 4
-  },
-  "tables-2-boundaries-bands-inside-the-grid": {
-    "samples": 5,
-    "counters": 1,
-    "tables": 6,
-    "encodings": 4
-  },
-  "tables-2-boundaries-column-continuation": {
-    "samples": 4,
-    "counters": 2,
-    "tables": 9,
-    "encodings": 2
-  },
-  "tables-2-boundaries-continued-in-the-title": {
-    "samples": 2,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 1
-  },
-  "tables-2-boundaries-cross-page-tables": {
-    "samples": 6,
-    "counters": 0,
-    "tables": 4,
-    "encodings": 2
-  },
-  "tables-2-boundaries-duplicated-tables": {
-    "samples": 0,
-    "counters": 1,
-    "tables": 0,
-    "encodings": 1
-  },
-  "tables-2-boundaries-group-and-cohort-bands": {
-    "samples": 5,
-    "counters": 0,
-    "tables": 5,
-    "encodings": 2
-  },
-  "tables-2-boundaries-horizontal-slicing": {
-    "samples": 2,
-    "counters": 0,
-    "tables": 3,
-    "encodings": 1
-  },
-  "tables-2-boundaries-repeated-headers-and-title-bands": {
-    "samples": 1,
-    "counters": 1,
-    "tables": 2,
-    "encodings": 1
-  },
-  "tables-2-boundaries-side-by-side-mini-tables": {
-    "samples": 6,
-    "counters": 1,
-    "tables": 3,
-    "encodings": 1
-  },
-  "tables-2-boundaries-split-tables-sharing-a-header": {
-    "samples": 5,
-    "counters": 0,
-    "tables": 5,
-    "encodings": 1
-  },
-  "tables-3-headers-barely-existing-columns-and-headers": {
-    "samples": 5,
-    "counters": 1,
-    "tables": 6,
-    "encodings": 4
-  },
-  "tables-3-headers-header-wrap-vs-real-tier": {
-    "samples": 8,
-    "counters": 1,
-    "tables": 9,
-    "encodings": 1
-  },
-  "tables-3-headers-multi-row-header-tiers": {
-    "samples": 5,
-    "counters": 2,
-    "tables": 6,
-    "encodings": 3
-  },
-  "tables-3-headers-sec-period-tiers": {
-    "samples": 3,
-    "counters": 0,
-    "tables": 3,
-    "encodings": 1
-  },
-  "tables-3-headers-units-row": {
-    "samples": 2,
-    "counters": 0,
-    "tables": 2,
-    "encodings": 1
-  },
-  "tables-4-columns-gutter-columns": {
-    "samples": 6,
-    "counters": 1,
-    "tables": 7,
-    "encodings": 2
-  },
-  "tables-4-columns-header-body-column-count-mismatch": {
-    "samples": 1,
-    "counters": 0,
-    "tables": 1,
-    "encodings": 1
-  },
-  "tables-5-rows-and-cells-blank-and-spacer-rows": {
-    "samples": 3,
-    "counters": 3,
-    "tables": 6,
-    "encodings": 1
-  },
-  "tables-5-rows-and-cells-nested-tables": {
-    "samples": 2,
-    "counters": 0,
-    "tables": 2,
-    "encodings": 2
-  },
-  "tables-5-rows-and-cells-record-groups-and-multi-line-cells": {
-    "samples": 8,
-    "counters": 0,
-    "tables": 7,
-    "encodings": 1
-  },
-  "tables-5-rows-and-cells-repeated-identical-values": {
-    "samples": 6,
-    "counters": 0,
-    "tables": 6,
-    "encodings": 1
-  },
-  "tables-5-rows-and-cells-row-label-hierarchy": {
-    "samples": 9,
-    "counters": 1,
-    "tables": 10,
-    "encodings": 1
-  },
-  "tables-5-rows-and-cells-total-and-subtotal-rows": {
-    "samples": 11,
-    "counters": 0,
-    "tables": 12,
-    "encodings": 2
-  },
-  "tables-6-cell-values-accounting-number-formats": {
-    "samples": 5,
-    "counters": 0,
-    "tables": 5,
-    "encodings": 1
-  },
-  "tables-6-cell-values-bold-and-italic-inside-tables": {
-    "samples": 5,
-    "counters": 0,
-    "tables": 5,
-    "encodings": 1
-  },
-  "tables-6-cell-values-cell-text-fidelity": {
-    "samples": 1,
-    "counters": 3,
-    "tables": 4,
-    "encodings": 1
-  },
-  "tables-6-cell-values-color-as-the-value": {
-    "samples": 2,
-    "counters": 2,
-    "tables": 4,
-    "encodings": 2
-  },
-  "tables-6-cell-values-handwriting-and-stamps": {
-    "samples": 0,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 2
-  },
-  "tables-6-cell-values-marks-and-symbols-in-cells": {
-    "samples": 6,
-    "counters": 1,
-    "tables": 6,
-    "encodings": 2
-  },
-  "tables-6-cell-values-struck-and-replaced-values": {
-    "samples": 3,
-    "counters": 0,
-    "tables": 1,
-    "encodings": 2
-  },
-  "tables-7-titles-and-edges-bottom-edge-totals-and-islands": {
-    "samples": 6,
-    "counters": 0,
-    "tables": 6,
-    "encodings": 3
-  },
-  "tables-7-titles-and-edges-footnotes-inside-the-frame": {
-    "samples": 2,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 1
-  },
-  "tables-7-titles-and-edges-titles-banners-captions": {
-    "samples": 5,
-    "counters": 1,
-    "tables": 4,
-    "encodings": 6
-  },
-  "tables-8-special-table-types-rotated-and-diagonal-content": {
-    "samples": 3,
-    "counters": 0,
-    "tables": 3,
-    "encodings": 2
-  },
-  "tables-8-special-table-types-triangles-and-matrix-tables": {
-    "samples": 1,
-    "counters": 1,
-    "tables": 2,
     "encodings": 1
   },
   "text-1-inline-formatting-displayed-equations": {
@@ -650,7 +248,7 @@
   "text-2-marks-on-the-page-iconography-and-symbols": {
     "samples": 1,
     "counters": 1,
-    "tables": 1,
+    "tables": 0,
     "encodings": 1
   },
   "text-2-marks-on-the-page-margin-banners": {
@@ -689,6 +287,12 @@
     "tables": 0,
     "encodings": 3
   },
+  "07-text-2-marks-on-the-page-stamps": {
+    "samples": 1,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
   "text-2-marks-on-the-page-text-colors": {
     "samples": 1,
     "counters": 0,
@@ -701,29 +305,437 @@
     "tables": 0,
     "encodings": 1
   },
+  "lists-bullets-and-sub-bullets": {
+    "samples": 2,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "tables-1-what-counts-as-a-table-borderless-whitespace-tables": {
+    "samples": 8,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-1-what-counts-as-a-table-chart-with-a-printed-data-grid": {
+    "samples": 1,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-1-what-counts-as-a-table-empty-pre-printed-grids": {
+    "samples": 2,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-1-what-counts-as-a-table-header-only-tables": {
+    "samples": 0,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-1-what-counts-as-a-table-is-this-even-a-table": {
+    "samples": 1,
+    "counters": 5,
+    "tables": 0,
+    "encodings": 4
+  },
+  "tables-2-boundaries-bands-inside-the-grid": {
+    "samples": 5,
+    "counters": 1,
+    "tables": 0,
+    "encodings": 4
+  },
+  "tables-2-boundaries-column-continuation": {
+    "samples": 4,
+    "counters": 2,
+    "tables": 0,
+    "encodings": 2
+  },
+  "tables-2-boundaries-continued-in-the-title": {
+    "samples": 2,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-2-boundaries-duplicated-tables": {
+    "samples": 0,
+    "counters": 1,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-2-boundaries-group-and-cohort-bands": {
+    "samples": 5,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "tables-2-boundaries-horizontal-slicing": {
+    "samples": 2,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-2-boundaries-repeated-headers-and-title-bands": {
+    "samples": 1,
+    "counters": 1,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-2-boundaries-side-by-side-mini-tables": {
+    "samples": 6,
+    "counters": 1,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-2-boundaries-split-tables-sharing-a-header": {
+    "samples": 5,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-3-headers-barely-existing-columns-and-headers": {
+    "samples": 5,
+    "counters": 1,
+    "tables": 0,
+    "encodings": 4
+  },
+  "tables-3-headers-header-wrap-vs-real-tier": {
+    "samples": 8,
+    "counters": 1,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-3-headers-multi-row-header-tiers": {
+    "samples": 5,
+    "counters": 2,
+    "tables": 0,
+    "encodings": 3
+  },
+  "tables-3-headers-sec-period-tiers": {
+    "samples": 3,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-3-headers-units-row": {
+    "samples": 2,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-4-columns-gutter-columns": {
+    "samples": 6,
+    "counters": 1,
+    "tables": 0,
+    "encodings": 2
+  },
+  "tables-4-columns-header-body-column-count-mismatch": {
+    "samples": 1,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-5-rows-and-cells-blank-and-spacer-rows": {
+    "samples": 3,
+    "counters": 3,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-5-rows-and-cells-nested-tables": {
+    "samples": 2,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "tables-5-rows-and-cells-record-groups-and-multi-line-cells": {
+    "samples": 8,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-5-rows-and-cells-repeated-identical-values": {
+    "samples": 6,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-5-rows-and-cells-row-label-hierarchy": {
+    "samples": 9,
+    "counters": 1,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-5-rows-and-cells-total-and-subtotal-rows": {
+    "samples": 11,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "tables-6-cell-values-accounting-number-formats": {
+    "samples": 5,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-6-cell-values-bold-and-italic-inside-tables": {
+    "samples": 5,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-6-cell-values-cell-text-fidelity": {
+    "samples": 1,
+    "counters": 3,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-6-cell-values-color-as-the-value": {
+    "samples": 2,
+    "counters": 2,
+    "tables": 0,
+    "encodings": 2
+  },
+  "tables-6-cell-values-handwriting-and-stamps": {
+    "samples": 0,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "tables-6-cell-values-marks-and-symbols-in-cells": {
+    "samples": 6,
+    "counters": 1,
+    "tables": 0,
+    "encodings": 2
+  },
+  "tables-6-cell-values-struck-and-replaced-values": {
+    "samples": 3,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "tables-7-titles-and-edges-bottom-edge-totals-and-islands": {
+    "samples": 6,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 3
+  },
+  "tables-7-titles-and-edges-footnotes-inside-the-frame": {
+    "samples": 2,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "tables-7-titles-and-edges-titles-banners-captions": {
+    "samples": 5,
+    "counters": 1,
+    "tables": 0,
+    "encodings": 6
+  },
+  "tables-8-special-table-types-rotated-and-diagonal-content": {
+    "samples": 3,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "tables-8-special-table-types-triangles-and-matrix-tables": {
+    "samples": 1,
+    "counters": 1,
+    "tables": 0,
+    "encodings": 1
+  },
+  "forms-forms-and-key-value-regions": {
+    "samples": 4,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "forms-open-questions-on-forms": {
+    "samples": 1,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "forms-1-the-output-format-ids-and-labels": {
+    "samples": 0,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "forms-1-the-output-format-the-key-value-list": {
+    "samples": 0,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "forms-1-the-output-format-values-are-verbatim": {
+    "samples": 0,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
+  },
+  "forms-2-fields-blanks-inside-sentences": {
+    "samples": 3,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "forms-2-fields-checkboxes": {
+    "samples": 1,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "forms-2-fields-checklists": {
+    "samples": 6,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "forms-2-fields-fill-ins": {
+    "samples": 8,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 2
+  },
+  "forms-2-fields-option-groups": {
+    "samples": 0,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 4
+  },
+  "forms-2-fields-printed-buttons-and-placeholders": {
+    "samples": 3,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "forms-3-structure-fields-outside-the-form": {
+    "samples": 1,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "forms-3-structure-sections-and-grouped-fields": {
+    "samples": 0,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 3
+  },
+  "forms-3-structure-tables-inside-forms": {
+    "samples": 1,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 3
+  },
+  "charts-1-the-annotation-cover-every-data-point": {
+    "samples": 1,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "charts-1-the-annotation-labels": {
+    "samples": 1,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "charts-1-the-annotation-multiple-charts-and-reference-ink": {
+    "samples": 4,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "charts-1-the-annotation-values-and-tolerances": {
+    "samples": 2,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "charts-2-chart-types-bars-and-histograms": {
+    "samples": 2,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "charts-2-chart-types-dual-axis-and-combo-charts": {
+    "samples": 1,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "charts-2-chart-types-gantt-and-sankey-charts": {
+    "samples": 6,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "charts-2-chart-types-legend-and-overlay-values": {
+    "samples": 2,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "charts-2-chart-types-line-charts": {
+    "samples": 2,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "charts-2-chart-types-log-scale-charts": {
+    "samples": 1,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "charts-2-chart-types-maps-and-treemaps": {
+    "samples": 4,
+    "counters": 1,
+    "tables": 0,
+    "encodings": 0
+  },
+  "charts-2-chart-types-scatter-and-error-bars": {
+    "samples": 6,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "charts-2-chart-types-stacked-bars-and-waterfalls": {
+    "samples": 5,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
+  "images-logos": {
+    "samples": 2,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 0
+  },
   "diagrams-blueprints": {
     "samples": 1,
     "counters": 0,
     "tables": 0,
     "encodings": 0
   },
-  "layout-block-boundaries": {
-    "samples": 4,
+  "diagrams-diagrams-and-flowcharts": {
+    "samples": 1,
     "counters": 0,
     "tables": 0,
-    "encodings": 0
+    "encodings": 2
   },
-  "layout-block-classes": {
-    "samples": 4,
-    "counters": 0,
-    "tables": 0,
-    "encodings": 0
-  },
-  "layout-reading-order": {
+  "diagrams-geographic-maps": {
     "samples": 3,
     "counters": 0,
     "tables": 0,
-    "encodings": 0
+    "encodings": 1
+  },
+  "diagrams-slide-diagrams": {
+    "samples": 1,
+    "counters": 0,
+    "tables": 0,
+    "encodings": 1
   },
   "other-music-notation": {
     "samples": 1,
@@ -731,10 +743,10 @@
     "tables": 0,
     "encodings": 0
   },
-  "page-structure-line-separators-and-breaks": {
+  "charts-1-the-annotation-the-ground-truth-file": {
     "samples": 0,
     "counters": 0,
     "tables": 0,
-    "encodings": 1
+    "encodings": 3
   }
 }

@@ -262,7 +262,7 @@ export const pairs: Pair[] = [
     left: {
       title: "An em-dash alone",
       verdict: "A value. Record the dash.",
-      note: "In accounting the dash means zero, and we checked. That is a different claim from an empty cell.",
+      note: "Preserve the printed dash verbatim. It is visible content, unlike an empty cell; do not infer that it means zero.",
       blocks: [{ kind: "table", rows: [["", "5-yr", "15-yr"], ["Timber", "2.66", "3.82"], ["Real estate", "-0.87", { t: "—", hl: true }]] }],
     },
     right: {
@@ -329,7 +329,7 @@ export const pairs: Pair[] = [
       title: "Ungridded key-value fields",
       verdict: "A key-value list. Never invent a two-column table.",
       note: "Fillable fields and checkbox rows line up because of typesetting, not structure. Inventing a table creates a record that exists nowhere on the page.",
-      blocks: [{ kind: "kv", lines: ["Insurer: [___]", "NAIC #: 12345", "[x] Renewal   [ ] New business"] }],
+      blocks: [{ kind: "kv", lines: ["Insurer: [blank]", "NAIC #: 12345", "[x] Renewal   [ ] New business"] }],
     },
     right: {
       title: "A ruled label-value grid",
@@ -337,7 +337,7 @@ export const pairs: Pair[] = [
       note: "The Column | Description box explaining what (1) to (11) mean genuinely maps one thing to another, and a mapping is a relation.",
       blocks: [{ kind: "table", boxed: true, rows: [["Column", "Description"], ["(1)", "Earned premium"], ["(2)", "Incurred claims"]] }],
     },
-    discriminator: "Is there a ruled border around the pairs? Yes, a table. No, key-value content.",
+    discriminator: "Do shared rows and columns encode a relation, or are these independent form fields? Borders support the decision but are not required for a table.",
     sources: ["Forms and Key-Value Regions", "The Key-Value List"],
     conventions: ["forms-forms-and-key-value-regions", "forms-1-the-output-format-the-key-value-list"],
   },
@@ -354,7 +354,7 @@ export const pairs: Pair[] = [
     },
     right: {
       title: "A blank that takes a value",
-      verdict: "[___]. One per answer field, however many ruled lines.",
+      verdict: "[blank]. One per answer field, however many ruled lines.",
       note: "Four ruled lines under one item number are one field. Separate blanks only for separately labelled or independently answerable fields.",
       blocks: [{ kind: "kv", lines: ["24. Describe the incident:", "⟦______________________⟧", "⟦______________________⟧"] }],
     },
@@ -375,8 +375,8 @@ export const pairs: Pair[] = [
     },
     right: {
       title: "An estimated value",
-      verdict: "The mark's visual centre, plus a tolerance by readability.",
-      note: "Cleaners prints nothing, so it is read against the 10-unit grid: 47 at 0.05 because it sits near a gridline, and tagged need_estimate.",
+      verdict: "Read the mark against its axis; write the estimate as a bare number.",
+      note: "Cleaners prints no value, so read it against the 10-unit grid and write 47. Do not add an approximation marker or need_estimate tag to the Markdown; readability tolerance belongs to checking.",
       blocks: [{ kind: "bars", bars: [{ l: "Nurses", h: 44, v: "22" }, { l: "Doctors", h: 10, v: "5" }, { l: "Cleaners", h: 94, hl: true }] }],
     },
     discriminator: "Sweep for printed values first. A printed value you missed becomes a wrong estimate.",

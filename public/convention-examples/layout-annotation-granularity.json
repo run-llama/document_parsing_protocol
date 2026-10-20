@@ -1,1 +1,1 @@
-{"sourceSha256":"33a4ac0b59e6bf2ee52db75e187ce43dbbc2bbc3d4d621e7c1bfcfee630b6eb5","examples":[],"worked":[{"title":"They are a ladder, not a set","language":"text","text":"word  >  line  >  cell  >  none"}],"retrievedAt":"2026-09-18T03:59:34.124495+00:00"}
+{"sourceSha256":"eeabf3fb833cb1d9d1ac8b6cb76c6c7c71196199872c6fdb696ba1811efa15ef","examples":[],"worked":[{"title":"The levels are a ladder","language":"text","text":"word  >  line  >  cell  >  none\n"}],"sourceRevision":"b63884001dbc0f9778c082402ea271298503882daac9dcf2022933344a733e5c"}

@@ -17,7 +17,7 @@ with zipfile.ZipFile(OUTPUT / 'dpp-parse-0.1.zip', 'w', zipfile.ZIP_DEFLATED) as
         archive.writestr(entry, path.read_bytes())
 reference = (SOURCE / 'references/conventions.md').read_text()
 checklist = (SOURCE / 'references/qa-checklist.md').read_text()
-(OUTPUT / 'DPP-0.1-starter-reference.md').write_text(reference + '\n\n---\n\n' + checklist)
+(OUTPUT / 'DPP-0.1-starter-reference.md').write_text((SOURCE / 'SKILL.md').read_text() + '\n\n---\n\n' + reference + '\n\n---\n\n' + checklist)
 (OUTPUT / 'DPP-0.1-QA-checklist.md').write_text(checklist)
 (OUTPUT / 'DPP-0.1-SKILL.md').write_text((SOURCE / 'SKILL.md').read_text())
 print('Built skill ZIP, starter reference, QA checklist, and skill preview.')
