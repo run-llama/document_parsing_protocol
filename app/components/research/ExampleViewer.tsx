@@ -58,27 +58,24 @@ function OutputBody({ output, spans, code }: { output: Output; spans: boolean; c
   return <Snippets snippets={output.snippets} />;
 }
 
-// One example at a time: the source page beside the output it should produce.
-export default function ExampleViewer({ examples, title, kind }: { examples: Example[]; title: string; kind: "sample" | "counter" }) {
-  const [index, setIndex] = useState(0);
+// One example: its title and scenario, then the source page beside the output it should produce.
+function ExampleCard({ example, number, title }: { example: Example; number: number; title: string }) {
   const [spans, setSpans] = useState(true);
   const [code, setCode] = useState(false);
   const [zoomed, setZoomed] = useState(false);
   const [expandedView, setExpandedView] = useState<"source" | "output">("source");
   const [failedImages, setFailedImages] = useState<string[]>([]);
   const dialog = useRef<HTMLDialogElement>(null);
-  const total = examples.length;
-  const current = examples[Math.min(index, total - 1)];
-  const { title: label, file, rest: scenario } = exampleTitle(current);
-  const sourceImages = current.sourceImages ?? [];
-  const hasTables = current.tables.length > 0;
-  const hasRendered = Boolean(current.rendered);
-  const hasOutput = hasTables || hasRendered || current.snippets.length > 0;
-  const hasSpans = current.tables.some(table => table.rows.some(row => row.some(cell => cell.header && (cell.colSpan > 1 || cell.rowSpan > 1))));
-  const bad = current.bad ?? null;
+  const { title: label, file, rest: scenario } = exampleTitle(example);
+  const sourceImages = example.sourceImages ?? [];
+  const hasTables = example.tables.length > 0;
+  const hasRendered = Boolean(example.rendered);
+  const hasOutput = hasTables || hasRendered || example.snippets.length > 0;
+  const hasSpans = example.tables.some(table => table.rows.some(row => row.some(cell => cell.header && (cell.colSpan > 1 || cell.rowSpan > 1))));
+  const bad = example.bad ?? null;
   const hasBad = Boolean(bad && (bad.tables.length || bad.snippets.length || bad.rendered));
+  const counter = example.kind === "counter";
   const outputLabel = hasBad ? "Non-conforming vs. expected" : "Expected output";
-  function go(next: number) { setIndex(next); setCode(false); setZoomed(false); }
   function expand(view: "source" | "output") { setExpandedView(view); dialog.current?.showModal(); }
 
   const source = <div className="rs-example-stage" data-view="source" data-zoom={zoomed}>
@@ -91,27 +88,23 @@ export default function ExampleViewer({ examples, title, kind }: { examples: Exa
   </div>;
   const output = <div className="rs-example-stage rs-output-stage" data-view="annotation">
     {hasBad && <div className="rs-bad-output"><span className="rs-bad-label">Non-conforming output · what a parser must not do</span><OutputBody output={bad!} spans={spans} code={code} /><span className="rs-bad-label rs-good-label">Expected output</span></div>}
-    <OutputBody output={current} spans={spans} code={code} />
+    <OutputBody output={example} spans={spans} code={code} />
   </div>;
   const outputTools = (hasTables || hasRendered) && <div className="rs-example-tools">
     {hasSpans && <button className="rs-span-toggle" aria-pressed={spans} onClick={() => setSpans(!spans)}>Highlight spans</button>}
     <button aria-pressed={code} onClick={() => setCode(!code)}>{hasTables ? (code ? "Rendered table" : "View HTML") : (code ? "Rendered" : "View source")}</button>
   </div>;
 
-  return <div className="rs-viewer" data-kind={kind}>
-    <div className="rs-viewer-head">
+  return <article className="rs-card" data-kind={example.kind} aria-label={`Example ${number}: ${label}`}>
+    <header className="rs-card-head">
+      <span className="rs-card-n">{String(number).padStart(2, "0")}</span>
       <div>
-        {kind === "counter" && <p className="rs-example-caution">Counter-example · a reading that looks right and is not</p>}
-        {current.constructed && <p className="rs-example-caution">Constructed example</p>}
         <h3>{label}{file && <code className="rs-example-file" title="Source file in the guide">{file}</code>}</h3>
+        {(counter || example.constructed) && <p className="rs-card-tags">{counter && <span className="rs-tag rs-tag-counter">Counter-example · looks right, is not</span>}{example.constructed && <span className="rs-tag">Constructed</span>}</p>}
+        {scenario && <p className="rs-example-scenario">{scenario}</p>}
       </div>
-      {total > 1 && <div className="rs-example-nav">
-        <label><span className="rs-sr-only">Choose an example</span><select aria-label="Choose an example" value={index} onChange={event => go(Number(event.target.value))}>{examples.map((item, i) => <option key={i} value={i}>{String(i + 1).padStart(2, "0")} · {exampleTitle(item).title}</option>)}</select></label>
-        <div><span className="rs-example-position">{index + 1} / {total}</span><button aria-label="Previous example" disabled={index === 0} onClick={() => go(index - 1)}>←</button><button aria-label="Next example" disabled={index === total - 1} onClick={() => go(index + 1)}>→</button></div>
-      </div>}
-    </div>
-    {scenario && <p className="rs-example-scenario">{scenario}</p>}
-    <div className="rs-viewer-pair" key={index} data-single={!sourceImages.length || !hasOutput}>
+    </header>
+    <div className="rs-viewer-pair" data-single={!sourceImages.length || !hasOutput}>
       <section aria-label="Source document">
         <header className="rs-output-heading"><h4>Source</h4>{sourceImages.length > 0 && <div className="rs-viewer-tools"><button aria-pressed={zoomed} onClick={() => setZoomed(!zoomed)}>{zoomed ? "Fit" : "Zoom"}</button><button aria-label="Expand source document" onClick={() => expand("source")}>Expand ↗</button></div>}</header>
         {sourceImages.length > 0 ? source : <p className="rs-output-missing">No source image is attached to this example.</p>}
@@ -121,13 +114,25 @@ export default function ExampleViewer({ examples, title, kind }: { examples: Exa
         {hasOutput ? output : <p className="rs-output-missing">No expected output is recorded for this example yet.</p>}
       </section>
     </div>
-    {current.paragraphs.length > 1 && <details className="rs-example-details"><summary>Notes on this example <span>+</span></summary><div>{current.paragraphs.slice(1).map((paragraph, i) => <p key={i}>{paragraph}</p>)}</div></details>}
+    {example.paragraphs.length > 1 && <details className="rs-example-details"><summary>Notes on this example <span>+</span></summary><div>{example.paragraphs.slice(1).map((paragraph, i) => <p key={i}>{paragraph}</p>)}</div></details>}
     <dialog ref={dialog} className="rs-example-dialog" aria-label={`${title}: ${expandedView === "source" ? "Source document" : outputLabel}`} onClick={event => { if (event.target === event.currentTarget) dialog.current?.close(); }}>
       <div className="rs-example-dialog-inner">
         <header><div><span className="rs-kicker">{title} · {expandedView === "source" ? "Source document" : outputLabel}</span><h3>{label}</h3></div><button aria-label="Close example" onClick={() => dialog.current?.close()}>Close ×</button></header>
         {expandedView === "source" ? source : <>{output}{outputTools}</>}
-        <footer><span>{kind === "counter" ? "Counter-example" : "Example"} · {index + 1} / {total}</span></footer>
+        <footer><span>{counter ? "Counter-example" : "Example"} {number}</span></footer>
       </div>
     </dialog>
+  </article>;
+}
+
+// Every example on the page, in order. Long lists start with the first few and a button for the rest.
+const INITIAL = 3;
+export default function ExampleList({ examples, title }: { examples: Example[]; title: string }) {
+  const [all, setAll] = useState(examples.length <= INITIAL + 1);
+  const shown = all ? examples : examples.slice(0, INITIAL);
+  const hidden = examples.length - shown.length;
+  return <div className="rs-cards">
+    {shown.map((example, i) => <ExampleCard key={`${example.kind}-${example.id}-${i}`} example={example} number={i + 1} title={title} />)}
+    {hidden > 0 && <button className="rs-cards-more" onClick={() => setAll(true)}>Show {hidden} more example{hidden > 1 ? "s" : ""} <span aria-hidden="true">↓</span></button>}
   </div>;
 }

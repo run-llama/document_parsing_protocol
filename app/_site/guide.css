@@ -197,3 +197,33 @@
 .rs-bad-output .rs-rendered { border-color: #d9b4b4; }
 
 .rs-example-file { font: 9px var(--code); color: var(--text-2); background: var(--paper-deep); border: 1px solid var(--line); padding: 1px 5px; margin-left: 10px; vertical-align: middle; font-weight: 400; }
+
+/* Convention page, tidied: one example list, one expander for the full text, one More. */
+.rs-conv-meta { display: flex; align-items: center; gap: 10px; margin: -4px 0 14px; font-size: 12px; color: var(--text-2); }
+.rs-tag { display: inline-block; font: 9px/1.6 var(--code); letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); background: var(--paper-deep); border: 1px solid var(--line); padding: 1px 6px; }
+.rs-tag-counter { color: #8a3b3b; border-color: #d9b4b4; background: #fbf3f3; }
+.rs-conv-full { margin-top: 10px; border-bottom: 1px solid var(--line); }
+.rs-conv-full > summary { display: flex; align-items: baseline; gap: 12px; padding: 12px 0; font-size: 12px; cursor: pointer; list-style: none; }
+.rs-conv-full > summary::-webkit-details-marker { display: none; }
+.rs-conv-full > summary small { font: 9px var(--code); color: var(--text-2); }
+.rs-conv-full > summary > span { margin-left: auto; font-style: normal; color: var(--text-2); }
+.rs-conv-full[open] > summary > span { transform: rotate(45deg); }
+.rs-conv-full > .rs-rendered { margin: 0 0 18px; }
+.research .rs-conv-full .rs-rendered h3 { font-size: 15px; margin-top: 18px; }
+.rs-conv-full .rs-rendered img { max-width: 100%; height: auto; border: 1px solid var(--line); }
+.rs-cards { display: grid; gap: 40px; margin-top: 18px; }
+.rs-card-head { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; margin-bottom: 12px; }
+.rs-card-n { font: 11px/1.8 var(--code); color: var(--text-2); padding-top: 3px; }
+.research .rs-card-head h3 { font-size: 15px; letter-spacing: -.02em; line-height: 1.4; }
+.rs-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 0; }
+.research .rs-card .rs-example-scenario { margin: 8px 0 0; }
+.rs-card[data-kind="counter"] .rs-example-stage[data-view="source"] { border-style: dashed; }
+.rs-cards-more { justify-self: start; display: inline-flex; gap: 12px; align-items: center; padding: 11px 16px; border: 1px solid var(--ink); font-size: 12px; background: #fff; }
+.rs-cards-more:hover { background: var(--paper-deep); }
+.rs-conv-steps { margin: 12px 0 0; padding-left: 22px; font-size: 13px; line-height: 1.7; color: var(--ink-soft); }
+.rs-conv-steps li { margin: 4px 0; }
+.rs-conv-credits { margin: 8px 0 0; padding-left: 18px; font-size: 12px; color: var(--ink-soft); }
+.rs-conv-id { margin-top: 18px; font: 10px/1.6 var(--code); color: var(--text-2); }
+.rs-conv-id code { font: inherit; color: var(--ink-soft); }
+.rs-conv-id a { color: var(--ink-soft); border-bottom: 1px solid #ccc; }
+@media (max-width: 540px) { .rs-card-head { grid-template-columns: minmax(0, 1fr); } .rs-card-n { display: none; } }
