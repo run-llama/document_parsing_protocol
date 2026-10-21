@@ -4,6 +4,7 @@ import { researchFont } from "./_site/research-font";
 import ResearchHero from "./components/research/ResearchHero";
 import SiteNav, { SiteFooter } from "./components/research/SiteNav";
 import ConventionIndex from "./components/research/ConventionIndex";
+import { indexEntries } from "./_site/rfc";
 import UseDpp from "./components/research/UseDpp";
 import snapshot from "./data/protocol-snapshot.json";
 import { notes } from "./_site/conventions";
@@ -30,11 +31,11 @@ export default function Home() {
         <header className="rs-section-head">
           <div className="rs-section-label">The guide</div>
           <div>
-            <h2 id="guide-heading">{notes.length} conventions for reading a page</h2>
-            <p>Each convention answers one parsing question: what to preserve, and how to represent it. Open one to see the rule, a real example beside its parsed output, and the case it is most often confused with.</p>
+            <h2 id="guide-heading">The protocol, rule by rule</h2>
+            <p>Each convention answers one parsing question: what to preserve, and how to represent it. Numbered and ordered as in the RFC. Open one to see its requirement, each part of the rule with real pages beside their expected output, and how it differs from its neighbours.</p>
           </div>
         </header>
-        <ConventionIndex variant="page" />
+        <ConventionIndex variant="page" entries={indexEntries} />
         <aside className="rs-home-more">
           <Link href="/example"><span className="rs-kicker">Worked page</span><strong>See the conventions applied to Apple’s FY2024 statement of operations</strong><i aria-hidden="true">→</i></Link>
           <Link href="/practice"><span className="rs-kicker">Practice</span><strong>Make the annotation call on 38 short exercises</strong><i aria-hidden="true">→</i></Link>

@@ -66,7 +66,9 @@ groups={}
 def use(slugs,ids,focus):
  for slug in slugs.split():groups[slug]={'examples':ids.split(),'focus':focus}
 use('images-images images-images-and-figures','image-text image-table image-chart image-flow image-art equation','Classify the content inside the image, then encode that content. These constructed examples show different valid output forms and common information-losing substitutes.')
-use('01-conventions-requirements-language 01-conventions-conformance 01-conventions-rule-status-and-scope','image-text image-table','Apply the focal MUST to a concrete output: an image link or summary loses content. Passing this one requirement does not establish whole-document conformance; status and scope still come from the rule badges.')
+use('01-conventions-requirements-language','image-text image-table','What a broken MUST looks like. Each non-conforming output below drops printed content: the first swaps the text for an image link, the second summarises a table. Both violate a MUST, so a checker reports an error, not a warning.')
+use('01-conventions-conformance','image-text image-table','One requirement, two verdicts. Each non-conforming output fails a MUST, so that output does not conform. The expected output passes this requirement; whole-document conformance still needs every other MUST.')
+use('01-conventions-rule-status-and-scope','image-text image-table','Both examples apply ✅ Normative 📄 page rules: settled, and decidable from the page alone. A violation is an error, and checking it needs no other page.')
 use('02-principles-the-page-is-the-ground-truth 02-principles-never-drop-never-invent','image-text header-only','Read only what is visible. Preserve a typo and refuse to fill in missing table rows from expectation.')
 use('02-principles-traceability layout-annotation-granularity 03-output-model-the-sidecar','box','The requested granularity is element level. The picture has one region and one box. The Markdown anchor and separate sidecar refer to the same page coordinates.')
 use('03-output-model-elements layout-block-annotation layout-layout-regions','image-table form-values image-flow','Similar rectangular regions can be tables, forms or pictures. Choose the class from the content and role before choosing the output syntax; these samples omit optional boxes.')
@@ -94,7 +96,7 @@ use('c-producing-ground-truth-ground-truth-lists-and-forms','form-values form-or
 use('c-producing-ground-truth-ground-truth-marks-on-the-page','table-correction','Distinguish a value replacement from a stamp. Keep each in its correct structural position.')
 use('c-producing-ground-truth-ground-truth-tables-1-3 c-producing-ground-truth-the-annotation-qa-checklist','image-table header-only','Compare a complete table with an isolated header. Verify the printed grid and available body before choosing an encoding.')
 use('c-producing-ground-truth-ground-truth-tables-4-8','table-correction image-table','Inspect cell values and corrections without assigning a page-level mark to a table cell.')
-use('d-quick-reference-quick-reference','image-text image-table image-flow form-values','A few representative source-to-output examples. The reference below lists the full set of rules; these panels do not replace it.')
+use('d-quick-reference-quick-reference','image-text image-table image-flow form-values','Four everyday cases: text in an image, a pictured table, a flow diagram and a form. Each is the direct application of one requirement in the list below.')
 from teaching_cases import extend
 extend(add, text, rect, line, page, examples, groups, DEST)
 (ROOT/'resources/convention-library/teaching-examples.json').write_text(json.dumps({'license':'CC0-1.0','provenance':'Original constructed illustrations authored for this guide; no third-party documents or customer data.','examples':examples,'conventions':groups},ensure_ascii=False,indent=2)+'\n')

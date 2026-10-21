@@ -1753,21 +1753,21 @@
         "image-text",
         "image-table"
       ],
-      "focus": "Apply the focal MUST to a concrete output: an image link or summary loses content. Passing this one requirement does not establish whole-document conformance; status and scope still come from the rule badges."
+      "focus": "What a broken MUST looks like. Each non-conforming output below drops printed content: the first swaps the text for an image link, the second summarises a table. Both violate a MUST, so a checker reports an error, not a warning."
     },
     "01-conventions-conformance": {
       "examples": [
         "image-text",
         "image-table"
       ],
-      "focus": "Apply the focal MUST to a concrete output: an image link or summary loses content. Passing this one requirement does not establish whole-document conformance; status and scope still come from the rule badges."
+      "focus": "One requirement, two verdicts. Each non-conforming output fails a MUST, so that output does not conform. The expected output passes this requirement; whole-document conformance still needs every other MUST."
     },
     "01-conventions-rule-status-and-scope": {
       "examples": [
         "image-text",
         "image-table"
       ],
-      "focus": "Apply the focal MUST to a concrete output: an image link or summary loses content. Passing this one requirement does not establish whole-document conformance; status and scope still come from the rule badges."
+      "focus": "Both examples apply ✅ Normative 📄 page rules: settled, and decidable from the page alone. A violation is an error, and checking it needs no other page."
     },
     "02-principles-the-page-is-the-ground-truth": {
       "examples": [
@@ -2148,7 +2148,7 @@
         "image-flow",
         "form-values"
       ],
-      "focus": "A few representative source-to-output examples. The reference below lists the full set of rules; these panels do not replace it."
+      "focus": "Four everyday cases: text in an image, a pictured table, a flow diagram and a form. Each is the direct application of one requirement in the list below."
     },
     "diagrams-electrical-schematics": {
       "examples": [

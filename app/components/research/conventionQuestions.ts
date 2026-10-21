@@ -130,6 +130,22 @@ const questions: Record<string, string> = {
   "Signatures": "A handwritten signature—a name or a placeholder?",
   "Text Colors": "Coloured text—decoration or meaning?",
   "Watermarks": "A watermark across the page—delete it, keep it in the text, or record it once?",
+  "Requirements Language": "What do MUST, SHOULD and MAY commit a producer to?",
+  "Conformance": "What does an output have to satisfy to conform?",
+  "Rule Status and Scope": "How settled is a rule, and does applying it need more than one page?",
+  "The Page Is the Ground Truth": "The text layer and the rendered page disagree—which one counts?",
+  "Never Drop, Never Invent": "What are the two failures every rule guards against?",
+  "Traceability": "Can every piece of the output be traced back to where it was printed?",
+  "Elements": "What is the unit of output, and how is each kind written?",
+  "Markdown Rendering": "What does one conforming Markdown file look like?",
+  "The Sidecar": "When boxes are requested, where are they carried?",
+  "Document Rules": "Which rules need more than the page in view?",
+  "Choices Made Once Per Document": "Two renderings conform—may one document use both?",
+  "Document Type": "Slide deck or paged document, and which sheet is the cover?",
+  "Text Formatting Conventions": "Which exact markup does each inline mark use?",
+  "Stamps": "Ink stamped over or beside the page—where does it go, and how is it written?",
+  "Accepted Alternatives": "Where does a page genuinely admit two renderings?",
+  "Quick Reference": "What does every rule require, in one list?",
 };
 export function conventionQuestion(title: string) {
   return questions[title] ?? null;
