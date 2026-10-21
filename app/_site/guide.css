@@ -324,3 +324,75 @@
 .research .rs-rx-credit { font-size: 10.5px; line-height: 1.5; color: var(--text-2); margin-top: 6px; }
 .research .rs-guide-rfc { margin-top: 14px; font-size: 13px; }
 .rs-guide-rfc a { border-bottom: 1px solid #bbb; }
+
+/* Index markers: quiet text tags instead of emoji. */
+.rs-index-tag { display: inline-block; margin-left: 7px; padding: 0 4px; font: 8.5px/1.6 var(--code); font-style: normal; letter-spacing: .02em; color: var(--text-2); border: 1px solid var(--line); vertical-align: 1px; white-space: nowrap; }
+.rs-index-group a { grid-template-columns: 36px minmax(0, 1fr) auto !important; gap: 8px !important; }
+.rs-index[data-variant="rail"] .rs-index-group a { grid-template-columns: 32px minmax(0, 1fr) auto !important; }
+
+/* Guide landing. */
+.rs-gl { padding-top: 8px; max-width: 900px; }
+.research .rs-gl-hero h1 { font-size: clamp(34px, 4vw, 52px); line-height: 1.06; letter-spacing: -.05em; margin: 12px 0 18px; }
+.research .rs-gl-hero > p { font-size: 16px; line-height: 1.75; color: var(--ink-soft); max-width: 660px; }
+.rs-gl-stats { display: flex; flex-wrap: wrap; gap: 0; margin: 26px 0 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.rs-gl-stats > div { padding: 14px 28px 14px 0; margin-right: 28px; }
+.rs-gl-stats > div + div { padding-left: 28px; border-left: 1px solid var(--line); }
+.rs-gl-stats dt { font: 10px var(--code); color: var(--text-2); text-transform: uppercase; letter-spacing: .06em; }
+.rs-gl-stats dd { margin: 4px 0 0; font-size: 28px; font-weight: 500; letter-spacing: -.04em; }
+.rs-gl-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; margin-top: 26px; }
+.rs-gl-section { margin-top: 58px; }
+.research .rs-gl-section > h2 { font-size: 22px; letter-spacing: -.035em; padding-top: 16px; border-top: 1px solid var(--line); }
+.research .rs-gl-lede { font-size: 13.5px; color: var(--text-2); margin-top: 6px; max-width: 660px; }
+.rs-gl-principles { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.rs-gl-principles > li { padding: 16px 18px; border: 1px solid var(--line); background: #fff; }
+.research .rs-gl-principles h3 { font-size: 16px; letter-spacing: -.02em; margin: 6px 0 8px; }
+.rs-gl-principles h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.research .rs-gl-req p { font-size: 12.5px; line-height: 1.65; color: var(--ink-soft); margin: 0; }
+.rs-gl-req strong { color: var(--ink); }
+.rs-gl-common { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.rs-gl-common a { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; padding: 12px 14px; border: 1px solid var(--line); height: 100%; transition: border-color .2s; }
+.rs-gl-common a:hover { border-color: var(--ink); }
+.rs-gl-common strong { grid-column: 1; font-size: 13.5px; font-weight: 500; line-height: 1.4; }
+.rs-gl-common i { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-style: normal; color: var(--text-2); }
+.rs-gl-chapters { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
+.rs-gl-chapters > li { padding: 18px 0 20px; border-top: 1px solid var(--line); }
+.rs-gl-ch-head { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: 10px; }
+.research .rs-gl-ch-head h3 { font-size: 16px; letter-spacing: -.02em; margin: 0; }
+.rs-gl-ch-head:hover h3 { text-decoration: underline; text-underline-offset: 3px; }
+.rs-gl-ch-head small { font: 10px var(--code); color: var(--text-2); }
+.research .rs-gl-chapters p { font-size: 12.5px; line-height: 1.6; color: var(--ink-soft); margin: 6px 0 8px; }
+.rs-gl-chapters ul { list-style: none; margin: 0; padding: 0; }
+.rs-gl-chapters ul a { display: grid; grid-template-columns: 40px 1fr; gap: 6px; padding: 2px 0; font-size: 12.5px; color: var(--ink-soft); }
+.rs-gl-chapters ul a:hover { color: var(--ink); text-decoration: underline; }
+.rs-gl-chapters ul a span { font: 10px/1.9 var(--code); color: var(--text-2); }
+.rs-gl-more { font-size: 11.5px; color: var(--text-2); padding: 2px 0 0 46px; }
+.rs-gl-steps { margin: 14px 0 0; padding-left: 20px; font-size: 13.5px; line-height: 1.7; color: var(--ink-soft); }
+.rs-gl-steps b { color: var(--ink); font-weight: 600; }
+.rs-gl-badges { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 28px; margin: 18px 0 0; }
+.rs-gl-badges dt { font-size: 12.5px; font-weight: 600; }
+.rs-gl-badges dd { margin: 2px 0 0; font-size: 12px; line-height: 1.55; color: var(--text-2); }
+@media (max-width: 1100px) {
+  .rs-gl-principles, .rs-gl-common { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 800px) {
+  .rs-gl-principles, .rs-gl-common, .rs-gl-chapters, .rs-gl-badges { grid-template-columns: minmax(0, 1fr); }
+  .rs-gl-stats > div { padding-right: 18px; margin-right: 18px; }
+  .rs-gl-stats > div + div { padding-left: 18px; }
+}
+.rs-gl-principles { grid-template-columns: minmax(0, 1fr) !important; gap: 0 !important; border-top: 1px solid var(--line); margin-top: 16px; }
+.rs-gl-principles > li { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 20px; padding: 16px 0; border: 0; border-bottom: 1px solid var(--line); background: none; }
+.research .rs-gl-principles h3 { margin-top: 4px; }
+.rs-gl-more a { color: var(--text-2); }
+.rs-gl-more a:hover { color: var(--ink); text-decoration: underline; }
+@media (max-width: 800px) { .rs-gl-principles > li { grid-template-columns: minmax(0, 1fr); gap: 6px; } }
+.rs-gl-steps { list-style: decimal; }
+.rs-gl-steps li { padding-left: 4px; margin: 3px 0; }
+.rs-gl-stats { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; }
+.rs-gl-stats > div, .rs-gl-stats > div + div { margin: 0; padding: 14px 28px; }
+.rs-gl-stats > div:first-child { padding-left: 0; }
+@media (max-width: 540px) {
+  .rs-gl-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .rs-gl-stats > div, .rs-gl-stats > div + div { padding: 12px 10px; }
+  .rs-gl-stats dd { font-size: 22px; }
+  .rs-gl-stats dt { font-size: 9px; }
+}

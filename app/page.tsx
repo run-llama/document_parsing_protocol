@@ -31,7 +31,7 @@ export default function Home() {
         <header className="rs-section-head">
           <div className="rs-section-label">The guide</div>
           <div>
-            <h2 id="guide-heading">{notes.length} conventions for reading a page</h2>
+            <h2 id="guide-heading">The protocol, rule by rule</h2>
             <p>Each convention answers one parsing question: what to preserve, and how to represent it. Numbered and ordered as in the RFC. Open one to see its requirement, each part of the rule with real pages beside their expected output, and how it differs from its neighbours.</p>
           </div>
         </header>

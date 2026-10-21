@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from "react";
 import { guideHref } from "../../_site/conventions";
 import type { IndexEntry } from "../../_site/rfc";
 
-const MARK: Record<string, { glyph: string; label: string }> = {
-  either: { glyph: "⚖️", label: "Equivalent forms: two renderings conform" },
-  open: { glyph: "❓", label: "Open point: not yet settled" },
+const MARK: Record<string, { tag: string; label: string }> = {
+  either: { tag: "2 forms", label: "Equivalent forms: two renderings conform" },
+  open: { tag: "open", label: "Open point: not yet settled" },
 };
 
 // Every rule, in RFC order and numbering, grouped by chapter. "page" lays chapters out in columns;
@@ -20,7 +20,7 @@ export default function ConventionIndex({ variant, entries }: { variant: "page" 
   const term = q.toLowerCase().trim().replace(/^§/, "");
   const matches = entries.filter(e => !term || `${e.section ?? ""} §${e.section ?? ""} ${e.title} ${e.chapterTitle} ${e.group ?? ""}`.toLowerCase().includes(term));
   const chapters = [...new Map(entries.map(e => [e.chapter, e.chapterTitle])).entries()];
-  const guidePages = entries.filter(e => !e.rfcOnly).length;
+  const ruleCount = entries.filter(e => !e.rfcOnly && e.status !== "reference").length;
 
   useEffect(() => {
     if (variant !== "rail") return;
@@ -30,9 +30,9 @@ export default function ConventionIndex({ variant, entries }: { variant: "page" 
   return <div className="rs-index" data-variant={variant}>
     <div className="rs-index-controls">
       <label className="rs-index-search"><span aria-hidden="true">⌕</span><input aria-label="Search rules by name or section number" placeholder={variant === "rail" ? "Search, or type 9.3…" : "Search a rule, or type a section number such as 9.3.2…"} value={q} onChange={e => setQ(e.target.value)} /></label>
-      {variant === "page" && <p className="rs-index-legend"><span>📚 document rule — decided once for the whole document</span><span>⚖️ two renderings conform</span><span>❓ open point</span><span>RFC ↗ kept in the RFC only</span></p>}
+      {variant === "page" && <p className="rs-index-legend"><span><i className="rs-index-tag">doc</i> decided once for the whole document</span><span><i className="rs-index-tag">2 forms</i> two renderings conform</span><span><i className="rs-index-tag">open</i> not yet settled</span><span>RFC ↗ kept in the RFC only</span></p>}
     </div>
-    <div className="rs-index-meta"><span>{q ? `${matches.length} matching` : `${guidePages} rules`}</span>{q && <button onClick={() => setQ("")}>Clear ×</button>}</div>
+    <div className="rs-index-meta"><span>{q ? `${matches.length} matching` : `${ruleCount} rules`}</span>{q && <button onClick={() => setQ("")}>Clear ×</button>}</div>
     <div className="rs-index-groups" ref={list}>
       {chapters.map(([chapter, title]) => {
         const items = matches.filter(e => e.chapter === chapter);
@@ -43,7 +43,7 @@ export default function ConventionIndex({ variant, entries }: { variant: "page" 
             const mark = MARK[e.status];
             const body = <>
               <span className="rs-index-num">{e.section}</span>
-              <span>{e.title}{mark && <i className="rs-index-mark" title={mark.label} aria-label={mark.label}>{mark.glyph}</i>}{e.scope === "document" && <i className="rs-index-mark" title="Document rule" aria-label="Document rule">📚</i>}</span>
+              <span>{e.title}{mark && <i className="rs-index-tag" title={mark.label}>{mark.tag}</i>}{e.scope === "document" && <i className="rs-index-tag" title="Document rule: decided once for the whole document">doc</i>}</span>
               {e.rfcOnly && <small>RFC ↗</small>}
             </>;
             return <li key={e.slug}>{e.rfcOnly

@@ -39,7 +39,10 @@ export function teachingFor(slug: string): { focus: string; workflow: string[]; 
 const rfcHeadings = (() => {
   const md = readFileSync(path.join(ROOT, "public/protocol/rfc.md"), "utf8");
   const titles = new Map<string, string>();
-  for (const m of md.matchAll(/^#{2,4} §?([0-9A-D]+(?:\.[0-9]+)*) (.+)$/gm)) if (!titles.has(m[1])) titles.set(m[1], m[2].trim());
+  // Chapters are "## §9 Tables"; groups and sections are numbered with dots ("### 9.3 Headers").
+  // Example content inside rules also has headings (e.g. "A single page"), so neither pattern is loose.
+  for (const m of md.matchAll(/^## §([0-9A-D]+) (.+)$/gm)) if (!titles.has(m[1])) titles.set(m[1], m[2].trim());
+  for (const m of md.matchAll(/^#{3,4} ([0-9A-D]+\.[0-9]+(?:\.[0-9]+)*) (.+)$/gm)) if (!titles.has(m[1])) titles.set(m[1], m[2].trim());
   return titles;
 })();
 const sortKey = (section: string | null) => (section ?? "Z").split(".").map(p => /^\d+$/.test(p) ? Number(p) : 1000 + p.charCodeAt(0));
