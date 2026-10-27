@@ -38,7 +38,7 @@ export default function Home() {
         </header>
         <ConventionIndex variant="page" entries={indexEntries} />
         <aside className="rs-home-more">
-          <Link href="/example"><span className="rs-kicker">Worked page</span><strong>See the conventions applied to Apple’s FY2024 statement of operations</strong><i aria-hidden="true">→</i></Link>
+          <Link href="/example"><span className="rs-kicker">Walkthrough</span><strong>Eight parsing decisions on Apple’s FY2024 statement of operations</strong><i aria-hidden="true">→</i></Link>
           <Link href="/practice"><span className="rs-kicker">Practice</span><strong>Make the annotation call on 38 short exercises</strong><i aria-hidden="true">→</i></Link>
         </aside>
       </section>
