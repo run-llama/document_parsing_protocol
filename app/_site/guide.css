@@ -396,3 +396,14 @@
   .rs-gl-stats dd { font-size: 22px; }
   .rs-gl-stats dt { font-size: 9px; }
 }
+
+/* LlamaIndex wordmark: one icon-width of clear space around it, never below 18px tall. */
+.research .rs-nav-inner > .rs-site-links { margin-left: auto; }
+.research .rs-nav-brand { display: flex; align-items: center; flex: none; padding-left: 28px; border-left: 1px solid var(--line); }
+.research .rs-nav-brand img { display: block; height: 18px; width: auto; }
+.research .rs-footer-brand,.research .rs-masthead-brand { display: inline-flex; align-items: center; gap: 14px; font: 9px var(--code); color: var(--ink-soft); white-space: nowrap; }
+.research .rs-footer-brand img,.research .rs-masthead-brand img { display: block; height: 20px; width: auto; }
+@media (max-width: 720px) { .research .rs-nav-brand { display: none; } }
+@media (max-width: 540px) { .research .rs-masthead-brand > span { display: none; } }
+.research .rs-footer { flex-wrap: wrap; }
+.research .rs-footer > .rs-footer-brand { order: 4; flex-basis: 100%; padding-top: 22px; border-top: 1px solid var(--line); }

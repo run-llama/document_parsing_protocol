@@ -16,9 +16,13 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://parseprotocol.com"),
   title: "Document Parsing Protocol (DPP)",
   description:
     "A protocol for how to make truthful and AI-friendly interpretation of documents.",
+  applicationName: "Document Parsing Protocol",
+  openGraph: { type: "website", siteName: "Document Parsing Protocol" },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
