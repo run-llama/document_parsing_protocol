@@ -1,0 +1,51 @@
+Document Parsing Protocol
+Copyright (c) 2026 LlamaIndex
+
+This repository is released under two licenses:
+
+  - Code (the site under app/, scripts/, tests/, protocol/tools/ and the
+    build configuration): MIT License, see LICENSE.
+  - The protocol and its examples (protocol/, public/protocol/,
+    resources/dpp-parse/, public/downloads/, app/data/,
+    public/convention-examples/, resources/convention-library/,
+    protocol/_attachments/, public/documents/conventions/): CC BY 4.0,
+    see LICENSE-docs.
+
+The following material is NOT covered by either license and keeps its own
+status.
+
+1. Constructed teaching illustrations — CC0 1.0 (public domain dedication)
+   public/teaching-examples/
+   resources/convention-library/teaching-examples.json
+   Original illustrations authored for this guide, dedicated to the public
+   domain. No third-party documents or customer data.
+
+2. U.S. federal government documents — public domain
+   24 example images under public/documents/conventions/ are reproduced from
+   works of the U.S. federal government, which are not subject to copyright
+   in the United States (17 U.S.C. § 105). Each one, with its source and
+   attribution, is recorded in
+   resources/convention-library/publication-provenance.json
+   (sourceKind "us_federal").
+
+   public/documents/irs-form-1040-2020.pdf
+   public/documents/irs-form-1040-2020-page-1.png
+   IRS Form 1040 (2020), U.S. Department of the Treasury, Internal Revenue
+   Service. Public domain. Used in the site's opening walkthrough.
+
+3. Apple Inc. financial statements — third-party copyright
+   public/documents/apple-fy2024-q4-financial-statements.pdf
+   public/documents/apple-fy2024-q4-page-1.png
+   Apple Inc., condensed consolidated financial statements for fiscal 2024,
+   as published by Apple. Copyright Apple Inc. Reproduced on the /example
+   page for the purpose of commentary and illustration. Not licensed under
+   MIT or CC BY 4.0; do not redistribute them as part of this project.
+
+4. Third-party software
+   Dependencies installed by pnpm (see package.json and pnpm-lock.yaml) and
+   the fonts loaded through next/font are under their own licenses.
+
+Every example image is tracked in
+resources/convention-library/publication-provenance.json; only images with a
+"keep" or "keep_attrib" decision are published. See CONTRIBUTING.md for how
+new examples are cleared.

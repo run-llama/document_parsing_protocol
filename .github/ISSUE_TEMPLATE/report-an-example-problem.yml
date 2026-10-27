@@ -1,0 +1,24 @@
+name: Report an example problem
+description: An expected output looks wrong, an example contradicts its rule, or an image is missing or unclear.
+title: "[Example] "
+labels: ["example"]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Rule and example
+      description: Link to the guide page, or the section number and example name, e.g. "§9.3.3, example 03".
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong
+      description: Quote the part of the expected output or description you think is wrong.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you think it should be
+      description: The corrected Markdown, and what on the page supports it.
