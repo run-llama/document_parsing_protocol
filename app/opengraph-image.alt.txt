@@ -1,0 +1,1 @@
+Document Parsing Protocol — Truthful, AI-friendly interpretation of documents. Working draft 0.1, an open protocol from LlamaIndex.

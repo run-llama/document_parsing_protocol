@@ -41,7 +41,15 @@ status.
    page for the purpose of commentary and illustration. Not licensed under
    MIT or CC BY 4.0; do not redistribute them as part of this project.
 
-4. Third-party software
+4. LlamaIndex name and logos — trademarks
+   public/brand/
+   app/icon.svg, app/favicon.ico, app/apple-icon.png,
+   app/opengraph-image.png, app/twitter-image.png
+   "LlamaIndex" and the LlamaIndex logos are trademarks of LlamaIndex. They
+   are not licensed under MIT or CC BY 4.0. Forks and derivative works must
+   remove them; see https://www.llamaindex.ai/brand for usage guidelines.
+
+5. Third-party software
    Dependencies installed by pnpm (see package.json and pnpm-lock.yaml) and
    the fonts loaded through next/font are under their own licenses.
 

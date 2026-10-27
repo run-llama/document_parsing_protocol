@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { researchFont } from "./_site/research-font";
 import ResearchHero from "./components/research/ResearchHero";
-import SiteNav, { SiteFooter } from "./components/research/SiteNav";
+import SiteNav, { LlamaIndexMark, SiteFooter } from "./components/research/SiteNav";
 import ConventionIndex from "./components/research/ConventionIndex";
 import { indexEntries } from "./_site/rfc";
 import UseDpp from "./components/research/UseDpp";
@@ -23,6 +23,7 @@ export default function Home() {
       <a className="rs-skip" href="#guide">Skip to the guide</a>
       <header className="rs-masthead rs-width">
         <a className="rs-wordmark" href="#top" aria-label="Document Parsing Protocol home">DPP<span className="rs-draft">Working draft 0.1</span></a>
+        <LlamaIndexMark className="rs-masthead-brand" label="An open protocol from" />
       </header>
       <ResearchHero />
       <SiteNav />

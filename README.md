@@ -88,3 +88,4 @@ conventions.
 - Some material keeps its own status: constructed teaching illustrations (CC0), U.S. federal
   documents (public domain), and Apple's financial statements on `/example` (third-party
   copyright). See [NOTICE](NOTICE).
+- The LlamaIndex name and logos are trademarks and are not covered by either license.
