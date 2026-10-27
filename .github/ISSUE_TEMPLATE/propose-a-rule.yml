@@ -1,0 +1,48 @@
+name: Propose a rule
+description: Suggest a new rule, or a change to what an existing rule requires.
+title: "[Rule] "
+labels: ["rule proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve DPP. A rule is useful when two careful people, given the same page,
+        would produce the same output. Describe the page first; the rule can be worked out together.
+  - type: input
+    id: affects
+    attributes:
+      label: Existing rule, if any
+      description: Section number and title, e.g. "§9.3.3 Multi-Row Header Tiers". Leave blank for a new rule.
+  - type: textarea
+    id: situation
+    attributes:
+      label: The situation
+      description: What does the page print? A short sketch of the layout, a screenshot of a public or made-up page, or a link to a public document.
+    validations:
+      required: true
+  - type: textarea
+    id: today
+    attributes:
+      label: What the protocol says today, and why it falls short
+      description: No rule covers it, the rule is ambiguous, or it gives an output you think is wrong.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed requirement
+      description: Use MUST / SHOULD / MAY as in §1.1. Include the expected Markdown for your example.
+    validations:
+      required: true
+  - type: textarea
+    id: counter
+    attributes:
+      label: Counter-example or neighbouring rule
+      description: A similar page where the proposed rule should not apply, or the related rule it must be told apart from.
+  - type: checkboxes
+    id: safe
+    attributes:
+      label: Example material
+      options:
+        - label: Any page I shared is public, openly licensed, or made up — no customer, confidential or personal data.
+          required: true

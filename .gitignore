@@ -40,8 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Commit the configuration template, never the real credentials.
-!.env.example
 
 # Python import checks
 __pycache__/

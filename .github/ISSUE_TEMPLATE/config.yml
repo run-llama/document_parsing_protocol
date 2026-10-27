@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the full RFC
+    url: https://github.com/run-llama/document_parsing_protocol/blob/main/public/protocol/rfc.md
+    about: Check the current text of every rule before proposing a change.

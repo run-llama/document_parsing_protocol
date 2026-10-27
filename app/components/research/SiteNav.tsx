@@ -22,6 +22,6 @@ export function SiteFooter() {
   return <footer className="rs-footer rs-width">
     <Link className="rs-wordmark" href="/">DPP</Link>
     <span>Document Parsing Protocol · Working draft 0.1</span>
-    <div className="rs-footer-links"><Link href="/guide">Guide</Link><Link href="/practice">Practice</Link><Link href="/example">Worked page</Link><Link href="/#methods">About this draft</Link></div>
+    <div className="rs-footer-links"><Link href="/guide">Guide</Link><Link href="/practice">Practice</Link><Link href="/example">Worked page</Link><Link href="/#methods">About this draft</Link><a href="https://github.com/run-llama/document_parsing_protocol">Contribute on GitHub ↗</a></div>
   </footer>;
 }
