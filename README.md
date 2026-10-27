@@ -38,10 +38,10 @@ missing. Propose a rule, report an example, or fix wording: see [CONTRIBUTING.md
 
 | Route | What it is |
 | --- | --- |
-| `/` | Opening walkthrough (IRS Form 1040), the rule index, Try it, draft status |
+| `/` | Opening example (IRS Form 1040), the rule index, Try it, draft status |
 | `/guide` | The protocol at a glance: principles, chapters, common cases |
 | `/guide/<slug>` | One page per rule |
-| `/example` | Apple's FY2024 statement of operations with eight parsing decisions |
+| `/example` | Walkthrough: Apple's FY2024 statement of operations with eight parsing decisions |
 | `/practice` | Short exercises built from the look-alike pairs |
 | `/protocol/rfc.html`, `/protocol/rfc.md` | The full RFC |
 
