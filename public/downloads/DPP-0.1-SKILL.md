@@ -5,7 +5,7 @@ description: Convert a document's pages (PDF pages or page images) into Markdown
 
 # Generate conforming Markdown
 
-Protocol draft source b63884001dbc. Generated from the protocol's rules; do not edit by hand.
+Protocol draft source b5af9c547b8b. Generated from the protocol's rules; do not edit by hand.
 
 ## Task
 
@@ -52,6 +52,7 @@ Rules marked *(open point)* are not yet settled; follow their working default.
 - Render headings as # headings, tables as HTML <table>, formulas as $$…$$, pictures as their content (chart table with <table data-source="chart">, diagram/<language> block, description fallback block or prose description), checkboxes as [x] / [ ].
 
 **§3.2 Markdown Rendering** (`output-markdown-rendering`)
+- You may enclose an embedded page in <sub_page>…</sub_page>. Keep its own header/body/footer inside and outer furniture outside. This is not a physical page separator; preserve all content when ignoring the wrapper.
 - Output one Markdown document; separate pages with a line containing only --- (blank line before and after). Never use --- for anything else; a printed rule line is <hr/>.
 - Use Markdown for headings (#), bold and italic; use HTML for underline <u>, superscript <sup>, subscript <sub>, highlight <mark> and every table (<table>, never pipe tables). A table representing a chart opens with <table data-source="chart">; ordinary printed tables do not carry that attribute.
 - Use $$…$$ for all maths, inline and displayed. Use a diagram/<language> fenced block for diagrams, choosing a language that preserves the content: diagram/mermaid, diagram/plantUml or another suitable language; use a description fence only if no suitable language can faithfully represent the figure.
@@ -128,6 +129,7 @@ Rules marked *(open point)* are not yet settled; follow their working default.
 
 **§5.5 Embedded Pages** (`layout-embedded-pages`)
 - When a page is reproduced inside another (an exhibit, a slide on a letter page), output the wrapper header first, then the wrapper label (e.g. EXHIBIT D), then the embedded page in its own reading order including its own running head, then the wrapper footer.
+- You may wrap each reproduced page in <sub_page>…</sub_page>, leaving outer furniture outside and embedded furniture inside. Header/footer bands belong to the nearest enclosing sub_page. Retain all repeated printed pagination and any visible outer filename. The wrapper adds no physical page or layout class; ignore its tags only, never its contents.
 - Keep both page numbers, each in its own band. Never make a title inside an embedded screenshot a heading of the outer document.
 
 **§5.6 Ignoring and Rejecting** (`layout-ignoring-and-rejecting`)
@@ -194,6 +196,7 @@ Rules marked *(open point)* are not yet settled; follow their working default.
 **§6.6 Printed Page Numbers** (`layout-printed-page-numbers`)
 - Keep the printed page number inside its header or footer text, exactly as printed ("Page 3 of 12"), in that band's position at the start or end of the page; never as a loose line in the body.
 - Only when a printed page number is requested: also record the number alone for the page, label stripped and style kept ("6", "iv", "A-3").
+- Preserve each embedded-page pagination occurrence in its own region, including repeated stamps; do not deduplicate them or add a bare number.
 - Never renumber a folio to the sheet position, and never supply one for a page that prints none; "Page ___ of ___" is a blank, not a number.
 
 **§6.7 Recognising Ambiguous Headings** (`headings-recognising-ambiguous-headings`)

@@ -709,8 +709,8 @@
     "badge": "rule",
     "rule": "A page reproduced inside another page MUST be rendered as the wrapper's furniture followed by the embedded page in its own reading order. Both page numbers MUST be kept, each with its own region, and titles inside an embedded form screenshot MUST NOT be promoted into the wrapper's outline.",
     "situation": "",
-    "samples": 1,
-    "counters": 0,
+    "samples": 2,
+    "counters": 1,
     "related": [
       {
         "title": "Overlapping Text",
@@ -1148,7 +1148,7 @@
     "area": "Page structure",
     "sub": null,
     "badge": "rule",
-    "rule": "A printed page number (the folio) MUST be kept in the header or footer band it is printed in, verbatim, and MUST NOT appear as a loose element in the body. When the printed page number is requested, it MUST also be recorded on its own for the page, as printed, and MUST NOT be inferred for a page that prints none.",
+    "rule": "A printed page number (the folio) MUST be kept in the header or footer band it is printed in, verbatim, and MUST NOT appear as a loose element in the body except for repeated stamps printed within an embedded document (see Embedded Pages§5.5). When the printed page number is requested, it MUST also be recorded on its own for the page, as printed, and MUST NOT be inferred for a page that prints none.",
     "situation": "",
     "samples": 0,
     "counters": 0,

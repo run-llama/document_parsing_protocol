@@ -72,7 +72,9 @@ def render_examples(md):
     def one(m):
         title, code = m.group(1).strip(), m.group(3)
         bad = title.startswith('Non-conforming')
-        shown = MD(_show_elisions(code))
+        # sub_page is protocol structure, not visible text; retain its block contents.
+        visible = re.sub(r"</?sub_page\s*>", "\n", _show_elisions(code), flags=re.I)
+        shown = MD(visible)
         return (f'<figure class="exp{" bad" if bad else ""}">'
                 f'<figcaption>{html.escape(title)}</figcaption>'
                 f'<div class="exp-wrap">{shown}</div>'

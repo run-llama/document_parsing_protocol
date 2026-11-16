@@ -12,7 +12,7 @@ ol.rfc-toc>li{margin:6px 0;font-weight:600} ol.rfc-toc ol li{font-weight:400}
 @media print{figure.exp .exp-src{display:none} a{color:inherit}}
 </style></head>
 <body><main><p><a href="/guide">← Website</a> · <a href="rfc.md">Markdown version</a></p>
-<h1 class="rfc-title">Document Representation Protocol</h1><p class="rfc-meta">Working title · draft of source b63884001dbc · 141 rules, of which 1 are open points that are settled before publication.</p>
+<h1 class="rfc-title">Document Representation Protocol</h1><p class="rfc-meta">Working title · draft of source b5af9c547b8b · 141 rules, of which 1 are open points that are settled before publication.</p>
 <h2>About this document</h2>
 <p><em>Working title — draft.</em> A standard for representing a document as text: how each part of a page
 is <strong>interpreted</strong> (is this a table? a heading? page furniture?), how each interpreted element is
@@ -694,6 +694,10 @@ next page is split at the boundary — see <a href="#s4-3">Cross-Page Tables</a>
   <td><code>&lt;caption&gt;…&lt;/caption&gt;</code> first or last inside <code>&lt;table&gt;</code> according to reading order — see <a href="#s9-7-3">Titles Banners Captions</a><span class="sec">§9.7.3</span></td>
 </tr>
 <tr>
+  <td>Embedded page boundary (optional)</td>
+  <td><code>&lt;sub_page&gt;…&lt;/sub_page&gt;</code> — see <a href="#s5-5">Embedded Pages</a><span class="sec">§5.5</span></td>
+</tr>
+<tr>
   <td>Printed separator rule</td>
   <td><code>&lt;hr/&gt;</code></td>
 </tr>
@@ -722,7 +726,9 @@ defined in its own rule.</p>
 <p>A header band MUST be rendered as its own paragraph(s) at the start of its page's content and a
 footer band at the end, never as a heading. A producer MAY wrap each band in <code>&lt;header&gt;…&lt;/header&gt;</code> /
 <code>&lt;footer&gt;…&lt;/footer&gt;</code>, so a consumer can drop or keep furniture without guessing where it ends; the
-wrapper is optional, and output with or without it conforms.</p>
+wrapper is optional, and output with or without it conforms. Within <code>&lt;sub_page&gt;</code>, these bands
+belong to the embedded page; outer bands remain outside. The embedded-page wrapper is structural
+only: consumers retain its contents even when they ignore the boundary. See <a href="#s5-5">Embedded Pages</a><span class="sec">§5.5</span>.</p>
 <h4>Related</h4>
 <ul>
 <li><a href="#s3-1">Elements</a><span class="sec">§3.1</span> — the rendering of each element class</li>
@@ -2216,6 +2222,133 @@ band prints it.</li>
 <li>A title printed inside an embedded form screenshot MUST NOT become a heading of the wrapping
 document.</li>
 </ul>
+<h4>Explicit embedded-page boundaries</h4>
+<p>A producer MAY enclose a reproduced page in <code>&lt;sub_page&gt;…&lt;/sub_page&gt;</code>. This is a protocol-defined
+structural wrapper, not printed text and not a new physical page. Output without the wrapper
+continues to conform when the required content and reading order are preserved.</p>
+<ul>
+<li>Each opening <code>&lt;sub_page&gt;</code> MUST have a matching closing tag. Tags MUST be properly nested and
+MUST NOT cross a physical page boundary. Multiple embedded pages use separate wrappers in
+reading order; a further nested wrapper is appropriate only when the reproduced page visibly
+contains another page.</li>
+<li>The outer page's header, labels and footer MUST remain outside the wrapper. The embedded
+page's own header, body and footer MUST remain inside it, in their printed reading order.</li>
+<li>Optional <code>&lt;header&gt;</code> and <code>&lt;footer&gt;</code> bands belong to the nearest enclosing <code>&lt;sub_page&gt;</code>; outside
+any such wrapper they belong to the physical page. A filename printed below an embedded scan
+belongs to the outer page, not to the scan's footer.</li>
+<li>Repeated printed pagination MUST be retained at each printed occurrence. A consumer MUST NOT
+deduplicate equal page numbers across the outer and embedded pages or across repeated stamps.</li>
+<li>A consumer that does not use embedded-page structure MUST ignore only the opening and closing
+wrapper tags, retaining all enclosed content and block boundaries. The wrapper MUST NOT be
+transcribed as words or interpreted as an instruction to omit its contents.</li>
+<li>The wrapper does not add a sidecar page, change physical page numbering, or create a new layout
+element class. Existing elements keep their boxes in the containing physical page's coordinate
+system. See <a href="#s3-4">The Sidecar</a><span class="sec">§3.4</span> and <a href="#s5-3">Block Classes</a><span class="sec">§5.3</span>.</li>
+</ul>
+<h5>✅ <strong>Sample</strong> — a court scan inside a faxed page (constructed excerpt)</h5>
+<p><a href="/documents/conventions/2a53de5316d7-embedded-court-scan-boundaries.png" target="_blank"><img src="/documents/conventions/2a53de5316d7-embedded-court-scan-boundaries.png" alt="embedded-court-scan-boundaries.png" loading="lazy"></a></p>
+<p>This boundary-only excerpt follows ParseBench-2's <code>text_ocr__contrast</code> page. The outer fax line
+prints <code>PAGE 04/29</code>. The embedded court scan prints <code>Page 3 of 28</code> three times: at its upper right,
+below its court heading, and at its lower right. The outer page ends with the printed filename
+<code>court document 2.tiff</code>. The personal case narrative and identifying fields are omitted from this
+teaching excerpt; omission comments below are editorial and are not printed source content.</p>
+<pre><code class="language-text">Fax line … PAGE 04/29                         ← outer header
+┌──────────────────────────────────────────┐
+│                         Page 3 of 28     │  ← embedded header
+│ IN THE DISTRICT COURT OF BECKHAM          │
+│ STATE OF OKLAHOMA                        │
+│ Page 3 of 28                             │  ← another printed stamp
+│ … case content …                        │
+│                         Page 3 of 28     │  ← embedded footer
+└──────────────────────────────────────────┘
+court document 2.tiff                        ← outer footer
+</code></pre>
+<figure class="exp"><figcaption>Expected Markdown · boundary-only excerpt</figcaption><div class="exp-wrap"><header>
+<!-- Remaining fax header fields omitted from this excerpt. -->
+PAGE 04/29
+</header>
+
+<header>
+Page 3 of 28
+</header>
+
+<p>IN THE DISTRICT COURT OF BECKHAM
+STATE OF OKLAHOMA
+Page 3 of 28</p>
+<!-- Case identifiers and body omitted from this excerpt. -->
+
+<footer>
+Page 3 of 28
+</footer>
+
+<footer>
+court document 2.tiff
+</footer>
+
+</div><details class="exp-src"><summary>Markdown source</summary><pre><code>&lt;header&gt;
+&lt;!-- Remaining fax header fields omitted from this excerpt. --&gt;
+PAGE 04/29
+&lt;/header&gt;
+
+<p>&lt;sub_page&gt;</p>
+<p>&lt;header&gt;
+Page 3 of 28
+&lt;/header&gt;</p>
+<p>IN THE DISTRICT COURT OF BECKHAM
+STATE OF OKLAHOMA
+Page 3 of 28</p>
+<p>&lt;!-- Case identifiers and body omitted from this excerpt. --&gt;</p>
+<p>&lt;footer&gt;
+Page 3 of 28
+&lt;/footer&gt;</p>
+<p>&lt;/sub_page&gt;</p>
+<p>&lt;footer&gt;
+court document 2.tiff
+&lt;/footer&gt;</code></pre></details></figure></p>
+<p>The stamp below the court heading stays at that printed position; it is not moved to the outer
+page's header. No additional standalone <code>3</code> is supplied. The filename is visible text, not merely
+an image destination: an image link to <code>court_document_2.tiff</code> does not transcribe it.</p>
+<h5>❌ <strong>Counter-sample</strong> — treating the embedded page as ignorable content (constructed excerpt)</h5>
+<p><a href="/documents/conventions/2a53de5316d7-embedded-court-scan-boundaries.png" target="_blank"><img src="/documents/conventions/2a53de5316d7-embedded-court-scan-boundaries.png" alt="embedded-court-scan-boundaries.png" loading="lazy"></a></p>
+<p>For the same page, this excerpt loses the court scan and is invalid:</p>
+<pre><code class="language-markdown">&lt;header&gt;PAGE 04/29&lt;/header&gt;
+&lt;sub_page&gt;&lt;/sub_page&gt;
+&lt;footer&gt;court document 2.tiff&lt;/footer&gt;
+</code></pre>
+<figure class="exp"><figcaption>Expected Markdown · boundary-only excerpt</figcaption><div class="exp-wrap"><header>
+<!-- Remaining fax fields omitted from this excerpt. -->
+PAGE 04/29
+</header>
+
+<header>Page 3 of 28</header>
+
+<p>IN THE DISTRICT COURT OF BECKHAM
+STATE OF OKLAHOMA
+Page 3 of 28</p>
+<!-- Case identifiers and body omitted from this excerpt. -->
+
+<footer>Page 3 of 28</footer>
+
+<footer>court document 2.tiff</footer>
+
+</div><details class="exp-src"><summary>Markdown source</summary><pre><code>&lt;header&gt;
+&lt;!-- Remaining fax fields omitted from this excerpt. --&gt;
+PAGE 04/29
+&lt;/header&gt;
+
+<p>&lt;sub_page&gt;</p>
+<p>&lt;header&gt;Page 3 of 28&lt;/header&gt;</p>
+<p>IN THE DISTRICT COURT OF BECKHAM
+STATE OF OKLAHOMA
+Page 3 of 28</p>
+<p>&lt;!-- Case identifiers and body omitted from this excerpt. --&gt;</p>
+<p>&lt;footer&gt;Page 3 of 28&lt;/footer&gt;</p>
+<p>&lt;/sub_page&gt;</p>
+<p>&lt;footer&gt;court document 2.tiff&lt;/footer&gt;</code></pre></details></figure></p>
+<p>The correct boundary-only excerpt retains the inner document. A complete transcription must also retain the case
+content omitted for this teaching example. The presence of <code>&lt;sub_page&gt;</code> never authorizes dropping
+that content. Ordinary columns, tables and text boxes are not embedded pages merely because a
+border surrounds them.</p>
 <h5>✅ <strong>Sample</strong> — a statute page as an exhibit</h5>
 <p><a href="/documents/conventions/f63692e1a953-bag-embedded-statute-page.png" target="_blank"><img src="/documents/conventions/f63692e1a953-bag-embedded-statute-page.png" alt="bag-embedded-statute-page.png" loading="lazy"></a></p>
 <p>A blue e-filing header in four parts, a red <code>EXHIBIT D</code> label, then a reduced statute page with its
@@ -3697,7 +3830,8 @@ for the distinction in context.</p>
 </section>
 <section class="rule"><h3 id="s6-6">6.6 Printed Page Numbers</h3><p class="scope">✅ Normative · 📄 page rule</p><p class="rule-meta"><code id="layout-printed-page-numbers">layout-printed-page-numbers</code> · <span class="rule-tag">rule</span> <span class="rule-tag">layout</span></p>
 <div class="co" style="--co:#31a06a"><p class="co-t">✅ Normative</p><p>A printed page number (the folio) MUST be kept in the header or footer band it is printed in,
-verbatim, and MUST NOT appear as a loose element in the body. When the printed page number is
+verbatim, and MUST NOT appear as a loose element in the body except for repeated stamps printed
+within an embedded document (see <a href="#s5-5">Embedded Pages</a><span class="sec">§5.5</span>). When the printed page number is
 requested, it MUST also be recorded on its own for the page, as printed, and MUST NOT be inferred
 for a page that prints none.</p>
 </div>
@@ -3736,12 +3870,19 @@ worth recording separately — a reader citing &quot;page 26&quot; cannot otherw
 sheet position.</li>
 <li>A folio MUST NOT be inferred for a page that prints none.</li>
 </ul>
+<h4>Embedded pages and repeated stamps</h4>
+<p>A reproduced page can carry pagination distinct from its containing sheet. Keep each printed
+occurrence in its owning page's region; repeated stamps inside an embedded scan stay where they
+are printed. They MUST NOT be collapsed into one occurrence or supplemented with an invented
+standalone number. Optional <code>&lt;sub_page&gt;</code> boundaries identify the owning page — see <a href="#s5-5">Embedded Pages</a><span class="sec">§5.5</span>.
+This does not change the physical page's sidecar <code>printedPageNumber</code> into a list of embedded folios.</p>
 <h4>Pages that print nothing</h4>
 <p>Covers, plates and continuation sheets frequently carry no folio; their printed page number is
 empty, which is not an error. A pre-printed blank, <code>Page ___ of ___</code>, is also no folio: the blank
 MUST be transcribed in the band (as <code>[blank]</code>) and no number recorded.</p>
 <h4>A folio never sits in the body</h4>
-<p>A number that ends up as a loose line among the page's content means the band was read wrongly. The
+<p>Except for repeated stamps within an embedded document (see <a href="#s5-5">Embedded Pages</a><span class="sec">§5.5</span>), a number that
+ends up as a loose line among the page's content means the band was read wrongly. The
 folio MUST belong to its margin band whether or not the rest of that band was recognised — the same
 <strong>never invent</strong> failure as promoting furniture to a heading.</p>
 <h4>Related</h4>
@@ -22156,7 +22297,7 @@ the rules themselves are the authority.</p>
 </td></tr>
 <tr><td class="qn">6.5</td><td class="qb">✅</td><td><a href="#s6-5">Numbered Section Headings</a><p>A numbered line that stands alone as a title with body text beneath it MUST be rendered as a heading, one level deeper per level of numbering. A numbered line that is itself the content — including a bare number printed above its paragraph — MUST be rendered as a list item carrying that content. The printed number MUST be kept exactly as printed, on the same line as its text.</p>
 </td></tr>
-<tr><td class="qn">6.6</td><td class="qb">✅</td><td><a href="#s6-6">Printed Page Numbers</a><p>A printed page number (the folio) MUST be kept in the header or footer band it is printed in, verbatim, and MUST NOT appear as a loose element in the body. When the printed page number is requested, it MUST also be recorded on its own for the page, as printed, and MUST NOT be inferred for a page that prints none.</p>
+<tr><td class="qn">6.6</td><td class="qb">✅</td><td><a href="#s6-6">Printed Page Numbers</a><p>A printed page number (the folio) MUST be kept in the header or footer band it is printed in, verbatim, and MUST NOT appear as a loose element in the body except for repeated stamps printed within an embedded document (see Embedded Pages). When the printed page number is requested, it MUST also be recorded on its own for the page, as printed, and MUST NOT be inferred for a page that prints none.</p>
 </td></tr>
 <tr><td class="qn">6.7</td><td class="qb">✅</td><td><a href="#s6-7">Recognising Ambiguous Headings</a><p>A standalone structural title that organises what follows MUST be rendered as a heading. Run-in labels, repeated item labels, captions and page furniture MUST keep their own roles and MUST NOT be rendered as headings. Font size alone MUST NOT decide whether a line is a heading.</p>
 </td></tr>

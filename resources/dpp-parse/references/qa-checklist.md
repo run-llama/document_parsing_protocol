@@ -5,7 +5,7 @@ description: Check whether a Markdown rendering of a document — and its sideca
 
 # Check conformance
 
-Protocol draft source b63884001dbc. Generated from the protocol's rules; do not edit by hand.
+Protocol draft source b5af9c547b8b. Generated from the protocol's rules; do not edit by hand.
 
 ## Inputs
 
@@ -70,7 +70,7 @@ The verdict is `non-conforming` if and only if at least one finding is `FAIL`.
 - FAIL (MUST) if the number of --- page separators does not equal the number of pages minus one, or --- appears anywhere else as a line.
 - FAIL (MUST) if a table is written as a Markdown pipe table instead of an HTML <table>.
 - FAIL (MUST) if underline, superscript, subscript or highlight use a notation other than <u>, <sup>, <sub>, <mark>.
-- FAIL (MUST) if a page header or footer band is rendered as a heading or in the middle of the page's content.
+- FAIL (MUST) if a page header or footer band is rendered as a heading or in the middle of its owning page's content; an embedded page may have its own bands inside sub_page.
 
 **§3.3 Boxes and Granularity** (`output-boxes-and-granularity`)
 - FAIL (MUST) if boxes are at a different granularity than requested, or an element at that granularity has no box.
@@ -148,6 +148,8 @@ The verdict is `non-conforming` if and only if at least one finding is `FAIL`.
 **§5.5 Embedded Pages** (`layout-embedded-pages`)
 - FAIL (MUST) if the wrapper's header, label, filing stamp or footer is missing, or either of the two page numbers is dropped.
 - FAIL (MUST) if embedded content appears before the wrapper header or after the wrapper footer.
+- FAIL (MUST) if sub_page tags are unbalanced, cross physical page boundaries, absorb outer furniture, or cause any enclosed content to be omitted or the tag name to be transcribed.
+- FAIL (MUST) if repeated printed pagination is deduplicated or an extra page number is invented.
 - FAIL (MUST) if a title inside an embedded form screenshot is rendered as a Markdown heading.
 
 **§5.6 Ignoring and Rejecting** (`layout-ignoring-and-rejecting`)
@@ -212,7 +214,7 @@ The verdict is `non-conforming` if and only if at least one finding is `FAIL`.
 - WARN (SHOULD) if a repeated item label such as "Interrogatory No. 8:" is rendered as a heading, or a numbered list marker is escaped although the numbered text is a list item.
 
 **§6.6 Printed Page Numbers** (`layout-printed-page-numbers`)
-- FAIL (MUST) if a printed folio is missing from the page's header or footer text, or appears as a loose element among the body content.
+- FAIL (MUST) if a printed folio is missing from the page's header or footer text, or appears as a loose element among the body content (excluding repeated stamps printed there within an embedded document).
 - FAIL (MUST) if a recorded printed page number differs from the one printed on the page (renumbered, restyled, or with its label left in).
 - FAIL (MUST) if a printed page number is recorded for a page that prints none, or for a pre-printed blank.
 

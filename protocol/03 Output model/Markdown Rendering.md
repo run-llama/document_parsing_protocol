@@ -38,6 +38,7 @@ tags: [output, output-model, markdown]
 | Tables | HTML `<table>` with `<tr>`, `<th>`, `<td>`, `rowspan`, `colspan` |
 | Tables representing charts | HTML `<table data-source="chart">` — see [[Cover Every Data Point]] |
 | Table and chart captions | `<caption>…</caption>` first or last inside `<table>` according to reading order — see [[Titles Banners Captions]] |
+| Embedded page boundary (optional) | `<sub_page>…</sub_page>` — see [[Embedded Pages]] |
 | Printed separator rule | `<hr/>` |
 | Line break inside one block | a plain newline — see [[Line Breaks Inside a Block]] |
 | Maths | `$$ … $$`, inline and displayed |
@@ -58,9 +59,12 @@ defined in its own rule.
 A header band MUST be rendered as its own paragraph(s) at the start of its page's content and a
 footer band at the end, never as a heading. A producer MAY wrap each band in `<header>…</header>` /
 `<footer>…</footer>`, so a consumer can drop or keep furniture without guessing where it ends; the
-wrapper is optional, and output with or without it conforms.
+wrapper is optional, and output with or without it conforms. Within `<sub_page>`, these bands
+belong to the embedded page; outer bands remain outside. The embedded-page wrapper is structural
+only: consumers retain its contents even when they ignore the boundary. See [[Embedded Pages]].
 
 <!-- skill:generate
+- You may enclose an embedded page in <sub_page>…</sub_page>. Keep its own header/body/footer inside and outer furniture outside. This is not a physical page separator; preserve all content when ignoring the wrapper.
 - Output one Markdown document; separate pages with a line containing only --- (blank line before and after). Never use --- for anything else; a printed rule line is <hr/>.
 - Use Markdown for headings (#), bold and italic; use HTML for underline <u>, superscript <sup>, subscript <sub>, highlight <mark> and every table (<table>, never pipe tables). A table representing a chart opens with <table data-source="chart">; ordinary printed tables do not carry that attribute.
 - Use $$…$$ for all maths, inline and displayed. Use a diagram/<language> fenced block for diagrams, choosing a language that preserves the content: diagram/mermaid, diagram/plantUml or another suitable language; use a description fence only if no suitable language can faithfully represent the figure.
@@ -72,7 +76,7 @@ wrapper is optional, and output with or without it conforms.
 - FAIL (MUST) if the number of --- page separators does not equal the number of pages minus one, or --- appears anywhere else as a line.
 - FAIL (MUST) if a table is written as a Markdown pipe table instead of an HTML <table>.
 - FAIL (MUST) if underline, superscript, subscript or highlight use a notation other than <u>, <sup>, <sub>, <mark>.
-- FAIL (MUST) if a page header or footer band is rendered as a heading or in the middle of the page's content.
+- FAIL (MUST) if a page header or footer band is rendered as a heading or in the middle of its owning page's content; an embedded page may have its own bands inside sub_page.
 -->
 
 ## Related

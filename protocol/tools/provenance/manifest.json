@@ -6475,5 +6475,25 @@
   "attribution": null,
   "regen_brief": null,
   "review_notes": "synthetic re-creation; captions and GT extracts rewritten to match"
+ },
+ {
+  "file": "embedded-court-scan-boundaries.png",
+  "path": "_attachments/embedded-court-scan-boundaries.png",
+  "family": "constructed",
+  "used_in": [
+   {
+    "note": "05 Layout/Embedded Pages.md",
+    "line": 70,
+    "caption": "Constructed boundary-only schematic of a fax wrapper and embedded court scan; case content and identifying fields omitted."
+   }
+  ],
+  "source": "Constructed schematic based on the pagination positions in ParseBench-2 text_ocr__contrast; not a reproduction of the case narrative.",
+  "source_kind": "constructed",
+  "pii": [],
+  "brand": [],
+  "decision": "keep",
+  "attribution": null,
+  "regen_brief": "Draw a fax header with PAGE 04/29 above a bordered scan. Inside: Page 3 of 28 at upper right, court heading, repeated Page 3 of 28, body omission marker, and Page 3 of 28 at lower right. Outside at bottom: court document 2.tiff. Label as a boundary-only teaching illustration.",
+  "review_notes": "Only non-personal boundary labels retained; all case narrative and identifying fields excluded."
  }
 ]

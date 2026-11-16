@@ -1,8 +1,8 @@
 {
   "sourceRepository": "run-llama/document_parsing_protocol",
   "sourceDirectory": "protocol",
-  "sourceRevision": "b63884001dbc0f9778c082402ea271298503882daac9dcf2022933344a733e5c",
-  "sourceSha256": "dfd42fe1040580a75155e9172ed114301a89660a078515c0654415ba067102d1",
+  "sourceRevision": "b5af9c547b8bd10942de2d579efad3dd8b9307951cf32689144647c8de26906a",
+  "sourceSha256": "eea3ba743a1959759abe4e6321bd5288283d284c3d1ce27fdfdc0fb2728fc0fb",
   "notes": 159,
   "rules": 141
 }

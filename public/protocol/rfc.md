@@ -1,6 +1,6 @@
 # Document Representation Protocol
 
-*Working title · draft of source b63884001dbc · 141 rules, of which 1 are open points that are settled before publication.*
+*Working title · draft of source b5af9c547b8b · 141 rules, of which 1 are open points that are settled before publication.*
 
 ## Contents
 
@@ -535,6 +535,7 @@ Rule ID: `output-markdown-rendering` · Tags: output, output-model, markdown
 | Tables | HTML `<table>` with `<tr>`, `<th>`, `<td>`, `rowspan`, `colspan` |
 | Tables representing charts | HTML `<table data-source="chart">` — see Cover Every Data Point (§11.1.1) |
 | Table and chart captions | `<caption>…</caption>` first or last inside `<table>` according to reading order — see Titles Banners Captions (§9.7.3) |
+| Embedded page boundary (optional) | `<sub_page>…</sub_page>` — see Embedded Pages (§5.5) |
 | Printed separator rule | `<hr/>` |
 | Line break inside one block | a plain newline — see Line Breaks Inside a Block (§6.2) |
 | Maths | `$$ … $$`, inline and displayed |
@@ -555,7 +556,9 @@ defined in its own rule.
 A header band MUST be rendered as its own paragraph(s) at the start of its page's content and a
 footer band at the end, never as a heading. A producer MAY wrap each band in `<header>…</header>` /
 `<footer>…</footer>`, so a consumer can drop or keep furniture without guessing where it ends; the
-wrapper is optional, and output with or without it conforms.
+wrapper is optional, and output with or without it conforms. Within `<sub_page>`, these bands
+belong to the embedded page; outer bands remain outside. The embedded-page wrapper is structural
+only: consumers retain its contents even when they ignore the boundary. See Embedded Pages (§5.5).
 
 
 
@@ -2044,6 +2047,136 @@ two of everything.
 - A title printed inside an embedded form screenshot MUST NOT become a heading of the wrapping
   document.
 
+#### Explicit embedded-page boundaries
+
+A producer MAY enclose a reproduced page in `<sub_page>…</sub_page>`. This is a protocol-defined
+structural wrapper, not printed text and not a new physical page. Output without the wrapper
+continues to conform when the required content and reading order are preserved.
+
+- Each opening `<sub_page>` MUST have a matching closing tag. Tags MUST be properly nested and
+  MUST NOT cross a physical page boundary. Multiple embedded pages use separate wrappers in
+  reading order; a further nested wrapper is appropriate only when the reproduced page visibly
+  contains another page.
+- The outer page's header, labels and footer MUST remain outside the wrapper. The embedded
+  page's own header, body and footer MUST remain inside it, in their printed reading order.
+- Optional `<header>` and `<footer>` bands belong to the nearest enclosing `<sub_page>`; outside
+  any such wrapper they belong to the physical page. A filename printed below an embedded scan
+  belongs to the outer page, not to the scan's footer.
+- Repeated printed pagination MUST be retained at each printed occurrence. A consumer MUST NOT
+  deduplicate equal page numbers across the outer and embedded pages or across repeated stamps.
+- A consumer that does not use embedded-page structure MUST ignore only the opening and closing
+  wrapper tags, retaining all enclosed content and block boundaries. The wrapper MUST NOT be
+  transcribed as words or interpreted as an instruction to omit its contents.
+- The wrapper does not add a sidecar page, change physical page numbering, or create a new layout
+  element class. Existing elements keep their boxes in the containing physical page's coordinate
+  system. See The Sidecar (§3.4) and Block Classes (§5.3).
+
+##### ✅ **Sample** — a court scan inside a faxed page (constructed excerpt)
+
+![embedded-court-scan-boundaries.png](/documents/conventions/2a53de5316d7-embedded-court-scan-boundaries.png)
+
+This boundary-only excerpt follows ParseBench-2's `text_ocr__contrast` page. The outer fax line
+prints `PAGE 04/29`. The embedded court scan prints `Page 3 of 28` three times: at its upper right,
+below its court heading, and at its lower right. The outer page ends with the printed filename
+`court document 2.tiff`. The personal case narrative and identifying fields are omitted from this
+teaching excerpt; omission comments below are editorial and are not printed source content.
+
+```text
+Fax line … PAGE 04/29                         ← outer header
+┌──────────────────────────────────────────┐
+│                         Page 3 of 28     │  ← embedded header
+│ IN THE DISTRICT COURT OF BECKHAM          │
+│ STATE OF OKLAHOMA                        │
+│ Page 3 of 28                             │  ← another printed stamp
+│ … case content …                        │
+│                         Page 3 of 28     │  ← embedded footer
+└──────────────────────────────────────────┘
+court document 2.tiff                        ← outer footer
+```
+
+<details>
+<summary>Expected Markdown · boundary-only excerpt</summary>
+
+```markdown
+<header>
+<!-- Remaining fax header fields omitted from this excerpt. -->
+PAGE 04/29
+</header>
+
+<sub_page>
+
+<header>
+Page 3 of 28
+</header>
+
+IN THE DISTRICT COURT OF BECKHAM
+STATE OF OKLAHOMA
+Page 3 of 28
+
+<!-- Case identifiers and body omitted from this excerpt. -->
+
+<footer>
+Page 3 of 28
+</footer>
+
+</sub_page>
+
+<footer>
+court document 2.tiff
+</footer>
+```
+
+</details>
+
+The stamp below the court heading stays at that printed position; it is not moved to the outer
+page's header. No additional standalone `3` is supplied. The filename is visible text, not merely
+an image destination: an image link to `court_document_2.tiff` does not transcribe it.
+
+##### ❌ **Counter-sample** — treating the embedded page as ignorable content (constructed excerpt)
+
+![embedded-court-scan-boundaries.png](/documents/conventions/2a53de5316d7-embedded-court-scan-boundaries.png)
+
+For the same page, this excerpt loses the court scan and is invalid:
+
+```markdown
+<header>PAGE 04/29</header>
+<sub_page></sub_page>
+<footer>court document 2.tiff</footer>
+```
+
+<details>
+<summary>Expected Markdown · boundary-only excerpt</summary>
+
+```markdown
+<header>
+<!-- Remaining fax fields omitted from this excerpt. -->
+PAGE 04/29
+</header>
+
+<sub_page>
+
+<header>Page 3 of 28</header>
+
+IN THE DISTRICT COURT OF BECKHAM
+STATE OF OKLAHOMA
+Page 3 of 28
+
+<!-- Case identifiers and body omitted from this excerpt. -->
+
+<footer>Page 3 of 28</footer>
+
+</sub_page>
+
+<footer>court document 2.tiff</footer>
+```
+
+</details>
+
+The correct boundary-only excerpt retains the inner document. A complete transcription must also retain the case
+content omitted for this teaching example. The presence of `<sub_page>` never authorizes dropping
+that content. Ordinary columns, tables and text boxes are not embedded pages merely because a
+border surrounds them.
+
 ##### ✅ **Sample** — a statute page as an exhibit
 
 ![bag-embedded-statute-page.png](/documents/conventions/f63692e1a953-bag-embedded-statute-page.png)
@@ -3502,7 +3635,8 @@ Rule ID: `layout-printed-page-numbers` · Tags: rule, layout
 
 > **✅ Normative**
 > A printed page number (the folio) MUST be kept in the header or footer band it is printed in,
-> verbatim, and MUST NOT appear as a loose element in the body. When the printed page number is
+> verbatim, and MUST NOT appear as a loose element in the body except for repeated stamps printed
+> within an embedded document (see Embedded Pages (§5.5)). When the printed page number is
 > requested, it MUST also be recorded on its own for the page, as printed, and MUST NOT be inferred
 > for a page that prints none.
 
@@ -3532,6 +3666,14 @@ worth recording separately — a reader citing "page 26" cannot otherwise be sen
   sheet position.
 - A folio MUST NOT be inferred for a page that prints none.
 
+#### Embedded pages and repeated stamps
+
+A reproduced page can carry pagination distinct from its containing sheet. Keep each printed
+occurrence in its owning page's region; repeated stamps inside an embedded scan stay where they
+are printed. They MUST NOT be collapsed into one occurrence or supplemented with an invented
+standalone number. Optional `<sub_page>` boundaries identify the owning page — see Embedded Pages (§5.5).
+This does not change the physical page's sidecar `printedPageNumber` into a list of embedded folios.
+
 #### Pages that print nothing
 
 Covers, plates and continuation sheets frequently carry no folio; their printed page number is
@@ -3540,7 +3682,8 @@ MUST be transcribed in the band (as `[blank]`) and no number recorded.
 
 #### A folio never sits in the body
 
-A number that ends up as a loose line among the page's content means the band was read wrongly. The
+Except for repeated stamps within an embedded document (see Embedded Pages (§5.5)), a number that
+ends up as a loose line among the page's content means the band was read wrongly. The
 folio MUST belong to its margin band whether or not the rest of that band was recognised — the same
 **never invent** failure as promoting furniture to a heading.
 
@@ -21750,7 +21893,7 @@ the rules themselves are the authority.
 - **6.3 Line Separators and Breaks** — A printed section separator MUST be rendered as `<hr/>`, at its place in reading order. `---` MUST NOT be used for it: `---` is reserved for page boundaries. A rule MUST NOT be inserted where the page prints only whitespace.
 - **6.4 Marginal Notes** — Each printed marginal note MUST be rendered as a separate block placed immediately after the element it annotates. Where the element it belongs to cannot be established, the note MUST still be kept as a separate block and MUST NOT be merged into body text.
 - **6.5 Numbered Section Headings** — A numbered line that stands alone as a title with body text beneath it MUST be rendered as a heading, one level deeper per level of numbering. A numbered line that is itself the content — including a bare number printed above its paragraph — MUST be rendered as a list item carrying that content. The printed number MUST be kept exactly as printed, on the same line as its text.
-- **6.6 Printed Page Numbers** — A printed page number (the folio) MUST be kept in the header or footer band it is printed in, verbatim, and MUST NOT appear as a loose element in the body. When the printed page number is requested, it MUST also be recorded on its own for the page, as printed, and MUST NOT be inferred for a page that prints none.
+- **6.6 Printed Page Numbers** — A printed page number (the folio) MUST be kept in the header or footer band it is printed in, verbatim, and MUST NOT appear as a loose element in the body except for repeated stamps printed within an embedded document (see [[Embedded Pages]]). When the printed page number is requested, it MUST also be recorded on its own for the page, as printed, and MUST NOT be inferred for a page that prints none.
 - **6.7 Recognising Ambiguous Headings** — A standalone structural title that organises what follows MUST be rendered as a heading. Run-in labels, repeated item labels, captions and page furniture MUST keep their own roles and MUST NOT be rendered as headings. Font size alone MUST NOT decide whether a line is a heading.
 - **6.8 Run-In Headings** — A run-in label and the sentence, value or URL that follows it on the same line MUST be rendered as one paragraph, with the label's printed emphasis preserved. The label MUST NOT be rendered as a Markdown heading.
 - **6.9 Stacked Headings** — The wrapped lines of one title MUST be joined with spaces into one heading. An article number MUST stay with its title. A company name printed above a statement or document title, exhibit labels, units lines and other furniture MUST be kept separate from the title; a title and subtitle MAY be split only where the document establishes distinct roles for them.
