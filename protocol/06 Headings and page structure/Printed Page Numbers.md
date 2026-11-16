@@ -10,7 +10,8 @@ tags: [rule, layout]
 
 > [!success] ✅ Normative
 > A printed page number (the folio) MUST be kept in the header or footer band it is printed in,
-> verbatim, and MUST NOT appear as a loose element in the body. When the printed page number is
+> verbatim, and MUST NOT appear as a loose element in the body except for repeated stamps printed
+> within an embedded document (see [[Embedded Pages]]). When the printed page number is
 > requested, it MUST also be recorded on its own for the page, as printed, and MUST NOT be inferred
 > for a page that prints none.
 
@@ -40,6 +41,14 @@ worth recording separately — a reader citing "page 26" cannot otherwise be sen
   sheet position.
 - A folio MUST NOT be inferred for a page that prints none.
 
+## Embedded pages and repeated stamps
+
+A reproduced page can carry pagination distinct from its containing sheet. Keep each printed
+occurrence in its owning page's region; repeated stamps inside an embedded scan stay where they
+are printed. They MUST NOT be collapsed into one occurrence or supplemented with an invented
+standalone number. Optional `<sub_page>` boundaries identify the owning page — see [[Embedded Pages]].
+This does not change the physical page's sidecar `printedPageNumber` into a list of embedded folios.
+
 ## Pages that print nothing
 
 Covers, plates and continuation sheets frequently carry no folio; their printed page number is
@@ -48,18 +57,20 @@ MUST be transcribed in the band (as `[blank]`) and no number recorded.
 
 ## A folio never sits in the body
 
-A number that ends up as a loose line among the page's content means the band was read wrongly. The
+Except for repeated stamps within an embedded document (see [[Embedded Pages]]), a number that
+ends up as a loose line among the page's content means the band was read wrongly. The
 folio MUST belong to its margin band whether or not the rest of that band was recognised — the same
 **never invent** failure as promoting furniture to a heading.
 
 <!-- skill:generate
 - Keep the printed page number inside its header or footer text, exactly as printed ("Page 3 of 12"), in that band's position at the start or end of the page; never as a loose line in the body.
 - Only when a printed page number is requested: also record the number alone for the page, label stripped and style kept ("6", "iv", "A-3").
+- Preserve each embedded-page pagination occurrence in its own region, including repeated stamps; do not deduplicate them or add a bare number.
 - Never renumber a folio to the sheet position, and never supply one for a page that prints none; "Page ___ of ___" is a blank, not a number.
 -->
 
 <!-- skill:check
-- FAIL (MUST) if a printed folio is missing from the page's header or footer text, or appears as a loose element among the body content.
+- FAIL (MUST) if a printed folio is missing from the page's header or footer text, or appears as a loose element among the body content (excluding repeated stamps printed there within an embedded document).
 - FAIL (MUST) if a recorded printed page number differs from the one printed on the page (renumbered, restyled, or with its label left in).
 - FAIL (MUST) if a printed page number is recorded for a page that prints none, or for a pre-printed blank.
 -->

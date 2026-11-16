@@ -1,5 +1,5 @@
 {
-  "sourceRevision": "b63884001dbc0f9778c082402ea271298503882daac9dcf2022933344a733e5c",
+  "sourceRevision": "b5af9c547b8bd10942de2d579efad3dd8b9307951cf32689144647c8de26906a",
   "images": [
     {
       "src": "/documents/conventions/7fcf9667beef-zoo-dt1.png",
@@ -126,6 +126,14 @@
       "sha256": "05d36264b026d67b255ff7cc7b5ee16009453f20e67e054c7b67e17f924a0076",
       "sourceKind": "constructed",
       "source": "tools/synthetic/pages/bag-answer-caption-dividers.html",
+      "attribution": null,
+      "decision": "keep"
+    },
+    {
+      "src": "/documents/conventions/2a53de5316d7-embedded-court-scan-boundaries.png",
+      "sha256": "2a53de5316d77694e3ee98d890007bdc00f38b2365651a38a2f8bb5dd08d3b1c",
+      "sourceKind": "constructed",
+      "source": "Constructed schematic based on the pagination positions in ParseBench-2 text_ocr__contrast; not a reproduction of the case narrative.",
       "attribution": null,
       "decision": "keep"
     },
